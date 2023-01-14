@@ -1,0 +1,61 @@
+{
+	"name": "@node-kit/workspace-root",
+	"description": "A simple utility to get the yarn workspace root",
+	"version": "1.0.0-beta.1",
+	"main": "./index.js",
+	"scripts": {},
+	"files": [
+		"index.js",
+		"typings",
+		"*.js",
+		"*.d.ts"
+	],
+	"directories": {
+		"es": "es",
+		"lib": "lib",
+		"src": "src",
+		"typings": "typings"
+	},
+	"dependencies": {
+		"@node-kit/lerna-workspace-root": "workspace:*",
+		"@node-kit/pnpm-workspace-root": "workspace:*",
+		"@node-kit/yarn-workspace-root": "workspace:*"
+	},
+	"devDependencies": {
+		"eslint": "^8.31.0",
+		"prettier": "^2.8.3"
+	},
+	"peerDependencies": {},
+	"keywords": [
+		"node-kit",
+		"workspace",
+		"lerna-workspace",
+		"pnpm-workspace",
+		"yarn-workspace",
+		"workspace-root"
+	],
+	"license": "MIT",
+	"author": "saqqdy <https://github.com/saqqdy>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saqqdy/node-kit.git",
+		"directory": "packages/workspace-root"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"@babel/core",
+				"webpack"
+			],
+			"allowedVersions": {}
+		}
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org",
+		"access": "public"
+	},
+	"bugs": {
+		"url": "https://github.com/saqqdy/node-kit/issues"
+	},
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root#readme"
+}

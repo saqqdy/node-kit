@@ -27,6 +27,14 @@ export const packages: PackageManifest[] = [
 		display: 'A simple utility to get the yarn workspace root'
 	},
 	{
+		name: 'workspace-root',
+		pkgName: '@node-kit/workspace-root',
+		iife: false,
+		mjs: false,
+		dts: false,
+		display: 'A simple utility to get the workspace root'
+	},
+	{
 		name: 'which-pm',
 		pkgName: '@node-kit/which-pm',
 		iife: false,
