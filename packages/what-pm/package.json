@@ -1,6 +1,6 @@
 {
-	"name": "workspace-root",
-	"description": "A simple utility to get the workspace root",
+	"name": "what-pm",
+	"description": "A simple utility to get which package manager used in the project",
 	"version": "1.0.0-beta.1",
 	"main": "./index.js",
 	"scripts": {},
@@ -16,11 +16,7 @@
 		"src": "src",
 		"typings": "typings"
 	},
-	"dependencies": {
-		"@node-kit/lerna-workspace-root": "workspace:*",
-		"@node-kit/pnpm-workspace-root": "workspace:*",
-		"@node-kit/yarn-workspace-root": "workspace:*"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"eslint": "^8.31.0",
 		"prettier": "^2.8.3"
@@ -28,18 +24,16 @@
 	"peerDependencies": {},
 	"keywords": [
 		"node-kit",
-		"workspace",
-		"lerna-workspace",
-		"pnpm-workspace",
-		"yarn-workspace",
-		"workspace-root"
+		"packageManager",
+		"which-pm",
+		"what-pm"
 	],
 	"license": "MIT",
 	"author": "saqqdy <https://github.com/saqqdy>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/saqqdy/node-kit.git",
-		"directory": "packages/workspace-root"
+		"directory": "packages/what-pm"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
@@ -57,5 +51,5 @@
 	"bugs": {
 		"url": "https://github.com/saqqdy/node-kit/issues"
 	},
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root#readme"
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/what-pm#readme"
 }

@@ -28,7 +28,7 @@ export const packages: PackageManifest[] = [
 	},
 	{
 		name: 'workspace-root',
-		pkgName: '@node-kit/workspace-root',
+		pkgName: 'workspace-root',
 		iife: false,
 		mjs: false,
 		dts: false,
@@ -37,6 +37,14 @@ export const packages: PackageManifest[] = [
 	{
 		name: 'which-pm',
 		pkgName: '@node-kit/which-pm',
+		iife: false,
+		mjs: false,
+		dts: false,
+		display: 'A simple utility to get which package manager used in the project'
+	},
+	{
+		name: 'what-pm',
+		pkgName: 'what-pm',
 		iife: false,
 		mjs: false,
 		dts: false,
