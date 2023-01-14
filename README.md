@@ -23,26 +23,26 @@ Some simple utilities for nodejs
 
 ## Install
 
-e.g: use `@node-kit/pnpm-workspace-root`
+e.g: use `@node-kit/workspace-root`
 
 ```shell
 # by pnpm
-pnpm install @node-kit/pnpm-workspace-root
+pnpm install @node-kit/workspace-root
 
 # by npm
-npm install -D @node-kit/pnpm-workspace-root
+npm install -D @node-kit/workspace-root
 
 # by yarn
-yarn add @node-kit/pnpm-workspace-root
+yarn add @node-kit/workspace-root
 ```
 
 ## Usage
 
 ```js
-import { findPnpmWorkspaceRoot } from '@node-kit/pnpm-workspace-root'
+import { findWorkspaceRoot } from '@node-kit/workspace-root'
 
-findPnpmWorkspaceRoot().then(path => {
-  console.log('The pnpm workspace root is: ', path) // /Users/user/path/of/package/root or null
+findWorkspaceRoot().then(path => {
+  console.log('The workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
 ```
 
