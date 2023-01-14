@@ -48,7 +48,7 @@ console.log('The lerna workspace root is: ', lernaWorkspaceRootSync()) // /Users
 
 ## Issues & Support
 
-Please open an issue [here](https://github.com/saqqdy/@node-kit/lerna-workspace-root/issues).
+Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
 
 ## License
 

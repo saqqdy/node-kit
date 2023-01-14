@@ -48,7 +48,7 @@ workspaceRoot().then(path => {
 
 ## Issues & Support
 
-Please open an issue [here](https://github.com/saqqdy/@node-kit/monorepo/issues).
+Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
 
 ## License
 

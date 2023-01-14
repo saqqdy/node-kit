@@ -48,7 +48,7 @@ console.log('The yarn workspace root is: ', yarnWorkspaceRootSync()) // /Users/u
 
 ## Issues & Support
 
-Please open an issue [here](https://github.com/saqqdy/@node-kit/yarn-workspace-root/issues).
+Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
 
 ## License
 

@@ -48,7 +48,7 @@ console.log('The package manager is: ', whichPMSync()) // /Users/user/path/of/pa
 
 ## Issues & Support
 
-Please open an issue [here](https://github.com/saqqdy/@node-kit/which-pm/issues).
+Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
 
 ## License
 

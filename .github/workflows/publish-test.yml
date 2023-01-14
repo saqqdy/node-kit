@@ -57,6 +57,6 @@ jobs:
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/lerna-workspace-root/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/pnpm-workspace-root/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/yarn-workspace-root/sync"
-      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/workspace-root/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/workspace-root/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/which-pm/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/what-pm/sync"

@@ -48,7 +48,7 @@ console.log('The pnpm workspace root is: ', pnpmWorkspaceRootSync()) // /Users/u
 
 ## Issues & Support
 
-Please open an issue [here](https://github.com/saqqdy/@node-kit/pnpm-workspace-root/issues).
+Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
 
 ## License
 

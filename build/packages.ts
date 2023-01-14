@@ -28,7 +28,7 @@ export const packages: PackageManifest[] = [
 	},
 	{
 		name: 'workspace-root',
-		pkgName: 'workspace-root',
+		pkgName: '@node-kit/workspace-root',
 		iife: false,
 		mjs: false,
 		dts: false,
