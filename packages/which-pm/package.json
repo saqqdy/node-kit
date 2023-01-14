@@ -1,6 +1,6 @@
 {
 	"name": "@node-kit/which-pm",
-	"description": "A simple utility to get the yarn workspace root",
+	"description": "A simple utility to get which package manager used in the project",
 	"version": "1.0.0-beta.1",
 	"main": "./index.js",
 	"scripts": {},

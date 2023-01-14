@@ -2,7 +2,7 @@
 
 # @node-kit/which-pm
 
-A simple utility to get the yarn workspace root
+A simple utility to get which package manager used in the project
 
 [![NPM version][npm-image]][npm-url]
 [![Codacy Badge][codacy-image]][codacy-url]

@@ -1,6 +1,6 @@
 {
 	"name": "@node-kit/workspace-root",
-	"description": "A simple utility to get the yarn workspace root",
+	"description": "A simple utility to get the workspace root",
 	"version": "1.0.0-beta.1",
 	"main": "./index.js",
 	"scripts": {},
