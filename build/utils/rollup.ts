@@ -14,8 +14,7 @@ export function external(id: string) {
 export function pathRewriter(bundlePath: string) {
 	return id => {
 		if (/^@node-kit\/core\/packages/.test(id)) {
-			if (noWlPrefixFile.test(id))
-				return id.replace('@node-kit/core/packages/', bundlePath)
+			if (noWlPrefixFile.test(id)) return id.replace('@node-kit/core/packages/', bundlePath)
 			return id.replace('@node-kit/core/packages/', bundlePath)
 		}
 		if (/^@\//.test(id)) {

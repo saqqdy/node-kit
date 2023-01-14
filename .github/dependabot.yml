@@ -39,4 +39,3 @@ updates:
     directory: /packages/what-pm
     schedule:
       interval: weekly
-

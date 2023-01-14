@@ -1,4 +1,4 @@
-const {resolve} = require('path')
+const { resolve } = require('path')
 const pkg = require('../package.json')
 
 export const banner =
