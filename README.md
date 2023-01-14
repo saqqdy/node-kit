@@ -14,11 +14,11 @@ Some simple utilities for nodejs
 
 ## Function list
 
-- find lerna workspace root: [@node-kit/lerna-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-root)
-- find pnpm workspace root: [@node-kit/pnpm-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root)
-- find yarn workspace root: [@node-kit/yarn-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-root)
-- find workspace root: [@node-kit/workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root)
-- find which package manager used in the project: [@node-kit/which-pm](https://github.com/saqqdy/node-kit/tree/master/packages/which-pm)
+- find lerna workspace root: [lerna-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-root)
+- find pnpm workspace root: [pnpm-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root)
+- find yarn workspace root: [yarn-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-root)
+- find workspace root: [workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root)
+- find which package manager used in the project: [which-pm](https://github.com/saqqdy/node-kit/tree/master/packages/which-pm)
 
 ## Install
 
