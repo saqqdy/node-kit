@@ -31,9 +31,9 @@ $ npm install -D @node-kit/yarn-workspace-root
 1. use `@node-kit/yarn-workspace-root` in async mode
 
 ```js
-import { findYarnWorkspaceRoot } from '@node-kit/yarn-workspace-root'
+import { yarnWorkspaceRoot } from '@node-kit/yarn-workspace-root'
 
-findYarnWorkspaceRoot().then(path => {
+yarnWorkspaceRoot().then(path => {
   console.log('The yarn workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
 ```
@@ -41,9 +41,9 @@ findYarnWorkspaceRoot().then(path => {
 2. use `@node-kit/yarn-workspace-root` in sync mode
 
 ```js
-import { findYarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
+import { yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
 
-console.log('The yarn workspace root is: ', findYarnWorkspaceRootSync()) // /Users/user/path/of/package/root or null
+console.log('The yarn workspace root is: ', yarnWorkspaceRootSync()) // /Users/user/path/of/package/root or null
 ```
 
 ## Issues & Support

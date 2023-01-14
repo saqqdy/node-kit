@@ -31,9 +31,9 @@ $ npm install -D @node-kit/lerna-workspace-root
 1. use `@node-kit/lerna-workspace-root` in async mode
 
 ```js
-import { findLernaWorkspaceRoot } from '@node-kit/lerna-workspace-root'
+import { lernaWorkspaceRoot } from '@node-kit/lerna-workspace-root'
 
-findLernaWorkspaceRoot().then(path => {
+lernaWorkspaceRoot().then(path => {
   console.log('The lerna workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
 ```
@@ -41,9 +41,9 @@ findLernaWorkspaceRoot().then(path => {
 2. use `@node-kit/lerna-workspace-root` in sync mode
 
 ```js
-import { findLernaWorkspaceRootSync } from '@node-kit/lerna-workspace-root'
+import { lernaWorkspaceRootSync } from '@node-kit/lerna-workspace-root'
 
-console.log('The lerna workspace root is: ', findLernaWorkspaceRootSync()) // /Users/user/path/of/package/root or null
+console.log('The lerna workspace root is: ', lernaWorkspaceRootSync()) // /Users/user/path/of/package/root or null
 ```
 
 ## Issues & Support

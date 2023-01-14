@@ -31,9 +31,9 @@ $ npm install -D @node-kit/pnpm-workspace-root
 1. use `@node-kit/pnpm-workspace-root` in async mode
 
 ```js
-import { findPnpmWorkspaceRoot } from '@node-kit/pnpm-workspace-root'
+import { pnpmWorkspaceRoot } from '@node-kit/pnpm-workspace-root'
 
-findPnpmWorkspaceRoot().then(path => {
+pnpmWorkspaceRoot().then(path => {
   console.log('The pnpm workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
 ```
@@ -41,9 +41,9 @@ findPnpmWorkspaceRoot().then(path => {
 2. use `@node-kit/pnpm-workspace-root` in sync mode
 
 ```js
-import { findPnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
+import { pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
 
-console.log('The pnpm workspace root is: ', findPnpmWorkspaceRootSync()) // /Users/user/path/of/package/root or null
+console.log('The pnpm workspace root is: ', pnpmWorkspaceRootSync()) // /Users/user/path/of/package/root or null
 ```
 
 ## Issues & Support

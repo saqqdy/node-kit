@@ -31,9 +31,9 @@ $ npm install -D workspace-root
 1. use `workspace-root` in async mode
 
 ```js
-import { findWorkspaceRoot } from 'workspace-root'
+import { workspaceRoot } from 'workspace-root'
 
-findWorkspaceRoot().then(path => {
+workspaceRoot().then(path => {
   console.log('The workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
 ```
@@ -41,9 +41,9 @@ findWorkspaceRoot().then(path => {
 2. use `workspace-root` in sync mode
 
 ```js
-import { findWorkspaceRootSync } from 'workspace-root'
+import { workspaceRootSync } from 'workspace-root'
 
-console.log('The workspace root is: ', findWorkspaceRootSync()) // /Users/user/path/of/package/root or null
+console.log('The workspace root is: ', workspaceRootSync()) // /Users/user/path/of/package/root or null
 ```
 
 ## Issues & Support

@@ -39,9 +39,9 @@ yarn add @node-kit/workspace-root
 ## Usage
 
 ```js
-import { findWorkspaceRoot } from '@node-kit/workspace-root'
+import { workspaceRoot } from '@node-kit/workspace-root'
 
-findWorkspaceRoot().then(path => {
+workspaceRoot().then(path => {
   console.log('The workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
 ```
