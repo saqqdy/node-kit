@@ -14,7 +14,7 @@ Some simple utilities for nodejs
 
 ## Function list
 
-- find pnpm workspace root: [@node-kit/pnpm-workspace-root](https://github.com/saqqdy/eslint-sets/tree/master/packages/pnpm-workspace-root)
+- find pnpm workspace root: [@node-kit/pnpm-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root)
 
 ## Install
 
