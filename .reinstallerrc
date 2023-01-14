@@ -1,0 +1,12 @@
+{
+    "depcheck": {
+        "specials": []
+    },
+    "packageTags": {
+        "@eslint-sets/eslint-config-ts": "beta",
+        "reinstaller": "latest"
+    },
+    "exclude": [],
+    "packageManager": "pnpm",
+    "registry": "https://registry.npmmirror.com"
+}
