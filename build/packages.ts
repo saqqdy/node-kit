@@ -16,7 +16,6 @@ export const packages: PackageManifest[] = [
 		iife: false,
 		mjs: false,
 		dts: false,
-		submodules: true,
 		display: 'A simple utility to get the pnpm workspace root'
 	},
 	{
@@ -25,7 +24,14 @@ export const packages: PackageManifest[] = [
 		iife: false,
 		mjs: false,
 		dts: false,
-		submodules: true,
 		display: 'A simple utility to get the yarn workspace root'
+	},
+	{
+		name: 'which-pm',
+		pkgName: '@node-kit/which-pm',
+		iife: false,
+		mjs: false,
+		dts: false,
+		display: 'A simple utility to get which package manager used in the project'
 	}
 ]

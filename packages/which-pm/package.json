@@ -1,0 +1,54 @@
+{
+	"name": "@node-kit/which-pm",
+	"description": "A simple utility to get the yarn workspace root",
+	"version": "1.0.0-beta.1",
+	"main": "./index.js",
+	"scripts": {},
+	"files": [
+		"index.js",
+		"typings",
+		"*.js",
+		"*.d.ts"
+	],
+	"directories": {
+		"es": "es",
+		"lib": "lib",
+		"src": "src",
+		"typings": "typings"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "^8.31.0",
+		"prettier": "^2.8.3"
+	},
+	"peerDependencies": {},
+	"keywords": [
+		"node-kit",
+		"packageManager",
+		"which-pm"
+	],
+	"license": "MIT",
+	"author": "saqqdy <https://github.com/saqqdy>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saqqdy/node-kit.git",
+		"directory": "packages/which-pm"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"@babel/core",
+				"webpack"
+			],
+			"allowedVersions": {}
+		}
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org",
+		"access": "public"
+	},
+	"bugs": {
+		"url": "https://github.com/saqqdy/node-kit/issues"
+	},
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/which-pm#readme"
+}
