@@ -1,13 +1,23 @@
 {
 	"name": "@node-kit/pnpm-workspace-root",
 	"description": "A simple utility to get the pnpm workspace root",
-	"version": "1.0.0-alpha.2",
+	"version": "1.0.0-alpha.3",
 	"main": "./index.js",
+	"module": "./index.mjs",
+	"typings": "./index.d.ts",
+	"exports": {
+		".": {
+			"require": "./index.cjs",
+			"import": "./index.mjs"
+		},
+		"./*": "./*"
+	},
 	"scripts": {},
 	"files": [
-		"index.js",
 		"typings",
 		"*.js",
+		"*.cjs",
+		"*.mjs",
 		"*.d.ts"
 	],
 	"directories": {
@@ -17,8 +27,9 @@
 		"typings": "typings"
 	},
 	"dependencies": {
+		"@node-kit/utils": "workspace:*",
 		"@pnpm/error": "^4.0.1",
-		"find-up": "^5.0.0"
+		"find-up": "^6.3.0"
 	},
 	"devDependencies": {
 		"eslint": "^8.31.0",

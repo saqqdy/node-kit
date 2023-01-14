@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 dist
-packages/*/*.js
+packages/*/*.*js
+packages/*/*.d.ts
 yarn.lock
 /.pnp
 .pnp.js

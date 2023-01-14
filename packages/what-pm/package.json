@@ -1,13 +1,23 @@
 {
 	"name": "what-pm",
 	"description": "A simple utility to get which package manager used in the project",
-	"version": "1.0.0-alpha.2",
+	"version": "1.0.0-alpha.3",
 	"main": "./index.js",
+	"module": "./index.mjs",
+	"typings": "./index.d.ts",
+	"exports": {
+		".": {
+			"require": "./index.cjs",
+			"import": "./index.mjs"
+		},
+		"./*": "./*"
+	},
 	"scripts": {},
 	"files": [
-		"index.js",
 		"typings",
 		"*.js",
+		"*.cjs",
+		"*.mjs",
 		"*.d.ts"
 	],
 	"directories": {

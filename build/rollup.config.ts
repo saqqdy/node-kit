@@ -77,7 +77,7 @@ for (const {
 		// output cjs
 		if (cjs !== false) {
 			output.push({
-				file: `packages/${name}/${fn}.js`,
+				file: `packages/${name}/${fn}.cjs`,
 				// exports: 'auto',
 				exports: exportType,
 				banner,

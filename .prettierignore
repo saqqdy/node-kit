@@ -1,7 +1,8 @@
 lib
 es
 dist
-packages/*/*.js
+packages/*/*.*js
+packages/*/*.d.ts
 /docs
 pnpm-lock.yaml
 
