@@ -2,6 +2,15 @@ import type { PackageManifest } from './types'
 
 export const packages: PackageManifest[] = [
 	{
+		name: 'utils',
+		pkgName: '@node-kit/utils',
+		iife: false,
+		mjs: false,
+		dts: false,
+		submodules: true,
+		display: 'Some shared utilities'
+	},
+	{
 		name: 'lerna-workspace-root',
 		pkgName: '@node-kit/lerna-workspace-root',
 		iife: false,

@@ -6,7 +6,7 @@
         "@eslint-sets/eslint-config-ts": "beta",
         "reinstaller": "latest"
     },
-    "exclude": [],
+    "exclude": ["find-up"],
     "packageManager": "pnpm",
     "registry": "https://registry.npmmirror.com"
 }

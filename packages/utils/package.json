@@ -1,6 +1,6 @@
 {
-	"name": "@node-kit/pnpm-workspace-root",
-	"description": "A simple utility to get the pnpm workspace root",
+	"name": "@node-kit/utils",
+	"description": "Some shared utilities",
 	"version": "1.0.0-alpha.2",
 	"main": "./index.js",
 	"scripts": {},
@@ -16,26 +16,23 @@
 		"src": "src",
 		"typings": "typings"
 	},
-	"dependencies": {
-		"@pnpm/error": "^4.0.1",
-		"find-up": "^5.0.0"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"eslint": "^8.31.0",
 		"prettier": "^2.8.3"
 	},
+	"peerDependencies": {},
 	"keywords": [
 		"node-kit",
-		"workspace",
-		"pnpm-workspace",
-		"workspace-root"
+		"utils",
+		"tools"
 	],
 	"license": "MIT",
 	"author": "saqqdy <https://github.com/saqqdy>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/saqqdy/node-kit.git",
-		"directory": "packages/pnpm-workspace-root"
+		"directory": "packages/utils"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
@@ -53,5 +50,5 @@
 	"bugs": {
 		"url": "https://github.com/saqqdy/node-kit/issues"
 	},
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root#readme"
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/utils#readme"
 }

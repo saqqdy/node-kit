@@ -14,6 +14,7 @@ Some simple utilities for nodejs
 
 ## Function list
 
+- some shared utilities: [utils](https://github.com/saqqdy/node-kit/tree/master/packages/utils)
 - find lerna workspace root: [lerna-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-root)
 - find pnpm workspace root: [pnpm-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root)
 - find yarn workspace root: [yarn-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-root)

@@ -16,7 +16,7 @@ pkg = fs.readFileSync(join(cwd, 'package.json'))
 pkg = JSON.parse(pkg)
 
 const PACKAGE_NEXT: string[] = []
-const PACKAGE_EXCLUDE: string[] = []
+const PACKAGE_EXCLUDE: string[] = ['find-up']
 const PACKAGE_MANAGERS: TypeManagers[] = ['pnpm', 'yarn', 'npm']
 const cmd = getPackageManager()
 
