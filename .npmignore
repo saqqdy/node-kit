@@ -1,0 +1,10 @@
+node_modules
+dist_electron
+/ui
+/docs
+/cache/*
+!/cache/.gitkeep
+script
+*.bak
+*.bak.js
+*_bak

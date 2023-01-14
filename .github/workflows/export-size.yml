@@ -1,0 +1,19 @@
+name: Export Size
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    env:
+      CI_JOB_NUMBER: 1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: antfu/export-size-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          comment_token: ${{ secrets.COMMENT_TOKEN }}
+          paths: packages/core,packages/egg,packages/nuxt,packages/react,packages/react-ts,packages/simple,packages/simple-ts,packages/vue,packages/vue3,packages/vue3-ts

@@ -1,0 +1,76 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: npm # See documentation for possible values
+    directory: / # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/all # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/basic # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/core # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/egg # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/nuxt # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/react # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/react-ts # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/simple # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/simple-ts # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/ts # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/vue # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/vue3 # Location of package manifests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm # See documentation for possible values
+    directory: /packages/vue3-ts # Location of package manifests
+    schedule:
+      interval: daily

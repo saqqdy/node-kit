@@ -1,0 +1,13 @@
+lib
+es
+dist
+packages/*/*.js
+/docs
+pnpm-lock.yaml
+
+*.bak
+*_bak
+
+stats.html
+#Electron-builder output
+dist_electron

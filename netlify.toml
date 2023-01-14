@@ -1,0 +1,11 @@
+[build.environment]
+  NODE_VERSION = "14"
+
+[build]
+  publish = "docs/dist"
+  command = "find ./docs -type f -path \"*.md\" | xargs sed -i \"s/https:\/\/raw.githubusercontent.com\/saqqdy\/node-kit/https:\/\/gitee.com\/saqqdy\/node-kit\/raw/g\" && sed -i \"s/base: '\/node-kit\/'/base: '\/'/g\" docs/.vitepress/config.ts && pnpm run docs:build && git checkout . && git clean -fd"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

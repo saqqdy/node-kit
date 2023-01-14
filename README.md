@@ -1,0 +1,59 @@
+<div style="text-align: center;" align="center">
+
+# @node-kit/monorepo
+
+Some simple utilities for nodejs
+
+[![NPM version][npm-image]][npm-url]
+[![Codacy Badge][codacy-image]][codacy-url]
+[![License][license-image]][license-url]
+
+[![Sonar][sonar-image]][sonar-url]
+
+</div>
+
+## Function list
+
+- find pnpm workspace root: [@node-kit/pnpm-workspace-root](https://github.com/saqqdy/eslint-sets/tree/master/packages/pnpm-workspace-root)
+
+## Install
+
+e.g: use `@node-kit/pnpm-workspace-root`
+
+```shell
+# by pnpm
+pnpm install @node-kit/pnpm-workspace-root
+
+# by npm
+npm install -D @node-kit/pnpm-workspace-root
+
+# by yarn
+yarn add @node-kit/pnpm-workspace-root
+```
+
+## Usage
+
+```js
+import { findPnpmWorkspaceRoot } from '@node-kit/pnpm-workspace-root'
+
+findPnpmWorkspaceRoot().then(path => {
+  console.log('The pnpm workspace root is: ', path) // /Users/user/path/of/package/root or null
+})
+```
+
+## Issues & Support
+
+Please open an issue [here](https://github.com/saqqdy/@node-kit/monorepo/issues).
+
+## License
+
+[MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/@node-kit/monorepo.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/@node-kit/monorepo
+[codacy-image]: https://app.codacy.com/project/badge/Grade/f70d4880e4ad4f40aa970eb9ee9d0696
+[codacy-url]: https://www.codacy.com/gh/saqqdy/@node-kit/monorepo/dashboard?utm_source=github.com&utm_medium=referral&utm_content=saqqdy/@node-kit/monorepo&utm_campaign=Badge_Grade
+[license-image]: https://img.shields.io/badge/License-MIT-blue.svg
+[license-url]: LICENSE
+[sonar-image]: https://sonarcloud.io/api/project_badges/quality_gate?project=saqqdy_node-kit
+[sonar-url]: https://sonarcloud.io/dashboard?id=saqqdy_node-kit

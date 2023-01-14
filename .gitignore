@@ -1,0 +1,46 @@
+.DS_Store
+node_modules
+dist
+packages/*/*.js
+yarn.lock
+/.pnp
+.pnp.js
+
+/tests/e2e/reports/
+selenium-debug.log
+
+# local env files
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+*.bak
+*_bak
+*.bak.js
+
+# testing
+/coverage
+
+# production
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+cache/*
+!cache/.gitkeep
+stats.html
+
+#Electron-builder output
+dist_electron

@@ -1,0 +1,66 @@
+name: Npm publish test version
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.18.2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmmirror.com
+          cache: pnpm
+
+      - run: pnpm install
+
+      # - run: npx changelogithub --no-group
+      #   continue-on-error: true
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - run: pnpm dist
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+
+      - name: Gen .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ./.npmrc
+
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/all/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/basic/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/egg/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/nuxt/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/react/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/ts/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/vue/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/vue3/.npmrc
+
+      - run: pnpm pub
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/monorepo/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config-basic/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config-egg/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config-nuxt/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config-react/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config-ts/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config-vue/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/eslint-config-vue3/sync"
