@@ -89,6 +89,23 @@ importers:
       eslint: 8.31.0
       prettier: 2.8.3
 
+  packages/monorepo-root:
+    specifiers:
+      '@microsoft/api-extractor': ^7.33.7
+      '@node-kit/lerna-workspace-root': workspace:*
+      '@node-kit/pnpm-workspace-root': workspace:*
+      '@node-kit/yarn-workspace-root': workspace:*
+      eslint: ^8.31.0
+      prettier: ^2.8.3
+    dependencies:
+      '@node-kit/lerna-workspace-root': link:../lerna-workspace-root
+      '@node-kit/pnpm-workspace-root': link:../pnpm-workspace-root
+      '@node-kit/yarn-workspace-root': link:../yarn-workspace-root
+    devDependencies:
+      '@microsoft/api-extractor': 7.33.7
+      eslint: 8.31.0
+      prettier: 2.8.3
+
   packages/pnpm-workspace-root:
     specifiers:
       '@microsoft/api-extractor': ^7.33.7
