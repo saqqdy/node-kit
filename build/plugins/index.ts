@@ -1,6 +1,5 @@
 export { default as esbuild } from './esbuild'
 export { default as minify } from './minify'
-export { default as dts } from './dts'
 export { default as terser } from './terser'
 export { default as banner } from './banner'
 export { default as visual } from './visual'

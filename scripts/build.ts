@@ -55,6 +55,20 @@ async function build() {
 		stdio: 'inherit'
 	})
 
+	for (const { dts, name, extractType } of packages) {
+		const packageRoot = resolve(__dirname, '..', 'packages', name)
+		if (dts === false) continue
+		execSync('npx tsc -p tsconfig.declaration.json', {
+			stdio: 'inherit',
+			cwd: packageRoot
+		})
+		if (extractType === false) continue
+		execSync('npx api-extractor run', {
+			stdio: 'inherit',
+			cwd: packageRoot
+		})
+	}
+
 	// consola.info("Fix types");
 	// execSync("pnpm run types:fix", { stdio: "inherit" });
 

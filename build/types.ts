@@ -15,6 +15,7 @@ export interface PackageManifest {
 	cjs?: boolean
 	mjs?: boolean
 	dts?: boolean
+	extractType?: boolean
 	target?: string
 	exportType?: 'auto' | 'default' | 'named' | 'none'
 }

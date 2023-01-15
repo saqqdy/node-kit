@@ -1,24 +1,23 @@
 {
 	"name": "@node-kit/utils",
 	"description": "Some shared utilities",
-	"version": "1.0.0-alpha.3",
+	"version": "1.0.0-alpha.4",
 	"main": "./index.js",
-	"module": "./index.mjs",
-	"typings": "./index.d.ts",
+	"module": "./dist/index.mjs",
+	"typings": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"require": "./index.cjs",
-			"import": "./index.mjs"
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
 		},
-		"./*": "./*"
+		"./*": {
+			"require": "./dist/*.cjs",
+			"import": "./dist/*.mjs"
+		}
 	},
 	"scripts": {},
 	"files": [
-		"typings",
-		"*.js",
-		"*.cjs",
-		"*.mjs",
-		"*.d.ts"
+		"dist"
 	],
 	"directories": {
 		"es": "es",
@@ -26,12 +25,11 @@
 		"src": "src",
 		"typings": "typings"
 	},
-	"dependencies": {},
 	"devDependencies": {
+		"@microsoft/api-extractor": "^7.33.7",
 		"eslint": "^8.31.0",
 		"prettier": "^2.8.3"
 	},
-	"peerDependencies": {},
 	"keywords": [
 		"node-kit",
 		"utils",

@@ -1,6 +1,5 @@
-import { existsSync, readFileSync } from 'fs'
 import { dirname, join, normalize, relative } from 'path'
-import { getRealPath, getRealPathSync } from '@node-kit/utils'
+import { getRealPath, getRealPathSync, readJSON, readJSONSync } from '@node-kit/utils'
 import micromatch from 'micromatch'
 
 export type Manifest =
@@ -21,7 +20,7 @@ async function yarnWorkspaceRoot(cwd: string = process.cwd()): Promise<string | 
 		current = normalize(cwd)
 
 	do {
-		const manifest = readPackageJSON(current)
+		const manifest = (await readJSON(join(current, 'package.json'))) as Manifest
 		const workspaces = extractWorkspaces(manifest)
 
 		if (workspaces) {
@@ -51,7 +50,7 @@ function yarnWorkspaceRootSync(cwd: string = process.cwd()): string | null {
 		current = normalize(cwd)
 
 	do {
-		const manifest = readPackageJSON(current)
+		const manifest = readJSONSync(join(current, 'package.json')) as Manifest
 		const workspaces = extractWorkspaces(manifest)
 
 		if (workspaces) {
@@ -73,14 +72,6 @@ function yarnWorkspaceRootSync(cwd: string = process.cwd()): string | null {
 function extractWorkspaces(manifest: Manifest) {
 	const workspaces = (manifest || {}).workspaces
 	return (workspaces && workspaces.packages) || (Array.isArray(workspaces) ? workspaces : null)
-}
-
-function readPackageJSON(dir: string): Manifest {
-	const file = join(dir, 'package.json')
-	if (existsSync(file)) {
-		return JSON.parse(readFileSync(file, 'utf8'))
-	}
-	return null
 }
 
 export { yarnWorkspaceRootSync, yarnWorkspaceRoot, yarnWorkspaceRoot as default }

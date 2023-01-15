@@ -1,24 +1,23 @@
 {
 	"name": "@node-kit/yarn-workspace-root",
 	"description": "A simple utility to get the yarn workspace root",
-	"version": "1.0.0-alpha.3",
+	"version": "1.0.0-alpha.4",
 	"main": "./index.js",
-	"module": "./index.mjs",
-	"typings": "./index.d.ts",
+	"module": "./dist/index.mjs",
+	"typings": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"require": "./index.cjs",
-			"import": "./index.mjs"
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
 		},
-		"./*": "./*"
+		"./*": {
+			"require": "./dist/*.cjs",
+			"import": "./dist/*.mjs"
+		}
 	},
 	"scripts": {},
 	"files": [
-		"typings",
-		"*.js",
-		"*.cjs",
-		"*.mjs",
-		"*.d.ts"
+		"dist"
 	],
 	"directories": {
 		"es": "es",
