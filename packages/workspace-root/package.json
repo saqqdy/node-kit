@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/workspace-root",
 	"description": "A simple utility to get the workspace root",
-	"version": "1.0.0-alpha.4",
+	"version": "1.0.0-alpha.5",
 	"main": "./index.js",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
