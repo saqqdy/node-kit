@@ -1,6 +1,6 @@
 {
-	"name": "@node-kit/which-pm",
-	"description": "A simple utility to get which package manager used in the project",
+	"name": "monorepo-root",
+	"description": "A simple utility to get the monorepo root",
 	"version": "1.0.0-alpha.6",
 	"main": "./index.js",
 	"module": "./dist/index.mjs",
@@ -26,8 +26,9 @@
 		"typings": "typings"
 	},
 	"dependencies": {
-		"@node-kit/which-pm": "workspace:*",
-		"find-up": "^6.3.0"
+		"@node-kit/lerna-workspace-root": "workspace:*",
+		"@node-kit/pnpm-workspace-root": "workspace:*",
+		"@node-kit/yarn-workspace-root": "workspace:*"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.33.7",
@@ -37,16 +38,18 @@
 	"peerDependencies": {},
 	"keywords": [
 		"node-kit",
-		"packageManager",
-		"which-pm",
-		"what-pm"
+		"monorepo",
+		"lerna-workspace",
+		"pnpm-workspace",
+		"yarn-workspace",
+		"monorepo-root"
 	],
 	"license": "MIT",
 	"author": "saqqdy <https://github.com/saqqdy>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/saqqdy/node-kit.git",
-		"directory": "packages/which-pm"
+		"directory": "packages/monorepo-root"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
@@ -64,5 +67,5 @@
 	"bugs": {
 		"url": "https://github.com/saqqdy/node-kit/issues"
 	},
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/which-pm#readme"
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/monorepo-root#readme"
 }

@@ -33,6 +33,12 @@ export const packages: PackageManifest[] = [
 		display: 'A simple utility to get the workspace root'
 	},
 	{
+		name: 'monorepo-root',
+		pkgName: 'monorepo-root',
+		iife: false,
+		display: 'A simple utility to get the monorepo root'
+	},
+	{
 		name: 'which-pm',
 		pkgName: '@node-kit/which-pm',
 		iife: false,
