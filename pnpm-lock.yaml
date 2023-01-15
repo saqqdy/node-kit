@@ -76,17 +76,20 @@ importers:
 
   packages/lerna-workspace-root:
     specifiers:
+      '@microsoft/api-extractor': ^7.33.7
       '@node-kit/utils': workspace:*
       eslint: ^8.31.0
       prettier: ^2.8.3
     dependencies:
       '@node-kit/utils': link:../utils
     devDependencies:
+      '@microsoft/api-extractor': 7.33.7
       eslint: 8.31.0
       prettier: 2.8.3
 
   packages/pnpm-workspace-root:
     specifiers:
+      '@microsoft/api-extractor': ^7.33.7
       '@node-kit/utils': workspace:*
       '@pnpm/error': ^4.0.1
       eslint: ^8.31.0
@@ -97,6 +100,7 @@ importers:
       '@pnpm/error': 4.0.1
       find-up: 6.3.0
     devDependencies:
+      '@microsoft/api-extractor': 7.33.7
       eslint: 8.31.0
       prettier: 2.8.3
 
@@ -112,25 +116,30 @@ importers:
 
   packages/what-pm:
     specifiers:
+      '@microsoft/api-extractor': ^7.33.7
       eslint: ^8.31.0
       prettier: ^2.8.3
     devDependencies:
+      '@microsoft/api-extractor': 7.33.7
       eslint: 8.31.0
       prettier: 2.8.3
 
   packages/which-pm:
     specifiers:
+      '@microsoft/api-extractor': ^7.33.7
       '@node-kit/which-pm': workspace:*
       eslint: ^8.31.0
       prettier: ^2.8.3
     dependencies:
       '@node-kit/which-pm': 'link:'
     devDependencies:
+      '@microsoft/api-extractor': 7.33.7
       eslint: 8.31.0
       prettier: 2.8.3
 
   packages/workspace-root:
     specifiers:
+      '@microsoft/api-extractor': ^7.33.7
       '@node-kit/lerna-workspace-root': workspace:*
       '@node-kit/pnpm-workspace-root': workspace:*
       '@node-kit/yarn-workspace-root': workspace:*
@@ -141,11 +150,13 @@ importers:
       '@node-kit/pnpm-workspace-root': link:../pnpm-workspace-root
       '@node-kit/yarn-workspace-root': link:../yarn-workspace-root
     devDependencies:
+      '@microsoft/api-extractor': 7.33.7
       eslint: 8.31.0
       prettier: 2.8.3
 
   packages/yarn-workspace-root:
     specifiers:
+      '@microsoft/api-extractor': ^7.33.7
       '@node-kit/utils': workspace:*
       '@types/micromatch': ^4.0.2
       eslint: ^8.31.0
@@ -155,6 +166,7 @@ importers:
       '@node-kit/utils': link:../utils
       micromatch: 4.0.5
     devDependencies:
+      '@microsoft/api-extractor': 7.33.7
       '@types/micromatch': 4.0.2
       eslint: 8.31.0
       prettier: 2.8.3

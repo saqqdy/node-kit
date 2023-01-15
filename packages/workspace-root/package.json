@@ -31,6 +31,7 @@
 		"@node-kit/yarn-workspace-root": "workspace:*"
 	},
 	"devDependencies": {
+		"@microsoft/api-extractor": "^7.33.7",
 		"eslint": "^8.31.0",
 		"prettier": "^2.8.3"
 	},
