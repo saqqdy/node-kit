@@ -45,3 +45,4 @@ async function findLerna(dir: string) {
 }
 
 export { lernaWorkspaceRootSync, lernaWorkspaceRoot, lernaWorkspaceRoot as default }
+export * from './utils/types'
