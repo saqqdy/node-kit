@@ -5,7 +5,7 @@
 		"declaration": true,
 		"emitDeclarationOnly": true,
 		"sourceMap": false,
-		"removeComments": false,
+		"removeComments": true,
 		"outDir": "dist",
 		"rootDir": "."
 	}
