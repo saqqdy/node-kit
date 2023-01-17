@@ -3,9 +3,10 @@ import { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspa
 import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
 
 /**
- * workspaceRootSync
+ * workspaceRoot
  *
- * @requires result - Promise<WorkspaceRootResult | null>
+ * @param pkgPath - the pkg path
+ * @returns result - Promise\<WorkspaceRootResult | null\>
  */
 async function workspaceRoot(pkgPath: string): Promise<string> {
 	return (
@@ -19,7 +20,8 @@ async function workspaceRoot(pkgPath: string): Promise<string> {
 /**
  * workspaceRootSync
  *
- * @requires result - WorkspaceRootResult | null
+ * @param pkgPath - the pkg path
+ * @returns result - WorkspaceRootResult | null
  */
 function workspaceRootSync(pkgPath: string = process.cwd()): string {
 	return (

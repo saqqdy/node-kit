@@ -58,6 +58,7 @@ async function build() {
 	for (const { dts, name, extractType } of packages) {
 		const packageRoot = resolve(__dirname, '..', 'packages', name)
 		if (dts === false) continue
+		consola.info(`Create types: packages/${name}`)
 		execSync('npx tsc -p tsconfig.declaration.json', {
 			stdio: 'inherit',
 			cwd: packageRoot

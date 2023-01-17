@@ -14,12 +14,10 @@ import {
  * @example
  * ```ts
  * import { readJSON } from '@node-kit/utils'
- * const data = await readJSON('/path/of/json', { encoding: 'utf8 }) // { "name": "saqqdy" }
+ * const data = await readJSON('/path/of/json', { encoding: 'utf8 }) // \{ "name": "saqqdy" \}
  * ```
- * @param args - Parameters<typeof promises.readFile>
- * @param args.path - Path to file
- * @param args.options - options
- * @returns result - json | {}
+ * @param args - Parameters\<typeof promises.readFile\>
+ * @returns result - json | \{\}
  */
 export async function readJSON(
 	...args: Parameters<typeof promises.readFile>
@@ -38,12 +36,10 @@ export async function readJSON(
  * @example
  * ```ts
  * import { readJSONSync } from '@node-kit/utils'
- * const data = readJSONSync('/path/of/json', { encoding: 'utf8 }) // { "name": "saqqdy" }
+ * const data = readJSONSync('/path/of/json', { encoding: 'utf8 }) // \{ "name": "saqqdy" \}
  * ```
- * @param args - Parameters<typeof readFileSync>
- * @param args.path - Path to file
- * @param args.options - options
- * @returns result - json | {}
+ * @param args - Parameters\<typeof readFileSync\>
+ * @returns result - json | \{\}
  */
 export function readJSONSync(...args: Parameters<typeof readFileSync>): Record<string, unknown> {
 	const data = readFileSync(...args).toString()
@@ -62,10 +58,7 @@ export function readJSONSync(...args: Parameters<typeof readFileSync>): Record<s
  * import { writeJSON } from '@node-kit/utils'
  * writeJSON('/path/of/file', 'test data', { encoding: 'utf8 }).then(() => {})
  * ```
- * @param args - Parameters<typeof promises.writeFile>
- * @param args.path - Path to file
- * @param args.data - data
- * @param args.options - options
+ * @param args - Parameters\<typeof promises.writeFile\>
  */
 export async function writeJSON(
 	file: Parameters<typeof promises.writeFile>[0],
@@ -86,10 +79,7 @@ export async function writeJSON(
  * import { writeJSONSync } from '@node-kit/utils'
  * writeJSONSync('/path/of/file', 'test data', { encoding: 'utf8 })
  * ```
- * @param args - Parameters<typeof writeFileSync>
- * @param args.path - Path to file
- * @param args.data - data
- * @param args.options - options
+ * @param args - Parameters\<typeof writeFileSync\>
  */
 export function writeJSONSync(
 	file: PathOrFileDescriptor,

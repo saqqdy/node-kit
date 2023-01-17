@@ -7,7 +7,6 @@
 		"lib": ["ESNext"],
 		"sourceMap": true,
 		"module": "ESNext",
-		"removeComments": true,
 		"strict": true,
 		"declaration": true,
 		"noImplicitOverride": true,
