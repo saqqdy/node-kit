@@ -1,12 +1,5 @@
-import {
-	type PathOrFileDescriptor,
-	type WriteFileOptions,
-	promises,
-	readFileSync,
-	realpath,
-	realpathSync,
-	writeFileSync
-} from 'fs'
+import { existsSync, promises, readFileSync, realpath, realpathSync, writeFileSync } from 'fs'
+import type { PathLike, PathOrFileDescriptor, WriteFileOptions } from 'fs'
 
 /**
  * read json file
@@ -21,12 +14,13 @@ import {
  */
 export async function readJSON(
 	...args: Parameters<typeof promises.readFile>
-): Promise<Record<string, unknown>> {
+): Promise<Record<string, unknown> | null> {
+	if (!existsSync(args[0] as PathLike)) return null
 	const data = await promises.readFile(...args).toString()
 	try {
 		return JSON.parse(data)
 	} catch {
-		return {}
+		return null
 	}
 }
 
@@ -41,7 +35,10 @@ export async function readJSON(
  * @param args - Parameters\<typeof readFileSync\>
  * @returns result - json | \{\}
  */
-export function readJSONSync(...args: Parameters<typeof readFileSync>): Record<string, unknown> {
+export function readJSONSync(
+	...args: Parameters<typeof readFileSync>
+): Record<string, unknown> | null {
+	if (!existsSync(args[0] as PathLike)) return null
 	const data = readFileSync(...args).toString()
 	try {
 		return JSON.parse(data)

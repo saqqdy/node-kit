@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/monorepo",
 	"description": "Some simple utilities for nodejs",
-	"version": "1.0.0-alpha.6",
+	"version": "1.0.0-alpha.7",
 	"packageManager": "pnpm@7.25.0",
 	"main": "index.js",
 	"files": [
@@ -16,6 +16,7 @@
 		"push": "tscjs scripts/push",
 		"build": "tscjs scripts/build",
 		"build:rollup": "cross-env NODE_OPTIONS=\"--max-old-space-size=6144\" rollup -c",
+		"watch": "tscjs scripts/build --watch",
 		"pub": "tscjs scripts/publish",
 		"unpub": "tscjs scripts/unpublish",
 		"sync": "tscjs scripts/sync",
