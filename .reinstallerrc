@@ -1,10 +1,7 @@
 {
-    "depcheck": {
-        "specials": []
-    },
     "packageTags": {
         "@eslint-sets/eslint-config-ts": "latest",
-        "reinstaller": "latest"
+        "reinstaller": "beta"
     },
     "exclude": [],
     "packageManager": "pnpm",
