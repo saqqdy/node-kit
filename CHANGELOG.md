@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.01.18 v1.2.1
+
+1. fix `which-pm` bin path error
+2. add `whichpm` bin path
+
 ## 2023.01.18 v1.2.0
 
 1. add `which-pm`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/which-pm#readme)

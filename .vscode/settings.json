@@ -13,7 +13,8 @@
 		"tsnd",
 		"unpub",
 		"unpublish",
-		"vitepress"
+		"vitepress",
+		"whichpm"
 	],
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"editor.codeActionsOnSave": {

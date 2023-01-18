@@ -1,12 +1,13 @@
 {
 	"name": "@node-kit/which-pm",
 	"description": "A simple utility to get which package manager used in the project",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
 	"bin": {
-		"which-pm": "./bin/index.js"
+		"which-pm": "./bin/index.mjs",
+		"whichpm": "./bin/index.mjs"
 	},
 	"exports": {
 		".": {
