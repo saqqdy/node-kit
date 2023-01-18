@@ -43,11 +43,5 @@ export const packages: PackageManifest[] = [
 		pkgName: '@node-kit/which-pm',
 		iife: false,
 		display: 'A simple utility to get which package manager used in the project'
-	},
-	{
-		name: 'what-pm',
-		pkgName: 'what-pm',
-		iife: false,
-		display: 'A simple utility to get which package manager used in the project'
 	}
 ]
