@@ -41,6 +41,16 @@ updates:
       interval: weekly
 
   - package-ecosystem: npm
+    directory: /packages/workspace-projects
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/workspace-info
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
     directory: /packages/pm-info
     schedule:
       interval: weekly

@@ -155,6 +155,23 @@ importers:
       eslint: 8.31.0
       prettier: 2.8.3
 
+  packages/workspace-projects:
+    specifiers:
+      '@microsoft/api-extractor': ^7.33.7
+      '@types/micromatch': ^4.0.2
+      eslint: ^8.31.0
+      fast-glob: ^3.2.12
+      micromatch: ^4.0.5
+      prettier: ^2.8.3
+    dependencies:
+      micromatch: 4.0.5
+    devDependencies:
+      '@microsoft/api-extractor': 7.33.7
+      '@types/micromatch': 4.0.2
+      eslint: 8.31.0
+      fast-glob: 3.2.12
+      prettier: 2.8.3
+
   packages/workspace-root:
     specifiers:
       '@microsoft/api-extractor': ^7.33.7

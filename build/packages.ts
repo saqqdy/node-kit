@@ -39,6 +39,18 @@ export const packages: PackageManifest[] = [
 		display: 'A simple utility to get the monorepo root'
 	},
 	{
+		name: 'workspace-projects',
+		pkgName: 'workspace-projects',
+		iife: false,
+		display: 'A simple utility to get the workspace project list'
+	},
+	{
+		name: 'workspace-info',
+		pkgName: '@node-kit/workspace-info',
+		iife: false,
+		display: 'A simple utility to get the workspace information'
+	},
+	{
 		name: 'pm-info',
 		pkgName: '@node-kit/pm-info',
 		iife: false,

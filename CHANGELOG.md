@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.01.18 v1.3.0
+
+1. add `workspace-projects`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-projects#readme)
+2. add `workspace-info`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-info#readme)
+
 ## 2023.01.18 v1.2.1
 
 1. fix `which-pm` bin path error
