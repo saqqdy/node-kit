@@ -39,6 +39,12 @@ export const packages: PackageManifest[] = [
 		display: 'A simple utility to get the monorepo root'
 	},
 	{
+		name: 'pm-info',
+		pkgName: '@node-kit/pm-info',
+		iife: false,
+		display: 'A simple utility to get the package manager information which used in the project'
+	},
+	{
 		name: 'which-pm',
 		pkgName: '@node-kit/which-pm',
 		iife: false,

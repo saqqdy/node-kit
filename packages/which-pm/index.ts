@@ -1,3 +1,31 @@
-const config = {}
+import { pmInfo, pmInfoSync } from '@node-kit/pm-info'
 
-export default config
+/**
+ * whichPM
+ *
+ * @param cwd - the pkg path
+ * @param withVersion - concat the package manager version
+ * @returns result - WorkspaceRootResult | null
+ */
+async function whichPM(cwd: string = process.cwd(), withVersion = true): Promise<string | null> {
+	const info = await pmInfo(cwd)
+	if (!info) return null
+	else if (!withVersion) return info.name
+	return `${info.name}${info.version ? '@' + info.version : ''}`
+}
+
+/**
+ * whichPMSync
+ *
+ * @param cwd - the pkg path
+ * @param withVersion - concat the package manager version
+ * @returns result - WorkspaceRootResult | null
+ */
+function whichPMSync(cwd: string = process.cwd(), withVersion = true): string | null {
+	const info = pmInfoSync(cwd)
+	if (!info) return null
+	else if (!withVersion) return info.name
+	return `${info.name}${info.version ? '@' + info.version : ''}`
+}
+
+export { whichPMSync, whichPM, whichPM as default }

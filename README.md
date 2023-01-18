@@ -20,6 +20,7 @@ Some simple utilities for nodejs
 - find yarn workspace root: [yarn-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-root)
 - find workspace root: [workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root)
 - find monorepo root (alias of workspace-root): [monorepo-root](https://github.com/saqqdy/node-kit/tree/master/packages/monorepo-root)
+- find the package manager information: [pm-info](https://github.com/saqqdy/node-kit/tree/master/packages/pm-info)
 - find which package manager used in the project: [which-pm](https://github.com/saqqdy/node-kit/tree/master/packages/which-pm)
 
 ## Install

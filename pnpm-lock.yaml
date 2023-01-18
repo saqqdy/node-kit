@@ -102,6 +102,19 @@ importers:
       eslint: 8.31.0
       prettier: 2.8.3
 
+  packages/pm-info:
+    specifiers:
+      '@microsoft/api-extractor': ^7.33.7
+      eslint: ^8.31.0
+      load-yaml-file: ^1.0.0
+      prettier: ^2.8.3
+    dependencies:
+      load-yaml-file: 1.0.0
+    devDependencies:
+      '@microsoft/api-extractor': 7.33.7
+      eslint: 8.31.0
+      prettier: 2.8.3
+
   packages/pnpm-workspace-root:
     specifiers:
       '@microsoft/api-extractor': ^7.33.7
@@ -132,13 +145,11 @@ importers:
   packages/which-pm:
     specifiers:
       '@microsoft/api-extractor': ^7.33.7
-      '@node-kit/which-pm': workspace:*
+      '@node-kit/pm-info': workspace:*
       eslint: ^8.31.0
-      find-up: ^6.3.0
       prettier: ^2.8.3
     dependencies:
-      '@node-kit/which-pm': 'link:'
-      find-up: 6.3.0
+      '@node-kit/pm-info': link:../pm-info
     devDependencies:
       '@microsoft/api-extractor': 7.33.7
       eslint: 8.31.0
@@ -1919,7 +1930,6 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: true
 
   /array-includes/3.1.6:
     resolution: {integrity: sha512-sgTbLvL6cNnw24FnbaDyjmvddQ2ML8arZsgaJhoABMoplz/4QRhtrYS+alr1BUM1Bwp6dhx8vVCBSLG+StwOFw==}
@@ -4064,7 +4074,6 @@ packages:
 
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
-    dev: true
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
@@ -5125,7 +5134,6 @@ packages:
     hasBin: true
     dependencies:
       argparse: 2.0.1
-    dev: true
 
   /jsbn/0.1.1:
     resolution: {integrity: sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg==}
@@ -5325,6 +5333,15 @@ packages:
       pify: 4.0.1
       strip-bom: 3.0.0
     dev: true
+
+  /load-yaml-file/1.0.0:
+    resolution: {integrity: sha512-Xw+A/X4c5R6GWu7ZUQgw1rnbfUr1P/hAZbDTrreo+/fP/YSGgxAKoWe2IcT+bt4RHuyIca6S7SMGcWx+QI3WIw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      graceful-fs: 4.2.10
+      js-yaml: 4.1.0
+      strip-bom: 5.0.0
+    dev: false
 
   /locate-path/5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
@@ -7223,6 +7240,11 @@ packages:
     resolution: {integrity: sha512-3xurFv5tEgii33Zi8Jtp55wEIILR9eh34FAW00PZf+JnSsTmV/ioewSgQl97JHvgjoRGwPShsWm+IdrxB35d0w==}
     engines: {node: '>=8'}
     dev: true
+
+  /strip-bom/5.0.0:
+    resolution: {integrity: sha512-p+byADHF7SzEcVnLvc/r3uognM1hUhObuHXxJcgLCfD194XAkaLbjq3Wzb0N5G2tgIjH0dgT708Z51QxMeu60A==}
+    engines: {node: '>=12'}
+    dev: false
 
   /strip-final-newline/2.0.0:
     resolution: {integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==}

@@ -28,13 +28,23 @@ $ npm install -D @node-kit/which-pm
 
 ## Usage
 
+### use `@node-kit/which-pm` in bash window
+
+```bash
+npx which-pm
+
+# output: pnpm@7.25.0 | null
+```
+
+### use `@node-kit/which-pm` as a library
+
 1. use `@node-kit/which-pm` in async mode
 
 ```js
 import { whichPM } from '@node-kit/which-pm'
 
 whichPM().then(path => {
-  console.log('The package manager is: ', path) // /Users/user/path/of/package/root or null
+  console.log('The package manager is: ', path) // pnpm@7.25.0 | null
 })
 ```
 
@@ -43,7 +53,7 @@ whichPM().then(path => {
 ```js
 import { whichPMSync } from '@node-kit/which-pm'
 
-console.log('The package manager is: ', whichPMSync()) // /Users/user/path/of/package/root or null
+console.log('The package manager is: ', whichPMSync()) // pnpm@7.25.0 | null
 ```
 
 ## Issues & Support
