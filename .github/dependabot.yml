@@ -39,3 +39,13 @@ updates:
     directory: /packages/monorepo-root
     schedule:
       interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/which-pm
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/what-pm
+    schedule:
+      interval: weekly
