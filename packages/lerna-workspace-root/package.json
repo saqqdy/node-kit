@@ -2,7 +2,7 @@
 	"name": "@node-kit/lerna-workspace-root",
 	"description": "A simple utility to get the lerna workspace root",
 	"version": "1.0.0-alpha.8",
-	"main": "./index.js",
+	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
 	"exports": {

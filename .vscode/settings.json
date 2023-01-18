@@ -4,6 +4,7 @@
 		"esbuild",
 		"filesize",
 		"iife",
+		"pkgs",
 		"reinstaller",
 		"saqqdy",
 		"tscjs",

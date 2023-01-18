@@ -24,7 +24,7 @@ async function updatePackageJSON() {
 			url: 'git+https://github.com/saqqdy/node-kit.git',
 			directory: `packages/${name}`
 		}
-		packageJSON.main = './index.js'
+		// packageJSON.main = './index.js'
 		// packageJSON.types = './index.d.ts'
 		// packageJSON.module = './index.mjs'
 		if (iife !== false) {
