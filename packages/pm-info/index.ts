@@ -79,7 +79,7 @@ function pmInfoSync(cwd: string = process.cwd()): PackageManager | null {
 /**
  * normalizePMSpec
  *
- * @param pm - packageManager version: pnpm@7.25.0
+ * @param pm - packageManager version: pnpm\@7.25.0
  * @returns result - \{ name: 'pnpm', version: '7.25.0' \}
  */
 function normalizePMSpec(pm: string): PackageManager {
