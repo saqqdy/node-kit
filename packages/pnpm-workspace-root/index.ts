@@ -15,18 +15,18 @@ const WORKSPACE_MANIFEST_FILENAME = 'pnpm-workspace.yaml'
 async function pnpmWorkspaceRoot(cwd: string): Promise<string | undefined> {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
-	const workspaceManifestLocation = workspaceManifestDirEnvVar
+	const workspaceManifestPath = workspaceManifestDirEnvVar
 		? join(workspaceManifestDirEnvVar, 'pnpm-workspace.yaml')
 		: await findUp([WORKSPACE_MANIFEST_FILENAME, 'pnpm-workspace.yml'], {
 				cwd: await getRealPath(cwd)
 		  })
-	if (workspaceManifestLocation?.endsWith('.yml')) {
+	if (workspaceManifestPath?.endsWith('.yml')) {
 		throw new PnpmError(
 			'BAD_WORKSPACE_MANIFEST_NAME',
-			`The workspace manifest file should be named "pnpm-workspace.yaml". File found: ${workspaceManifestLocation}`
+			`The workspace manifest file should be named "pnpm-workspace.yaml". File found: ${workspaceManifestPath}`
 		)
 	}
-	return workspaceManifestLocation && dirname(workspaceManifestLocation)
+	return workspaceManifestPath && dirname(workspaceManifestPath)
 }
 
 /**
@@ -38,18 +38,18 @@ async function pnpmWorkspaceRoot(cwd: string): Promise<string | undefined> {
 function pnpmWorkspaceRootSync(cwd: string): string | undefined {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
-	const workspaceManifestLocation = workspaceManifestDirEnvVar
+	const workspaceManifestPath = workspaceManifestDirEnvVar
 		? join(workspaceManifestDirEnvVar, 'pnpm-workspace.yaml')
 		: findUpSync([WORKSPACE_MANIFEST_FILENAME, 'pnpm-workspace.yml'], {
 				cwd: getRealPathSync(cwd)
 		  })
-	if (workspaceManifestLocation?.endsWith('.yml')) {
+	if (workspaceManifestPath?.endsWith('.yml')) {
 		throw new PnpmError(
 			'BAD_WORKSPACE_MANIFEST_NAME',
-			`The workspace manifest file should be named "pnpm-workspace.yaml". File found: ${workspaceManifestLocation}`
+			`The workspace manifest file should be named "pnpm-workspace.yaml". File found: ${workspaceManifestPath}`
 		)
 	}
-	return workspaceManifestLocation && dirname(workspaceManifestLocation)
+	return workspaceManifestPath && dirname(workspaceManifestPath)
 }
 
 export { pnpmWorkspaceRootSync, pnpmWorkspaceRoot, pnpmWorkspaceRoot as default }

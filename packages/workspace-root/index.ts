@@ -12,7 +12,7 @@ async function workspaceRoot(pkgPath: string): Promise<string> {
 	return (
 		(await pnpmWorkspaceRoot(pkgPath)) ||
 		(await yarnWorkspaceRoot(pkgPath)) ||
-		(await lernaWorkspaceRoot(pkgPath))?.dir ||
+		(await lernaWorkspaceRoot(pkgPath)) ||
 		''
 	)
 }
@@ -27,7 +27,7 @@ function workspaceRootSync(pkgPath: string = process.cwd()): string {
 	return (
 		pnpmWorkspaceRootSync(pkgPath) ||
 		yarnWorkspaceRootSync(pkgPath) ||
-		lernaWorkspaceRootSync(pkgPath)?.dir ||
+		lernaWorkspaceRootSync(pkgPath) ||
 		''
 	)
 }

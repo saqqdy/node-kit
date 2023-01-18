@@ -1,48 +1,44 @@
-import { join } from 'path'
+import { dirname, join } from 'path'
 import { findUp, findUpSync } from 'find-up'
-import { readJSON, readJSONSync } from '@node-kit/utils'
-import type { Lerna, Ref, Result } from './utils/types'
-import { lernalize, rollup } from './utils'
+import { getRealPath, getRealPathSync } from '@node-kit/utils'
 
-async function lernaWorkspaceRoot(cwd: string): Promise<Result> {
-	const ref: Ref = { cwd }
-	let ret: Result | undefined
+const WORKSPACE_DIR_ENV_VAR = 'NPM_CONFIG_WORKSPACE_DIR'
+const WORKSPACE_MANIFEST_FILENAME = 'lerna.json'
 
-	await findUp(
-		async parent => {
-			ret = await findLerna(parent)
-			return ret && ret.dir
-		},
-		{ cwd, type: 'directory' }
-	)
+/**
+ * get lerna workspace root dir sync function
+ *
+ * @param cwd - work dir
+ * @returns result - workspace root dir
+ */
+async function lernaWorkspaceRoot(cwd: string): Promise<string | undefined> {
+	const workspaceManifestDirEnvVar =
+		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
+	const workspaceManifestPath = workspaceManifestDirEnvVar
+		? join(workspaceManifestDirEnvVar, WORKSPACE_MANIFEST_FILENAME)
+		: await findUp(WORKSPACE_MANIFEST_FILENAME, {
+				cwd: await getRealPath(cwd)
+		  })
 
-	return rollup(ret, ref)
+	return workspaceManifestPath && dirname(workspaceManifestPath)
 }
 
-function lernaWorkspaceRootSync(cwd: string): Result {
-	const ref: Ref = { cwd }
-	let ret: Result | undefined
+/**
+ * get lerna workspace root dir sync function
+ *
+ * @param cwd - work dir
+ * @returns result - workspace root dir
+ */
+function lernaWorkspaceRootSync(cwd: string): string | undefined {
+	const workspaceManifestDirEnvVar =
+		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
+	const workspaceManifestPath = workspaceManifestDirEnvVar
+		? join(workspaceManifestDirEnvVar, WORKSPACE_MANIFEST_FILENAME)
+		: findUpSync(WORKSPACE_MANIFEST_FILENAME, {
+				cwd: getRealPathSync(cwd)
+		  })
 
-	findUpSync(
-		parent => {
-			ret = findLernaSync(parent)
-			return ret && ret.dir
-		},
-		{ cwd, type: 'directory' }
-	)
-
-	return rollup(ret, ref)
-}
-
-function findLernaSync(dir: string) {
-	const lerna = readJSONSync(join(dir, 'lerna.json')) as Lerna
-	return lernalize(dir, lerna)
-}
-
-async function findLerna(dir: string) {
-	const lerna = (await readJSON(join(dir, 'lerna.json'))) as Lerna
-	return lernalize(dir, lerna)
+	return workspaceManifestPath && dirname(workspaceManifestPath)
 }
 
 export { lernaWorkspaceRootSync, lernaWorkspaceRoot, lernaWorkspaceRoot as default }
-export * from './utils/types'

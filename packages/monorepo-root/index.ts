@@ -1,6 +1,4 @@
-import { lernaWorkspaceRoot, lernaWorkspaceRootSync } from '@node-kit/lerna-workspace-root'
-import { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
-import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
+export { workspaceRoot, workspaceRootSync } from '@node-kit/workspace-root'
 
 /**
  * monorepoRoot
@@ -9,12 +7,7 @@ import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspa
  * @returns result - Promise\<WorkspaceRootResult | null\>
  */
 async function monorepoRoot(pkgPath: string): Promise<string> {
-	return (
-		(await pnpmWorkspaceRoot(pkgPath)) ||
-		(await yarnWorkspaceRoot(pkgPath)) ||
-		(await lernaWorkspaceRoot(pkgPath))?.dir ||
-		''
-	)
+	return (await workspaceRoot(pkgPath)) || ''
 }
 
 /**
@@ -24,12 +17,7 @@ async function monorepoRoot(pkgPath: string): Promise<string> {
  * @returns result - WorkspaceRootResult | null
  */
 function monorepoRootSync(pkgPath: string = process.cwd()): string {
-	return (
-		pnpmWorkspaceRootSync(pkgPath) ||
-		yarnWorkspaceRootSync(pkgPath) ||
-		lernaWorkspaceRootSync(pkgPath)?.dir ||
-		''
-	)
+	return workspaceRootSync(pkgPath) || ''
 }
 
 export { monorepoRootSync, monorepoRoot, monorepoRoot as default }

@@ -26,9 +26,7 @@
 		"typings": "typings"
 	},
 	"dependencies": {
-		"@node-kit/lerna-workspace-root": "workspace:*",
-		"@node-kit/pnpm-workspace-root": "workspace:*",
-		"@node-kit/yarn-workspace-root": "workspace:*"
+		"@node-kit/workspace-root": "workspace:*"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.33.7",
