@@ -12,7 +12,7 @@ const WORKSPACE_MANIFEST_FILENAME = 'pnpm-workspace.yaml'
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-async function pnpmWorkspaceRoot(cwd: string): Promise<string | undefined> {
+async function pnpmWorkspaceRoot(cwd: string): Promise<string | null> {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
 	const workspaceManifestPath = workspaceManifestDirEnvVar
@@ -26,7 +26,7 @@ async function pnpmWorkspaceRoot(cwd: string): Promise<string | undefined> {
 			`The workspace manifest file should be named "pnpm-workspace.yaml". File found: ${workspaceManifestPath}`
 		)
 	}
-	return workspaceManifestPath && dirname(workspaceManifestPath)
+	return (workspaceManifestPath && dirname(workspaceManifestPath)) || null
 }
 
 /**
@@ -35,7 +35,7 @@ async function pnpmWorkspaceRoot(cwd: string): Promise<string | undefined> {
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function pnpmWorkspaceRootSync(cwd: string): string | undefined {
+function pnpmWorkspaceRootSync(cwd: string): string | null {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
 	const workspaceManifestPath = workspaceManifestDirEnvVar
@@ -49,7 +49,7 @@ function pnpmWorkspaceRootSync(cwd: string): string | undefined {
 			`The workspace manifest file should be named "pnpm-workspace.yaml". File found: ${workspaceManifestPath}`
 		)
 	}
-	return workspaceManifestPath && dirname(workspaceManifestPath)
+	return (workspaceManifestPath && dirname(workspaceManifestPath)) || null
 }
 
 export { pnpmWorkspaceRootSync, pnpmWorkspaceRoot, pnpmWorkspaceRoot as default }

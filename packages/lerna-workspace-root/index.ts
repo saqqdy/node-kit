@@ -11,7 +11,7 @@ const WORKSPACE_MANIFEST_FILENAME = 'lerna.json'
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-async function lernaWorkspaceRoot(cwd: string): Promise<string | undefined> {
+async function lernaWorkspaceRoot(cwd: string): Promise<string | null> {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
 	const workspaceManifestPath = workspaceManifestDirEnvVar
@@ -20,7 +20,7 @@ async function lernaWorkspaceRoot(cwd: string): Promise<string | undefined> {
 				cwd: await getRealPath(cwd)
 		  })
 
-	return workspaceManifestPath && dirname(workspaceManifestPath)
+	return (workspaceManifestPath && dirname(workspaceManifestPath)) || null
 }
 
 /**
@@ -29,7 +29,7 @@ async function lernaWorkspaceRoot(cwd: string): Promise<string | undefined> {
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function lernaWorkspaceRootSync(cwd: string): string | undefined {
+function lernaWorkspaceRootSync(cwd: string): string | null {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
 	const workspaceManifestPath = workspaceManifestDirEnvVar
@@ -38,7 +38,7 @@ function lernaWorkspaceRootSync(cwd: string): string | undefined {
 				cwd: getRealPathSync(cwd)
 		  })
 
-	return workspaceManifestPath && dirname(workspaceManifestPath)
+	return (workspaceManifestPath && dirname(workspaceManifestPath)) || null
 }
 
 export { lernaWorkspaceRootSync, lernaWorkspaceRoot, lernaWorkspaceRoot as default }

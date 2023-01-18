@@ -8,12 +8,12 @@ import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspa
  * @param pkgPath - the pkg path
  * @returns result - Promise\<WorkspaceRootResult | null\>
  */
-async function workspaceRoot(pkgPath: string): Promise<string> {
+async function workspaceRoot(pkgPath: string): Promise<string | null> {
 	return (
 		(await pnpmWorkspaceRoot(pkgPath)) ||
 		(await yarnWorkspaceRoot(pkgPath)) ||
 		(await lernaWorkspaceRoot(pkgPath)) ||
-		''
+		null
 	)
 }
 
@@ -23,12 +23,12 @@ async function workspaceRoot(pkgPath: string): Promise<string> {
  * @param pkgPath - the pkg path
  * @returns result - WorkspaceRootResult | null
  */
-function workspaceRootSync(pkgPath: string = process.cwd()): string {
+function workspaceRootSync(pkgPath: string = process.cwd()): string | null {
 	return (
 		pnpmWorkspaceRootSync(pkgPath) ||
 		yarnWorkspaceRootSync(pkgPath) ||
 		lernaWorkspaceRootSync(pkgPath) ||
-		''
+		null
 	)
 }
 
