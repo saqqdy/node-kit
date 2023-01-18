@@ -129,7 +129,7 @@ importers:
       eslint: 8.31.0
       prettier: 2.8.3
 
-  packages/what-pm:
+  packages/what-pm_bak:
     specifiers:
       '@microsoft/api-extractor': ^7.33.7
       eslint: ^8.31.0
@@ -139,7 +139,7 @@ importers:
       eslint: 8.31.0
       prettier: 2.8.3
 
-  packages/which-pm:
+  packages/which-pm_bak:
     specifiers:
       '@microsoft/api-extractor': ^7.33.7
       '@node-kit/which-pm': workspace:*

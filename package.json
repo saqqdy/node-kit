@@ -22,7 +22,7 @@
 		"sync": "tscjs scripts/sync",
 		"viewInfo": "tscjs scripts/viewInfo",
 		"update": "tscjs scripts/update",
-		"dist": "pnpm run update && pnpm build",
+		"dist": "run-s update build",
 		"eslint": "eslint --fix --ext .ts,.tsx,.js,.jsx ./",
 		"prettier": "prettier --write ./",
 		"prepare": "pnpm -r run stub && husky install .husky",
