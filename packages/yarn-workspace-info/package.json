@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/yarn-workspace-info",
 	"description": "A simple utility to get the yarn workspace information",
-	"version": "1.0.0-alpha.8",
+	"version": "1.3.0-beta.1",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
