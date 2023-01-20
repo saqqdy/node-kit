@@ -3,21 +3,21 @@ import { workspaceRoot, workspaceRootSync } from '@node-kit/workspace-root'
 /**
  * monorepoRoot
  *
- * @param pkgPath - the pkg path
- * @returns result - Promise\<WorkspaceRootResult | null\>
+ * @param cwd - the pkg path
+ * @returns result - Promise\<string | null\>
  */
-async function monorepoRoot(pkgPath: string): Promise<string | null> {
-	return (await workspaceRoot(pkgPath)) || null
+async function monorepoRoot(cwd: string = process.cwd()): Promise<string | null> {
+	return (await workspaceRoot(cwd)) || null
 }
 
 /**
  * monorepoRootSync
  *
- * @param pkgPath - the pkg path
- * @returns result - WorkspaceRootResult | null
+ * @param cwd - the pkg path
+ * @returns result - string | null
  */
-function monorepoRootSync(pkgPath: string = process.cwd()): string | null {
-	return workspaceRootSync(pkgPath) || null
+function monorepoRootSync(cwd: string = process.cwd()): string | null {
+	return workspaceRootSync(cwd) || null
 }
 
 export { monorepoRootSync, monorepoRoot, monorepoRoot as default }

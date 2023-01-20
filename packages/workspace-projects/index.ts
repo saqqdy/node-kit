@@ -1,46 +1,41 @@
-import { dirname, join, normalize, relative } from 'path'
-const fg = require('fast-glob')
+import { lernaWorkspaceInfo, lernaWorkspaceInfoSync } from '@node-kit/lerna-workspace-info'
+import { pnpmWorkspaceInfo, pnpmWorkspaceInfoSync } from '@node-kit/pnpm-workspace-info'
+import { yarnWorkspaceInfo, yarnWorkspaceInfoSync } from '@node-kit/yarn-workspace-info'
 
 /**
- * workspaceProjects
+ * workspaceInfo
  *
- * @param pkgPath - the pkg path
- * @returns result - Promise\<WorkspaceRootResult | null\>
+ * @param cwd - the pkg path
+ * @returns result - Promise\<string[] | null\>
  */
-async function workspaceProjects(pkgPath: string): Promise<string> {
-	return ''
+async function workspaceProjects(cwd: string = process.cwd()): Promise<string[] | null> {
+	const info =
+		(await pnpmWorkspaceInfo(cwd)) ||
+		(await yarnWorkspaceInfo(cwd)) ||
+		(await lernaWorkspaceInfo(cwd)) ||
+		null
+	if (info) {
+		return Object.keys(info).map(project => info[project].path)
+	}
+	return null
 }
 
 /**
- * workspaceProjectsSync
+ * workspaceInfoSync
  *
- * @param pkgPath - the pkg path
- * @returns result - WorkspaceRootResult | null
+ * @param cwd - the pkg path
+ * @returns result - string[] | null
  */
-function workspaceProjectsSync(pkgPath: string = process.cwd()): string {
-	const relativePath = relative(current, await getRealPath(cwd))
-	if () {
-		//
+function workspaceProjectsSync(cwd: string = process.cwd()): string[] | null {
+	const info =
+		pnpmWorkspaceInfoSync(cwd) ||
+		yarnWorkspaceInfoSync(cwd) ||
+		lernaWorkspaceInfoSync(cwd) ||
+		null
+	if (info) {
+		return Object.keys(info).map(project => info[project].path)
 	}
-	return ''
+	return null
 }
-
-function normalizePatterns (patterns: readonly string[]) {
-	const normalizedPatterns: string[] = []
-	for (const pattern of patterns) {
-	  // We should add separate pattern for each extension
-	  // for some reason, fast-glob is buggy with /package.{json,yaml,json5} pattern
-	  normalizedPatterns.push(
-		pattern.replace(/\/?$/, '/package.json')
-	  )
-	  normalizedPatterns.push(
-		pattern.replace(/\/?$/, '/package.json5')
-	  )
-	  normalizedPatterns.push(
-		pattern.replace(/\/?$/, '/package.yaml')
-	  )
-	}
-	return normalizedPatterns
-  }
 
 export { workspaceProjectsSync, workspaceProjects, workspaceProjects as default }

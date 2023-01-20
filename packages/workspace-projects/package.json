@@ -25,11 +25,14 @@
 		"src": "src",
 		"typings": "typings"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"@node-kit/lerna-workspace-info": "workspace:*",
+		"@node-kit/pnpm-workspace-info": "workspace:*",
+		"@node-kit/yarn-workspace-info": "workspace:*"
+	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.33.7",
 		"eslint": "^8.31.0",
-		"fast-glob": "^3.2.12",
 		"prettier": "^2.8.3"
 	},
 	"keywords": [

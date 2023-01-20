@@ -5,14 +5,14 @@ import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspa
 /**
  * workspaceRoot
  *
- * @param pkgPath - the pkg path
- * @returns result - Promise\<WorkspaceRootResult | null\>
+ * @param cwd - the pkg path
+ * @returns result - Promise\<string | null\>
  */
-async function workspaceRoot(pkgPath: string): Promise<string | null> {
+async function workspaceRoot(cwd: string = process.cwd()): Promise<string | null> {
 	return (
-		(await pnpmWorkspaceRoot(pkgPath)) ||
-		(await yarnWorkspaceRoot(pkgPath)) ||
-		(await lernaWorkspaceRoot(pkgPath)) ||
+		(await pnpmWorkspaceRoot(cwd)) ||
+		(await yarnWorkspaceRoot(cwd)) ||
+		(await lernaWorkspaceRoot(cwd)) ||
 		null
 	)
 }
@@ -20,14 +20,14 @@ async function workspaceRoot(pkgPath: string): Promise<string | null> {
 /**
  * workspaceRootSync
  *
- * @param pkgPath - the pkg path
- * @returns result - WorkspaceRootResult | null
+ * @param cwd - the pkg path
+ * @returns result - string | null
  */
-function workspaceRootSync(pkgPath: string = process.cwd()): string | null {
+function workspaceRootSync(cwd: string = process.cwd()): string | null {
 	return (
-		pnpmWorkspaceRootSync(pkgPath) ||
-		yarnWorkspaceRootSync(pkgPath) ||
-		lernaWorkspaceRootSync(pkgPath) ||
+		pnpmWorkspaceRootSync(cwd) ||
+		yarnWorkspaceRootSync(cwd) ||
+		lernaWorkspaceRootSync(cwd) ||
 		null
 	)
 }
