@@ -1,0 +1,69 @@
+<div style="text-align: center;" align="center">
+
+# @node-kit/pnpm-workspace-info
+
+A simple utility to get the pnpm workspace information
+
+[![NPM version][npm-image]][npm-url]
+[![Codacy Badge][codacy-image]][codacy-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![License][license-image]][license-url]
+
+[![Sonar][sonar-image]][sonar-url]
+
+</div>
+
+## Install
+
+```bash
+# use pnpm
+$ pnpm install -D @node-kit/pnpm-workspace-info
+
+# use yarn
+$ yarn add -D @node-kit/pnpm-workspace-info
+
+# use npm
+$ npm install -D @node-kit/pnpm-workspace-info
+```
+
+## Usage
+
+1. use `@node-kit/pnpm-workspace-info` in async mode
+
+```js
+import { pnpmWorkspaceInfo } from '@node-kit/pnpm-workspace-info'
+
+pnpmWorkspaceInfo({
+  cwd,
+  packageManager: 'pnpm'
+}).then(data => {
+  console.log('The pnpm workspace info is: ', data) // { projectA: { path: 'packages/projectA' } }
+})
+```
+
+2. use `@node-kit/pnpm-workspace-info` in sync mode
+
+```js
+import { pnpmWorkspaceInfoSync } from '@node-kit/pnpm-workspace-info'
+
+console.log('The pnpm workspace info is: ', pnpmWorkspaceInfoSync()) // { projectA: { path: 'packages/projectA' } }
+```
+
+## Issues & Support
+
+Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
+
+## License
+
+[MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/@node-kit/pnpm-workspace-info.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/@node-kit/pnpm-workspace-info
+[codacy-image]: https://app.codacy.com/project/badge/Grade/f70d4880e4ad4f40aa970eb9ee9d0696
+[codacy-url]: https://www.codacy.com/gh/saqqdy/@node-kit/pnpm-workspace-info/dashboard?utm_source=github.com&utm_medium=referral&utm_content=saqqdy/@node-kit/pnpm-workspace-info&utm_campaign=Badge_Grade
+[codecov-image]: https://img.shields.io/codecov/c/github/saqqdy/@node-kit/pnpm-workspace-info.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/saqqdy/@node-kit/pnpm-workspace-info?branch=master
+[license-image]: https://img.shields.io/badge/License-MIT-blue.svg
+[license-url]: LICENSE
+[sonar-image]: https://sonarcloud.io/api/project_badges/quality_gate?project=saqqdy_node-kit
+[sonar-url]: https://sonarcloud.io/dashboard?id=saqqdy_node-kit

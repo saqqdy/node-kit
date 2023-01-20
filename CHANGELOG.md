@@ -3,7 +3,10 @@
 ## 2023.01.18 v1.3.0
 
 1. add `workspace-projects`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-projects#readme)
-2. add `workspace-info`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-info#readme)
+2. add `lerna-workspace-info`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-info#readme)
+3. add `pnpm-workspace-info`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-info#readme)
+4. add `yarn-workspace-info`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-info#readme)
+5. add `workspace-info`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-info#readme)
 
 ## 2023.01.18 v1.2.1
 
