@@ -31,9 +31,12 @@ const WORKSPACE_MANIFEST_FILENAME = 'lerna.json'
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-async function lernaWorkspaceInfo(cwd: string = process.cwd()): Promise<WorkspaceInfo | void> {
+async function lernaWorkspaceInfo(cwd: string = process.cwd()): Promise<WorkspaceInfo | null> {
 	const root = await lernaWorkspaceRoot(cwd)
-	if (!root) throw new Error('not a lerna workspace project')
+	if (!root) {
+		console.error('not a lerna workspace project')
+		return null
+	}
 
 	const manifest = (await readJSON(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
 	const projects = await fg(([] as string[]).concat(manifest.packages), {
@@ -56,9 +59,12 @@ async function lernaWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspac
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function lernaWorkspaceInfoSync(cwd: string): WorkspaceInfo | void {
+function lernaWorkspaceInfoSync(cwd: string): WorkspaceInfo | null {
 	const root = lernaWorkspaceRootSync(cwd)
-	if (!root) throw new Error('not a lerna workspace project')
+	if (!root) {
+		console.error('not a lerna workspace project')
+		return null
+	}
 
 	const manifest = readJSONSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
 	const projects = fg.sync(([] as string[]).concat(manifest.packages), {

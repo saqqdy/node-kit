@@ -31,9 +31,12 @@ const WORKSPACE_MANIFEST_FILENAME = 'package.json'
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-async function yarnWorkspaceInfo(cwd: string = process.cwd()): Promise<WorkspaceInfo | void> {
+async function yarnWorkspaceInfo(cwd: string = process.cwd()): Promise<WorkspaceInfo | null> {
 	const root = await yarnWorkspaceRoot(cwd)
-	if (!root) throw new Error('not a yarn workspace project')
+	if (!root) {
+		console.error('not a yarn workspace project')
+		return null
+	}
 
 	const manifest = (await readJSON(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
 	const projects = await fg(([] as string[]).concat(manifest.workspaces), {
@@ -56,9 +59,12 @@ async function yarnWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspace
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function yarnWorkspaceInfoSync(cwd: string): WorkspaceInfo | void {
+function yarnWorkspaceInfoSync(cwd: string): WorkspaceInfo | null {
 	const root = yarnWorkspaceRootSync(cwd)
-	if (!root) throw new Error('not a yarn workspace project')
+	if (!root) {
+		console.error('not a yarn workspace project')
+		return null
+	}
 
 	const manifest = readJSONSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
 	const projects = fg.sync(([] as string[]).concat(manifest.workspaces), {

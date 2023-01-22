@@ -31,9 +31,12 @@ const WORKSPACE_MANIFEST_FILENAME = 'pnpm-workspace.json'
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-async function pnpmWorkspaceInfo(cwd: string = process.cwd()): Promise<WorkspaceInfo | void> {
+async function pnpmWorkspaceInfo(cwd: string = process.cwd()): Promise<WorkspaceInfo | null> {
 	const root = await pnpmWorkspaceRoot(cwd)
-	if (!root) throw new Error('not a pnpm workspace project')
+	if (!root) {
+		console.error('not a pnpm workspace project')
+		return null
+	}
 
 	const manifest = (await loadYamlFile(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
 	const projects = await fg(([] as string[]).concat(manifest.packages), {
@@ -56,9 +59,12 @@ async function pnpmWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspace
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function pnpmWorkspaceInfoSync(cwd: string): WorkspaceInfo | void {
+function pnpmWorkspaceInfoSync(cwd: string): WorkspaceInfo | null {
 	const root = pnpmWorkspaceRootSync(cwd)
-	if (!root) throw new Error('not a pnpm workspace project')
+	if (!root) {
+		console.error('not a pnpm workspace project')
+		return null
+	}
 
 	const manifest = loadYamlFileSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
 	const projects = fg.sync(([] as string[]).concat(manifest.packages), {
