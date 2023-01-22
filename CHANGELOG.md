@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.01.23 v1.3.4
+
+1. use `reinstaller`: [reinstaller](https://github.com/saqqdy/reinstaller)
+2. upgrade all packages
+
 ## 2023.01.22 v1.3.3
 
 1. fix `pnpm-workspace-info` bugs
