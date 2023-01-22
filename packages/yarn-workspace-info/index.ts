@@ -4,7 +4,7 @@ import { readJSON, readJSONSync } from '@node-kit/utils'
 import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
 
 export type ManifestInfo = Record<string, unknown> & {
-	packages: string | string[]
+	workspaces: string | string[]
 }
 
 export type WorkspaceInfo = Record<
@@ -36,7 +36,7 @@ async function yarnWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspace
 	if (!root) throw new Error('not a yarn workspace project')
 
 	const manifest = (await readJSON(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
-	const projects = await fg(([] as string[]).concat(manifest.packages), {
+	const projects = await fg(([] as string[]).concat(manifest.workspaces), {
 		cwd: root,
 		ignore: DEFAULT_IGNORE_PATHS,
 		onlyDirectories: true
@@ -61,7 +61,7 @@ function yarnWorkspaceInfoSync(cwd: string): WorkspaceInfo | void {
 	if (!root) throw new Error('not a yarn workspace project')
 
 	const manifest = readJSONSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
-	const projects = fg.sync(([] as string[]).concat(manifest.packages), {
+	const projects = fg.sync(([] as string[]).concat(manifest.workspaces), {
 		cwd: root,
 		ignore: DEFAULT_IGNORE_PATHS,
 		onlyDirectories: true

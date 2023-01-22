@@ -1,6 +1,6 @@
 import { dirname, join } from 'path'
 import fg from 'fast-glob'
-import { readJSON, readJSONSync } from '@node-kit/utils'
+import { loadYamlFile, loadYamlFileSync } from 'load-yaml-file'
 import { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
 
 export type ManifestInfo = Record<string, unknown> & {
@@ -35,7 +35,7 @@ async function pnpmWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspace
 	const root = await pnpmWorkspaceRoot(cwd)
 	if (!root) throw new Error('not a pnpm workspace project')
 
-	const manifest = (await readJSON(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
+	const manifest = (await loadYamlFile(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
 	const projects = await fg(([] as string[]).concat(manifest.packages), {
 		cwd: root,
 		ignore: DEFAULT_IGNORE_PATHS,
@@ -60,7 +60,7 @@ function pnpmWorkspaceInfoSync(cwd: string): WorkspaceInfo | void {
 	const root = pnpmWorkspaceRootSync(cwd)
 	if (!root) throw new Error('not a pnpm workspace project')
 
-	const manifest = readJSONSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
+	const manifest = loadYamlFileSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
 	const projects = fg.sync(([] as string[]).concat(manifest.packages), {
 		cwd: root,
 		ignore: DEFAULT_IGNORE_PATHS,

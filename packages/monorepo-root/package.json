@@ -1,7 +1,7 @@
 {
 	"name": "monorepo-root",
 	"description": "A simple utility to get the monorepo root",
-	"version": "1.3.0-beta.1",
+	"version": "1.3.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
