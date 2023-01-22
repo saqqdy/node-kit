@@ -1,5 +1,9 @@
 # Change Logs
 
+## 2023.01.22 v1.3.3
+
+1. fix `pnpm-workspace-info` bugs
+
 ## 2023.01.22 v1.3.2
 
 1. fix `lerna-workspace-info` `pnpm-workspace-info` `yarn-workspace-info` to get dirname

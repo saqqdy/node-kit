@@ -24,7 +24,7 @@ const DEFAULT_IGNORE_PATHS = [
 	'**/test/**',
 	'**/tests/**'
 ]
-const WORKSPACE_MANIFEST_FILENAME = 'pnpm-workspace.json'
+const WORKSPACE_MANIFEST_FILENAME = 'pnpm-workspace.yaml'
 
 /**
  * get pnpm workspace information sync function
