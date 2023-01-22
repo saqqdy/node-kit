@@ -1,10 +1,10 @@
 # Change Logs
 
-## 2023.01.18 v1.3.0
+## 2023.01.22 v1.3.0
 
 1. fix `lerna-workspace-info` `pnpm-workspace-info` `yarn-workspace-info` to return null
 
-## 2023.01.18 v1.3.0
+## 2023.01.22 v1.3.0
 
 1. add `workspace-projects`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-projects#readme)
 2. add `lerna-workspace-info`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-info#readme)
