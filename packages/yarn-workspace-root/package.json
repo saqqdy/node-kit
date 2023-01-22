@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/yarn-workspace-root",
 	"description": "A simple utility to get the yarn workspace root",
-	"version": "1.3.3",
+	"version": "1.3.4",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
@@ -31,9 +31,9 @@
 		"micromatch": "^4.0.5"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.33.7",
+		"@microsoft/api-extractor": "^7.33.8",
 		"@types/micromatch": "^4.0.2",
-		"eslint": "^8.31.0",
+		"eslint": "^8.32.0",
 		"prettier": "^2.8.3"
 	},
 	"keywords": [

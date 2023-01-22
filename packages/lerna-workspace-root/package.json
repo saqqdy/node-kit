@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/lerna-workspace-root",
 	"description": "A simple utility to get the lerna workspace root",
-	"version": "1.3.3",
+	"version": "1.3.4",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
@@ -30,11 +30,10 @@
 		"find-up": "^6.3.0"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.33.7",
-		"eslint": "^8.31.0",
+		"@microsoft/api-extractor": "^7.33.8",
+		"eslint": "^8.32.0",
 		"prettier": "^2.8.3"
 	},
-	"peerDependencies": {},
 	"keywords": [
 		"node-kit",
 		"workspace",

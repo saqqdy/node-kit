@@ -1,7 +1,7 @@
 {
     "packageTags": {
         "@eslint-sets/eslint-config-ts": "latest",
-        "reinstaller": "beta"
+        "reinstaller": "latest"
     },
     "exclude": [],
     "packageManager": "pnpm",
