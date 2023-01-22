@@ -1,6 +1,6 @@
-import { dirname, join } from 'path'
+import { join } from 'path'
 import fg from 'fast-glob'
-import { readJSON, readJSONSync } from '@node-kit/utils'
+import { dirname, readJSON, readJSONSync } from '@node-kit/utils'
 import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
 
 export type ManifestInfo = Record<string, unknown> & {

@@ -1,6 +1,7 @@
-import { dirname, join } from 'path'
+import { join } from 'path'
 import fg from 'fast-glob'
 import { loadYamlFile, loadYamlFileSync } from 'load-yaml-file'
+import { dirname } from '@node-kit/utils'
 import { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
 
 export type ManifestInfo = Record<string, unknown> & {

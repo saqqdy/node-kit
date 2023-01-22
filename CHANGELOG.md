@@ -1,6 +1,10 @@
 # Change Logs
 
-## 2023.01.22 v1.3.0
+## 2023.01.22 v1.3.2
+
+1. fix `lerna-workspace-info` `pnpm-workspace-info` `yarn-workspace-info` to get dirname
+
+## 2023.01.22 v1.3.1
 
 1. fix `lerna-workspace-info` `pnpm-workspace-info` `yarn-workspace-info` to return null
 

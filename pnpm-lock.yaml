@@ -136,12 +136,14 @@ importers:
     specifiers:
       '@microsoft/api-extractor': ^7.33.7
       '@node-kit/lerna-workspace-root': workspace:*
+      '@node-kit/utils': workspace:*
       eslint: ^8.31.0
       fast-glob: ^3.2.12
       load-yaml-file: ^1.0.0
       prettier: ^2.8.3
     dependencies:
       '@node-kit/lerna-workspace-root': link:../lerna-workspace-root
+      '@node-kit/utils': link:../utils
       fast-glob: 3.2.12
       load-yaml-file: 1.0.0
     devDependencies:
