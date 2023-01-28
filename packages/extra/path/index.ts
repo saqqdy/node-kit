@@ -5,7 +5,7 @@ import { sep } from 'path'
  *
  * @example
  * ```ts
- * import { dirname } from '@node-kit/utils'
+ * import { dirname } from '@node-kit/extra.path'
  * const dir = dirname('/path/of/dir/saqqdy') // saqqdy
  * ```
  * @param path - path string
@@ -15,3 +15,5 @@ export function dirname(path: string): string {
 	const pathArr = path.replace(new RegExp(`${sep}?$`), '').split(sep)
 	return pathArr.length > 0 ? pathArr.pop()! : ''
 }
+
+export default { dirname }

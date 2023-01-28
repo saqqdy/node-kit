@@ -6,7 +6,7 @@ import type { PathLike, PathOrFileDescriptor, WriteFileOptions } from 'fs'
  *
  * @example
  * ```ts
- * import { readJSON } from '@node-kit/utils'
+ * import { readJSON } from '@node-kit/extra.fs'
  * const data = await readJSON('/path/of/json', { encoding: 'utf8 }) // \{ "name": "saqqdy" \}
  * ```
  * @param args - Parameters\<typeof promises.readFile\>
@@ -29,7 +29,7 @@ export async function readJSON(
  *
  * @example
  * ```ts
- * import { readJSONSync } from '@node-kit/utils'
+ * import { readJSONSync } from '@node-kit/extra.fs'
  * const data = readJSONSync('/path/of/json', { encoding: 'utf8 }) // \{ "name": "saqqdy" \}
  * ```
  * @param args - Parameters\<typeof readFileSync\>
@@ -52,7 +52,7 @@ export function readJSONSync(
  *
  * @example
  * ```ts
- * import { writeJSON } from '@node-kit/utils'
+ * import { writeJSON } from '@node-kit/extra.fs'
  * writeJSON('/path/of/file', 'test data', { encoding: 'utf8 }).then(() => {})
  * ```
  * @param args - Parameters\<typeof promises.writeFile\>
@@ -73,7 +73,7 @@ export async function writeJSON(
  *
  * @example
  * ```ts
- * import { writeJSONSync } from '@node-kit/utils'
+ * import { writeJSONSync } from '@node-kit/extra.fs'
  * writeJSONSync('/path/of/file', 'test data', { encoding: 'utf8 })
  * ```
  * @param args - Parameters\<typeof writeFileSync\>
@@ -116,3 +116,5 @@ export async function getRealPath(path: string) {
 export function getRealPathSync(path: string) {
 	return realpathSync.native(path)
 }
+
+export default { readJSON, readJSONSync, writeJSON, writeJSONSync, getRealPath, getRealPathSync }

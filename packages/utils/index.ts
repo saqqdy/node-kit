@@ -1,2 +1,1 @@
-export * from './fs'
-export * from './path'
+export default function test() {}
