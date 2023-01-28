@@ -1,6 +1,6 @@
 import { dirname, join } from 'path'
 import { findUp, findUpSync } from 'find-up'
-import { getRealPath, getRealPathSync } from '@node-kit/utils'
+import { getRealPath, getRealPathSync } from '@node-kit/extra.fs'
 
 const WORKSPACE_DIR_ENV_VAR = 'NPM_CONFIG_WORKSPACE_DIR'
 const WORKSPACE_MANIFEST_FILENAME = 'lerna.json'

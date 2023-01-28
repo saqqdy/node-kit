@@ -1,6 +1,7 @@
 import { join } from 'path'
 import fg from 'fast-glob'
-import { dirname, readJSON, readJSONSync } from '@node-kit/utils'
+import { readJSON, readJSONSync } from '@node-kit/extra.fs'
+import { dirname } from '@node-kit/extra.path'
 import { lernaWorkspaceRoot, lernaWorkspaceRootSync } from '@node-kit/lerna-workspace-root'
 
 export type ManifestInfo = {

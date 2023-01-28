@@ -33,7 +33,7 @@ $ npm install -D @node-kit/which-pm
 ```bash
 npx which-pm
 
-# output: pnpm@7.25.0 | null
+# output: pnpm@7.26.1 | null
 ```
 
 ### use `@node-kit/which-pm` as a library
@@ -44,7 +44,7 @@ npx which-pm
 import { whichPM } from '@node-kit/which-pm'
 
 whichPM().then(path => {
-  console.log('The package manager is: ', path) // pnpm@7.25.0 | null
+  console.log('The package manager is: ', path) // pnpm@7.26.1 | null
 })
 ```
 
@@ -53,7 +53,7 @@ whichPM().then(path => {
 ```js
 import { whichPMSync } from '@node-kit/which-pm'
 
-console.log('The package manager is: ', whichPMSync()) // pnpm@7.25.0 | null
+console.log('The package manager is: ', whichPMSync()) // pnpm@7.26.1 | null
 ```
 
 ## Issues & Support

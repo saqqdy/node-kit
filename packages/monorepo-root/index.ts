@@ -1,4 +1,4 @@
-import { workspaceRoot, workspaceRootSync } from '@node-kit/workspace-root'
+import { workspaceRoot, workspaceRootSync } from 'workspace-root'
 
 /**
  * monorepoRoot

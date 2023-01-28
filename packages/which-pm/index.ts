@@ -1,4 +1,4 @@
-import { pmInfo, pmInfoSync } from '@node-kit/pm-info'
+import { pmInfo, pmInfoSync } from 'pm-info'
 
 /**
  * whichPM

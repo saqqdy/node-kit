@@ -1,5 +1,5 @@
 import { dirname, join, normalize, relative } from 'path'
-import { getRealPath, getRealPathSync, readJSON, readJSONSync } from '@node-kit/utils'
+import { getRealPath, getRealPathSync, readJSON, readJSONSync } from '@node-kit/extra.fs'
 import micromatch from 'micromatch'
 
 export type Manifest =

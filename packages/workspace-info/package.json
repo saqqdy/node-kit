@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/workspace-info",
 	"description": "A simple utility to get the workspace information",
-	"version": "1.3.4",
+	"version": "2.0.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
@@ -31,7 +31,7 @@
 		"@node-kit/yarn-workspace-info": "workspace:*"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.33.8",
+		"@microsoft/api-extractor": "^7.34.0",
 		"eslint": "^8.32.0",
 		"prettier": "^2.8.3"
 	},
