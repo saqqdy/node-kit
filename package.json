@@ -10,7 +10,6 @@
 		"*.d.ts"
 	],
 	"scripts": {
-		"reinstall": "tscjs scripts/reinstall",
 		"lib": "sh scripts/lib.sh",
 		"docs": "sh scripts/docs.sh --docs",
 		"push": "tscjs scripts/push",
