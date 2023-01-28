@@ -15,10 +15,10 @@
 			"import": "./dist/*.mjs"
 		}
 	},
-	"scripts": {},
 	"files": [
 		"dist"
 	],
+	"scripts": {},
 	"directories": {
 		"es": "es",
 		"lib": "lib",
@@ -35,6 +35,15 @@
 		"eslint": "^8.32.0",
 		"prettier": "^2.8.3"
 	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"@babel/core",
+				"webpack"
+			],
+			"allowedVersions": {}
+		}
+	},
 	"keywords": [
 		"node-kit",
 		"workspace",
@@ -45,26 +54,17 @@
 	],
 	"license": "MIT",
 	"author": "saqqdy <https://github.com/saqqdy>",
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root#readme",
+	"bugs": {
+		"url": "https://github.com/saqqdy/node-kit/issues"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/saqqdy/node-kit.git",
 		"directory": "packages/workspace-root"
 	},
-	"pnpm": {
-		"peerDependencyRules": {
-			"ignoreMissing": [
-				"@babel/core",
-				"webpack"
-			],
-			"allowedVersions": {}
-		}
-	},
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org",
 		"access": "public"
-	},
-	"bugs": {
-		"url": "https://github.com/saqqdy/node-kit/issues"
-	},
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root#readme"
+	}
 }

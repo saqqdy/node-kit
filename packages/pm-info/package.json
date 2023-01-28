@@ -15,10 +15,10 @@
 			"import": "./dist/*.mjs"
 		}
 	},
-	"scripts": {},
 	"files": [
 		"dist"
 	],
+	"scripts": {},
 	"directories": {
 		"es": "es",
 		"lib": "lib",
@@ -33,19 +33,6 @@
 		"eslint": "^8.32.0",
 		"prettier": "^2.8.3"
 	},
-	"keywords": [
-		"node-kit",
-		"packageManager",
-		"pm-info",
-		"pm-information"
-	],
-	"license": "MIT",
-	"author": "saqqdy <https://github.com/saqqdy>",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/saqqdy/node-kit.git",
-		"directory": "packages/pm-info"
-	},
 	"pnpm": {
 		"peerDependencyRules": {
 			"ignoreMissing": [
@@ -55,12 +42,25 @@
 			"allowedVersions": {}
 		}
 	},
-	"publishConfig": {
-		"registry": "https://registry.npmjs.org",
-		"access": "public"
-	},
+	"keywords": [
+		"node-kit",
+		"packageManager",
+		"pm-info",
+		"pm-information"
+	],
+	"license": "MIT",
+	"author": "saqqdy <https://github.com/saqqdy>",
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/pm-info#readme",
 	"bugs": {
 		"url": "https://github.com/saqqdy/node-kit/issues"
 	},
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/pm-info#readme"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saqqdy/node-kit.git",
+		"directory": "packages/pm-info"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org",
+		"access": "public"
+	}
 }

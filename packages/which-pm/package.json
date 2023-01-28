@@ -2,13 +2,13 @@
 	"name": "@node-kit/which-pm",
 	"description": "A simple utility to get which package manager used in the project",
 	"version": "2.0.0-beta.1",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.mjs",
-	"typings": "./dist/index.d.ts",
 	"bin": {
 		"which-pm": "./bin/index.mjs",
 		"whichpm": "./bin/index.mjs"
 	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"typings": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"require": "./dist/index.cjs",
@@ -19,11 +19,11 @@
 			"import": "./dist/*.mjs"
 		}
 	},
-	"scripts": {},
 	"files": [
 		"bin",
 		"dist"
 	],
+	"scripts": {},
 	"directories": {
 		"es": "es",
 		"lib": "lib",
@@ -38,19 +38,6 @@
 		"eslint": "^8.32.0",
 		"prettier": "^2.8.3"
 	},
-	"keywords": [
-		"node-kit",
-		"packageManager",
-		"which-pm",
-		"what-pm"
-	],
-	"license": "MIT",
-	"author": "saqqdy <https://github.com/saqqdy>",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/saqqdy/node-kit.git",
-		"directory": "packages/which-pm"
-	},
 	"pnpm": {
 		"peerDependencyRules": {
 			"ignoreMissing": [
@@ -60,12 +47,25 @@
 			"allowedVersions": {}
 		}
 	},
-	"publishConfig": {
-		"registry": "https://registry.npmjs.org",
-		"access": "public"
-	},
+	"keywords": [
+		"node-kit",
+		"packageManager",
+		"which-pm",
+		"what-pm"
+	],
+	"license": "MIT",
+	"author": "saqqdy <https://github.com/saqqdy>",
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/which-pm#readme",
 	"bugs": {
 		"url": "https://github.com/saqqdy/node-kit/issues"
 	},
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/which-pm#readme"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saqqdy/node-kit.git",
+		"directory": "packages/which-pm"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org",
+		"access": "public"
+	}
 }

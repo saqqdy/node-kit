@@ -15,10 +15,10 @@
 			"import": "./dist/*.mjs"
 		}
 	},
-	"scripts": {},
 	"files": [
 		"dist"
 	],
+	"scripts": {},
 	"directories": {
 		"es": "es",
 		"lib": "lib",
@@ -26,8 +26,8 @@
 		"typings": "typings"
 	},
 	"dependencies": {
-		"@node-kit/lerna-workspace-root": "workspace:*",
 		"@node-kit/extra.path": "workspace:*",
+		"@node-kit/lerna-workspace-root": "workspace:*",
 		"fast-glob": "^3.2.12",
 		"load-yaml-file": "^1.0.0"
 	},
@@ -35,6 +35,15 @@
 		"@microsoft/api-extractor": "^7.34.0",
 		"eslint": "^8.32.0",
 		"prettier": "^2.8.3"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"@babel/core",
+				"webpack"
+			],
+			"allowedVersions": {}
+		}
 	},
 	"keywords": [
 		"node-kit",
@@ -47,26 +56,17 @@
 	],
 	"license": "MIT",
 	"author": "saqqdy <https://github.com/saqqdy>",
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-info#readme",
+	"bugs": {
+		"url": "https://github.com/saqqdy/node-kit/issues"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/saqqdy/node-kit.git",
 		"directory": "packages/pnpm-workspace-info"
 	},
-	"pnpm": {
-		"peerDependencyRules": {
-			"ignoreMissing": [
-				"@babel/core",
-				"webpack"
-			],
-			"allowedVersions": {}
-		}
-	},
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org",
 		"access": "public"
-	},
-	"bugs": {
-		"url": "https://github.com/saqqdy/node-kit/issues"
-	},
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-info#readme"
+	}
 }

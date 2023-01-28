@@ -26,9 +26,9 @@
 		"typings": "typings"
 	},
 	"dependencies": {
-		"@node-kit/lerna-workspace-root": "workspace:*",
 		"@node-kit/extra.fs": "workspace:*",
 		"@node-kit/extra.path": "workspace:*",
+		"@node-kit/lerna-workspace-root": "workspace:*",
 		"fast-glob": "^3.2.12"
 	},
 	"devDependencies": {

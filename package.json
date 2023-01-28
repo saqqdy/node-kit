@@ -67,17 +67,6 @@
 		"typescript": "~4.9.4",
 		"zx": "^7.1.1"
 	},
-	"keywords": [
-		"node-kit",
-		"vue",
-		"vue3.0"
-	],
-	"license": "MIT",
-	"author": "saqqdy.com",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/saqqdy/node-kit.git"
-	},
 	"pnpm": {
 		"peerDependencyRules": {
 			"ignoreMissing": [
@@ -88,6 +77,21 @@
 				"eslint": ">=7.4.0"
 			}
 		}
+	},
+	"keywords": [
+		"node-kit",
+		"vue",
+		"vue3.0"
+	],
+	"license": "MIT",
+	"author": "saqqdy.com",
+	"homepage": "https://github.com/saqqdy/node-kit#readme",
+	"bugs": {
+		"url": "https://github.com/saqqdy/node-kitsues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saqqdy/node-kit.git"
 	},
 	"lint-staged": {
 		"**/*.{json,md}": [
@@ -101,9 +105,5 @@
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org",
 		"access": "public"
-	},
-	"bugs": {
-		"url": "https://github.com/saqqdy/node-kitsues"
-	},
-	"homepage": "https://github.com/saqqdy/node-kit#readme"
+	}
 }
