@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { resolve, sep } from 'path'
 import fg from 'fast-glob'
 import type { OutputOptions, RollupOptions } from 'rollup'
 import { packages } from './packages'
@@ -21,7 +21,8 @@ for (const {
 	exportType = 'auto'
 } of packages) {
 	if (build === false) continue
-	const pkg = require(`packages/${name}/package.json`)
+	const dirName = name.replace(/\./g, sep)
+	const pkg = require(`packages/${dirName}/package.json`)
 	const banner =
 		'/*!\n' +
 		' * ' +
@@ -48,19 +49,20 @@ for (const {
 	if (submodules) {
 		functionNames.push(
 			...fg.sync('*/index.ts', {
-				cwd: resolve(`packages/${name}`),
+				cwd: resolve(`packages/${dirName}`),
 				ignore: ['dist']
 			})
 		)
 	}
 
 	for (const fn of functionNames) {
-		const input = fn === 'index.ts' ? `packages/${name}/index.ts` : `packages/${name}/${fn}`
+		const input =
+			fn === 'index.ts' ? `packages/${dirName}/index.ts` : `packages/${dirName}/${fn}`
 		const output: OutputOptions[] = []
 		// output mjs
 		if (mjs !== false) {
 			output.push({
-				file: `packages/${name}/dist/${fn.replace(/\.ts$/, '.mjs')}`,
+				file: `packages/${dirName}/dist/${fn.replace(/\.ts$/, '.mjs')}`,
 				exports: exportType,
 				banner,
 				format: 'es'
@@ -69,7 +71,7 @@ for (const {
 		// output cjs
 		if (cjs !== false) {
 			output.push({
-				file: `packages/${name}/dist/${fn.replace(/\.ts$/, '.cjs')}`,
+				file: `packages/${dirName}/dist/${fn.replace(/\.ts$/, '.cjs')}`,
 				exports: exportType,
 				banner,
 				format: 'cjs'
@@ -79,7 +81,7 @@ for (const {
 		if (iife !== false && fn === 'index.ts') {
 			output.push(
 				{
-					file: `packages/${name}/dist/${fn}.iife.js`,
+					file: `packages/${dirName}/dist/${fn}.iife.js`,
 					format: 'iife',
 					name: iifeName,
 					extend: true,
@@ -90,7 +92,7 @@ for (const {
 					]
 				},
 				{
-					file: `packages/${name}/dist/${fn}.iife.min.js`,
+					file: `packages/${dirName}/dist/${fn}.iife.min.js`,
 					format: 'iife',
 					name: iifeName,
 					extend: true,

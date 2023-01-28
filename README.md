@@ -14,39 +14,42 @@ Some simple utilities for nodejs
 
 ## Function list
 
-- some shared utilities: [utils](https://github.com/saqqdy/node-kit/tree/master/packages/utils)
-- find lerna workspace root: [lerna-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-root)
-- find pnpm workspace root: [pnpm-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root)
-- find yarn workspace root: [yarn-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-root)
+- some shared utilities: [@node-kit/utils](https://github.com/saqqdy/node-kit/tree/master/packages/utils)
+- some shared extra utilities for nodejs build-in fs modules: [@node-kit/extra.fs](https://github.com/saqqdy/node-kit/tree/master/packages/extra/fs)
+- some shared extra utilities for nodejs build-in path modules: [@node-kit/extra.path](https://github.com/saqqdy/node-kit/tree/master/packages/extra/path)
+- find lerna workspace root: [@node-kit/lerna-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-root)
+- find pnpm workspace root: [@node-kit/pnpm-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root)
+- find yarn workspace root: [@node-kit/yarn-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-root)
 - find workspace root: [workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-root)
 - find monorepo root (alias of workspace-root): [monorepo-root](https://github.com/saqqdy/node-kit/tree/master/packages/monorepo-root)
 - get workspace project list: [workspace-projects](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-projects)
-- get lerna workspace info: [lerna-workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-info)
-- get pnpm workspace info: [pnpm-workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-info)
-- get yarn workspace info: [yarn-workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-info)
-- get workspace info: [workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-info)
+- get workspace project list: [workspace-pkgs](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-pkgs)
+- get lerna workspace info: [@node-kit/lerna-workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-info)
+- get pnpm workspace info: [@node-kit/pnpm-workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-info)
+- get yarn workspace info: [@node-kit/yarn-workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-info)
+- get workspace info: [@node-kit/workspace-info](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-info)
 - find the package manager information: [pm-info](https://github.com/saqqdy/node-kit/tree/master/packages/pm-info)
-- find which package manager used in the project: [which-pm](https://github.com/saqqdy/node-kit/tree/master/packages/which-pm)
+- find which package manager used in the project: [@node-kit/which-pm](https://github.com/saqqdy/node-kit/tree/master/packages/which-pm)
 
 ## Install
 
-e.g: use `@node-kit/workspace-root`
+e.g: use `workspace-root`
 
 ```shell
 # by pnpm
-pnpm install @node-kit/workspace-root
+pnpm install workspace-root
 
 # by npm
-npm install -D @node-kit/workspace-root
+npm install -D workspace-root
 
 # by yarn
-yarn add @node-kit/workspace-root
+yarn add workspace-root
 ```
 
 ## Usage
 
 ```js
-import { workspaceRoot } from '@node-kit/workspace-root'
+import { workspaceRoot } from 'workspace-root'
 
 workspaceRoot().then(path => {
   console.log('The workspace root is: ', path) // /Users/user/path/of/package/root or null

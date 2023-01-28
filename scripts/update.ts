@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { resolve, sep } from 'path'
 import { execSync } from 'child_process'
 import { promises, readFileSync, writeFileSync } from 'fs'
 import { packages } from '../build/packages'
@@ -6,7 +6,9 @@ import { version } from '../package.json'
 
 async function updatePackageJSON() {
 	for (const { name, display, author, iife } of packages) {
-		const packageRoot = resolve(__dirname, '..', 'packages', name)
+		if (name === 'monorepo') continue
+		const dirName = name.replace(/\./g, sep)
+		const packageRoot = resolve(__dirname, '..', 'packages', dirName)
 		const packageJSONPath = resolve(packageRoot, 'package.json')
 		const packageJSON = JSON.parse(readFileSync(packageJSONPath, 'utf8'))
 		packageJSON.version = version
@@ -18,11 +20,11 @@ async function updatePackageJSON() {
 		packageJSON.homepage =
 			name === 'core'
 				? 'https://github.com/saqqdy/node-kit#readme'
-				: `https://github.com/saqqdy/node-kit/tree/master/packages/${name}#readme`
+				: `https://github.com/saqqdy/node-kit/tree/master/packages/${dirName}#readme`
 		packageJSON.repository = {
 			type: 'git',
 			url: 'git+https://github.com/saqqdy/node-kit.git',
-			directory: `packages/${name}`
+			directory: `packages/${dirName}`
 		}
 		// packageJSON.main = './index.js'
 		// packageJSON.types = './index.d.ts'

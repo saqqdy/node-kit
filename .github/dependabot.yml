@@ -16,6 +16,16 @@ updates:
       interval: weekly
 
   - package-ecosystem: npm
+    directory: /packages/extra/fs
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/extra/path
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
     directory: /packages/lerna-workspace-info
     schedule:
       interval: weekly
@@ -62,6 +72,11 @@ updates:
 
   - package-ecosystem: npm
     directory: /packages/workspace-projects
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: /packages/workspace-pkgs
     schedule:
       interval: weekly
 

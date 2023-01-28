@@ -1,13 +1,12 @@
-import { resolve } from 'node:path'
+import { resolve, sep } from 'node:path'
 import assert from 'assert'
 import { execSync } from 'node:child_process'
 import { promises } from 'node:fs'
 // import fg from 'fast-glob'
 import consola from 'consola'
-// import { readJSONSync, writeJSONSync } from '../build/utils/fs'
+// import { readJSONSync, writeJSONSync } from '@node-kit/extra.fs'
 import { packages } from '../build/packages'
 // import { version } from '../package.json'
-// import { updateImport } from "./utils";
 
 const rootDir = resolve(__dirname, '..')
 const watch = process.argv.includes('--watch')
@@ -19,7 +18,9 @@ assert(process.cwd() !== __dirname)
 
 async function buildMetaFiles() {
 	for (const { name } of packages) {
-		const packageRoot = resolve(__dirname, '..', 'packages', name)
+		if (name === 'monorepo') continue
+		const dirName = name.replace(/\./g, sep)
+		const packageRoot = resolve(__dirname, '..', 'packages', dirName)
 		// const packageDist = resolve(packageRoot, 'dist')
 
 		if (name === 'core')
@@ -56,17 +57,19 @@ async function build() {
 	})
 
 	for (const { dts, name, extractType } of packages) {
-		const packageRoot = resolve(__dirname, '..', 'packages', name)
+		if (name === 'monorepo') continue
+		const dirName = name.replace(/\./g, sep)
+		const cwd = resolve(__dirname, '..', 'packages', dirName)
 		if (dts === false) continue
-		consola.info(`Create types: packages/${name}`)
+		consola.info(`Create types: packages/${dirName}`)
 		execSync('npx tsc -p tsconfig.declaration.json', {
 			stdio: 'inherit',
-			cwd: packageRoot
+			cwd
 		})
 		if (extractType === false) continue
 		execSync('npx api-extractor run', {
 			stdio: 'inherit',
-			cwd: packageRoot
+			cwd
 		})
 	}
 

@@ -2,11 +2,31 @@ import type { PackageManifest } from './types'
 
 export const packages: PackageManifest[] = [
 	{
+		name: 'monorepo',
+		pkgName: '@node-kit/monorepo',
+		build: false,
+		display: 'Some simple utilities for nodejs'
+	},
+	{
 		name: 'utils',
 		pkgName: '@node-kit/utils',
 		iife: false,
 		submodules: true,
 		display: 'Some shared utilities'
+	},
+	{
+		name: 'extra.fs',
+		pkgName: '@node-kit/extra.fs',
+		iife: false,
+		submodules: true,
+		display: 'Some shared extra utilities for nodejs build-in fs modules'
+	},
+	{
+		name: 'extra.path',
+		pkgName: '@node-kit/extra.path',
+		iife: false,
+		submodules: true,
+		display: 'Some shared extra utilities for nodejs build-in path modules'
 	},
 	{
 		name: 'lerna-workspace-info',
@@ -52,7 +72,7 @@ export const packages: PackageManifest[] = [
 	},
 	{
 		name: 'workspace-root',
-		pkgName: '@node-kit/workspace-root',
+		pkgName: 'workspace-root',
 		iife: false,
 		display: 'A simple utility to get the workspace root'
 	},
@@ -69,8 +89,14 @@ export const packages: PackageManifest[] = [
 		display: 'A simple utility to get the workspace project list'
 	},
 	{
+		name: 'workspace-pkgs',
+		pkgName: 'workspace-pkgs',
+		iife: false,
+		display: 'A simple utility to get the workspace project list'
+	},
+	{
 		name: 'pm-info',
-		pkgName: '@node-kit/pm-info',
+		pkgName: 'pm-info',
 		iife: false,
 		display: 'A simple utility to get the package manager information which used in the project'
 	},

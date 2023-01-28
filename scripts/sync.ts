@@ -9,6 +9,3 @@ for (const pkg of packages) {
 		`curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/${pkg.pkgName}/sync"`
 	)
 }
-execSync(
-	'curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/monorepo/sync"'
-)

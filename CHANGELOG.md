@@ -1,5 +1,14 @@
 # Change Logs
 
+## 2023.01.29 v2.0.0
+
+1. add `workspace-pkgs`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-pkgs#readme)
+1. add `@node-kit/extra.fs`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/extra/fs#readme)
+1. add `@node-kit/extra.path`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/extra/path#readme)
+1. deprecate `@node-kit/workspace-root` move to `workspace-root`
+1. deprecate `@node-kit/pm-info` move to `pm-info`
+1. upgrade all packages
+
 ## 2023.01.23 v1.3.4
 
 1. use `reinstaller`: [reinstaller](https://github.com/saqqdy/reinstaller)
