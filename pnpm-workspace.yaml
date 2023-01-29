@@ -1,4 +1,4 @@
 packages:
-    - '!packages/extra'
-    - 'packages/extra/*'
-    - 'packages/*'
+  - '!packages/extra'
+  - 'packages/extra/*'
+  - 'packages/*'
