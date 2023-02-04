@@ -1,6 +1,6 @@
 import { join } from 'path'
 import fg from 'fast-glob'
-import { loadYamlFile, loadYamlFileSync } from 'load-yaml-file'
+import { loadYml, loadYmlSync } from 'load-yml'
 import { dirname } from '@node-kit/extra.path'
 import { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
 
@@ -39,7 +39,7 @@ async function pnpmWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspace
 		return null
 	}
 
-	const manifest = (await loadYamlFile(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
+	const manifest = (await loadYml(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
 	const projects = await fg(([] as string[]).concat(manifest.packages), {
 		cwd: root,
 		ignore: DEFAULT_IGNORE_PATHS,
@@ -67,7 +67,7 @@ function pnpmWorkspaceInfoSync(cwd: string): WorkspaceInfo | null {
 		return null
 	}
 
-	const manifest = loadYamlFileSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
+	const manifest = loadYmlSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
 	const projects = fg.sync(([] as string[]).concat(manifest.packages), {
 		cwd: root,
 		ignore: DEFAULT_IGNORE_PATHS,

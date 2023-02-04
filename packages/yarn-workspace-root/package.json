@@ -31,9 +31,9 @@
 		"micromatch": "^4.0.5"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.34.0",
+		"@microsoft/api-extractor": "^7.34.2",
 		"@types/micromatch": "^4.0.2",
-		"eslint": "^8.32.0",
+		"eslint": "^8.33.0",
 		"prettier": "^2.8.3"
 	},
 	"pnpm": {

@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.02.03 v2.1.0
+
+1. fix dependencies
+2. upgrade all packages
+
 ## 2023.01.29 v2.0.0
 
 1. add `workspace-pkgs`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/workspace-pkgs#readme)

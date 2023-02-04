@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { existsSync } from 'fs'
-import { loadYamlFile, loadYamlFileSync } from 'load-yaml-file'
+import { loadYml, loadYmlSync } from 'load-yml'
 
 export type ModulesYML = Record<string, unknown> & {
 	packageManager: string
@@ -33,9 +33,7 @@ async function pmInfo(cwd: string = process.cwd()): Promise<PackageManager | nul
 
 	// check pnpm
 	try {
-		const modules = (await loadYamlFile(
-			join(NODE_MODULES_PATH, MODULES_YAML_FILE)
-		)) as ModulesYML
+		const modules = (await loadYml(join(NODE_MODULES_PATH, MODULES_YAML_FILE))) as ModulesYML
 		return normalizePMSpec(modules.packageManager)
 	} catch (err: any) {
 		if (err.code !== 'ENOENT') throw err
@@ -64,7 +62,7 @@ function pmInfoSync(cwd: string = process.cwd()): PackageManager | null {
 
 	// check pnpm
 	try {
-		const modules = loadYamlFileSync(join(NODE_MODULES_PATH, MODULES_YAML_FILE)) as ModulesYML
+		const modules = loadYmlSync(join(NODE_MODULES_PATH, MODULES_YAML_FILE)) as ModulesYML
 		return normalizePMSpec(modules.packageManager)
 	} catch (err: any) {
 		if (err.code !== 'ENOENT') throw err
