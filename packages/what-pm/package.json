@@ -1,6 +1,6 @@
 {
-	"name": "@node-kit/pnpm-workspace-root",
-	"description": "A simple utility to get the pnpm workspace root",
+	"name": "what-pm",
+	"description": "Detects what package manager was used for installation",
 	"version": "2.2.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
@@ -16,6 +16,7 @@
 		}
 	},
 	"files": [
+		"bin",
 		"dist"
 	],
 	"scripts": {},
@@ -26,8 +27,9 @@
 		"typings": "typings"
 	},
 	"dependencies": {
-		"@node-kit/extra.fs": "workspace:*",
-		"@pnpm/error": "^4.0.1",
+		"pm-info": "workspace:*",
+		"workspace-root": "workspace:*",
+		"debug": "^4.3.4",
 		"find-up": "^6.3.0"
 	},
 	"devDependencies": {
@@ -46,20 +48,20 @@
 	},
 	"keywords": [
 		"node-kit",
-		"workspace",
-		"pnpm-workspace",
-		"workspace-root"
+		"packageManager",
+		"which-pm",
+		"what-pm"
 	],
 	"license": "MIT",
 	"author": "saqqdy <https://github.com/saqqdy>",
-	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root#readme",
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/what-pm#readme",
 	"bugs": {
 		"url": "https://github.com/saqqdy/node-kit/issues"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/saqqdy/node-kit.git",
-		"directory": "packages/pnpm-workspace-root"
+		"directory": "packages/what-pm"
 	},
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org",

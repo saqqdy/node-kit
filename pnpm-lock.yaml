@@ -148,10 +148,10 @@ importers:
     specifiers:
       '@microsoft/api-extractor': ^7.34.2
       eslint: ^8.33.0
-      load-yml: ^1.0.0
+      load-yml: ^1.1.0
       prettier: ^2.8.3
     dependencies:
-      load-yml: 1.0.0
+      load-yml: 1.1.0
     devDependencies:
       '@microsoft/api-extractor': 7.34.2
       eslint: 8.33.0
@@ -164,13 +164,13 @@ importers:
       '@node-kit/pnpm-workspace-root': workspace:*
       eslint: ^8.33.0
       fast-glob: ^3.2.12
-      load-yml: ^1.0.0
+      load-yml: ^1.1.0
       prettier: ^2.8.3
     dependencies:
       '@node-kit/extra.path': link:../extra/path
       '@node-kit/pnpm-workspace-root': link:../pnpm-workspace-root
       fast-glob: 3.2.12
-      load-yml: 1.0.0
+      load-yml: 1.1.0
     devDependencies:
       '@microsoft/api-extractor': 7.34.2
       eslint: 8.33.0
@@ -198,6 +198,25 @@ importers:
       '@microsoft/api-extractor': ^7.34.2
       eslint: ^8.33.0
       prettier: ^2.8.3
+    devDependencies:
+      '@microsoft/api-extractor': 7.34.2
+      eslint: 8.33.0
+      prettier: 2.8.3
+
+  packages/what-pm:
+    specifiers:
+      '@microsoft/api-extractor': ^7.34.2
+      debug: ^4.3.4
+      eslint: ^8.33.0
+      find-up: ^6.3.0
+      pm-info: workspace:*
+      prettier: ^2.8.3
+      workspace-root: workspace:*
+    dependencies:
+      debug: 4.3.4
+      find-up: 6.3.0
+      pm-info: link:../pm-info
+      workspace-root: link:../workspace-root
     devDependencies:
       '@microsoft/api-extractor': 7.34.2
       eslint: 8.33.0
@@ -1711,10 +1730,6 @@ packages:
       pretty-format: 29.4.1
     dev: true
 
-  /@types/js-yaml/4.0.5:
-    resolution: {integrity: sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA==}
-    dev: false
-
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
@@ -2657,7 +2672,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
-    dev: true
 
   /dedent/0.7.0:
     resolution: {integrity: sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==}
@@ -5121,10 +5135,9 @@ packages:
       strip-bom: 5.0.0
     dev: true
 
-  /load-yml/1.0.0:
-    resolution: {integrity: sha512-FTS6MqnWFQ6RntV97uRxGTTX2R+FqaN7rUi6KFGioJzH6+KJjIRfh5tLunyGl8/VHtUEnRS0cHuIQjOAI6VBbw==}
+  /load-yml/1.1.0:
+    resolution: {integrity: sha512-9p6G9LFGgaZVEplniW1MDkBRvUIttHJWYq9ttlq+WB6raPPolI3VcZDloksAVKGZeJS2Kl30LpHwBbyaPwDitg==}
     dependencies:
-      '@types/js-yaml': 4.0.5
       core-js: 3.27.2
       js-yaml: 4.1.0
       strip-bom: 5.0.0
@@ -5432,7 +5445,6 @@ packages:
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
-    dev: true
 
   /ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
