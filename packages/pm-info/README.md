@@ -7,6 +7,7 @@ A simple utility to get the package manager information which used in the projec
 [![NPM version][npm-image]][npm-url]
 [![Codacy Badge][codacy-image]][codacy-url]
 [![Test coverage][codecov-image]][codecov-url]
+[![npm download][download-image]][download-url]
 [![License][license-image]][license-url]
 
 [![Sonar][sonar-image]][sonar-url]
@@ -61,6 +62,8 @@ Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
 [codacy-url]: https://www.codacy.com/gh/saqqdy/pm-info/dashboard?utm_source=github.com&utm_medium=referral&utm_content=saqqdy/pm-info&utm_campaign=Badge_Grade
 [codecov-image]: https://img.shields.io/codecov/c/github/saqqdy/pm-info.svg?style=flat-square
 [codecov-url]: https://codecov.io/github/saqqdy/pm-info?branch=master
+[download-image]: https://img.shields.io/npm/dm/pm-info.svg?style=flat-square
+[download-url]: https://npmjs.org/package/pm-info
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
 [license-url]: LICENSE
 [sonar-image]: https://sonarcloud.io/api/project_badges/quality_gate?project=saqqdy_node-kit

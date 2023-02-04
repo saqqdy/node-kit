@@ -3,7 +3,8 @@
 ## 2023.02.03 v2.2.0
 
 1. add `what-pm`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/what-pm#readme)
-2. fix bugs
+2. some docs work
+3. fix bugs
 
 ## 2023.02.03 v2.1.0
 

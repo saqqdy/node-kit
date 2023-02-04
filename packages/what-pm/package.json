@@ -16,7 +16,6 @@
 		}
 	},
 	"files": [
-		"bin",
 		"dist"
 	],
 	"scripts": {},
@@ -29,7 +28,6 @@
 	"dependencies": {
 		"pm-info": "workspace:*",
 		"workspace-root": "workspace:*",
-		"debug": "^4.3.4",
 		"find-up": "^6.3.0"
 	},
 	"devDependencies": {
