@@ -8,7 +8,6 @@ Detects what package manager was used for installation
 [![Codacy Badge][codacy-image]][codacy-url]
 [![Test coverage][codecov-image]][codecov-url]
 [![npm download][download-image]][download-url]
-[![npm download][download-image]][download-url]
 [![License][license-image]][license-url]
 
 [![Sonar][sonar-image]][sonar-url]

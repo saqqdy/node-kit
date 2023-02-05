@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/pnpm-workspace-info",
 	"description": "A simple utility to get the pnpm workspace information",
-	"version": "2.2.0",
+	"version": "2.2.1",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",

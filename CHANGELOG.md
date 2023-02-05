@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.02.04 v2.2.1
+
+1. upgrade `reinstaller`
+2. some docs work
+
 ## 2023.02.03 v2.2.0
 
 1. add `what-pm`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/what-pm#readme)

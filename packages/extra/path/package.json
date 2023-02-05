@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/extra.path",
 	"description": "Some shared extra utilities for nodejs build-in path modules",
-	"version": "2.2.0",
+	"version": "2.2.1",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
