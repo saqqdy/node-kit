@@ -60,17 +60,17 @@ async function build() {
 		if (name === 'monorepo') continue
 		const dirName = name.replace(/\./g, sep)
 		const cwd = resolve(__dirname, '..', 'packages', dirName)
-		if (dts === false) continue
-		consola.info(`Create types: packages/${dirName}`)
-		execSync('npx tsc -p tsconfig.declaration.json', {
-			stdio: 'inherit',
-			cwd
-		})
-		if (extractType === false) continue
-		execSync('npx api-extractor run', {
-			stdio: 'inherit',
-			cwd
-		})
+		// if (dts === false) continue
+		// consola.info(`Create types: packages/${dirName}`)
+		// execSync('npx tsc -p tsconfig.declaration.json', {
+		// 	stdio: 'inherit',
+		// 	cwd
+		// })
+		// if (extractType === false) continue
+		// execSync('npx api-extractor run', {
+		// 	stdio: 'inherit',
+		// 	cwd
+		// })
 	}
 
 	// consola.info("Fix types");

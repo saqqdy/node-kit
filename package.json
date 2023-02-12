@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/monorepo",
 	"description": "Some simple utilities for nodejs",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"packageManager": "pnpm@7.26.1",
 	"main": "index.js",
 	"files": [
@@ -31,7 +31,7 @@
 		"@node-kit/extra.fs": "workspace:*"
 	},
 	"devDependencies": {
-		"@eslint-sets/eslint-config-ts": "^4.2.1",
+		"@eslint-sets/eslint-config-ts": "^4.3.1",
 		"@rollup/plugin-commonjs": "^24.0.1",
 		"@rollup/plugin-json": "^6.0.0",
 		"@rollup/plugin-node-resolve": "^15.0.1",

@@ -20,8 +20,8 @@ const nodeResolve = (options: RollupNodeResolveOptions = {}): Plugin =>
 					'.json',
 					'.less',
 					'.css'
-				]
-				// preferBuiltins: true
+				],
+				preferBuiltins: false
 			},
 			options
 		)
