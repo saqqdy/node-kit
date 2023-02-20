@@ -31,7 +31,7 @@
 		"@node-kit/extra.fs": "workspace:*"
 	},
 	"devDependencies": {
-		"@eslint-sets/eslint-config-ts": "^4.3.1",
+		"@eslint-sets/eslint-config-ts": "^5.0.0",
 		"@rollup/plugin-commonjs": "^24.0.1",
 		"@rollup/plugin-json": "^6.0.0",
 		"@rollup/plugin-node-resolve": "^15.0.1",
