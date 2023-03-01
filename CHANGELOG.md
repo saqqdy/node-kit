@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.03.01 v2.3.0
+
+1. Added `rm` and `rmSync` in `@node-kit/extra.fs`
+2. upgrade all packages
+
 ## 2023.02.04 v2.2.1
 
 1. upgrade `reinstaller`

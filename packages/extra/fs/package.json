@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/extra.fs",
 	"description": "Some shared extra utilities for nodejs build-in fs modules",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
@@ -26,9 +26,9 @@
 		"typings": "typings"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.34.2",
-		"eslint": "^8.33.0",
-		"prettier": "^2.8.3"
+		"@microsoft/api-extractor": "^7.34.4",
+		"eslint": "^8.35.0",
+		"prettier": "^2.8.4"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
@@ -59,8 +59,5 @@
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org",
 		"access": "public"
-	},
-	"dependencies": {
-		"fast-glob": "^3.2.12"
 	}
 }

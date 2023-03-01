@@ -1,6 +1,6 @@
 export * from './readJSON'
 export * from './writeJSON'
 export * from './realPath'
-export * from './cp'
+// export * from './cp'
 export * from './rm'
-export * from './mv'
+// export * from './mv'

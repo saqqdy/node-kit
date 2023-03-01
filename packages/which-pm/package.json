@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/which-pm",
 	"description": "A simple utility to get which package manager used in the project",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"bin": {
 		"which-pm": "./bin/index.mjs",
 		"whichpm": "./bin/index.mjs"
@@ -34,9 +34,9 @@
 		"pm-info": "workspace:*"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.34.2",
-		"eslint": "^8.33.0",
-		"prettier": "^2.8.3"
+		"@microsoft/api-extractor": "^7.34.4",
+		"eslint": "^8.35.0",
+		"prettier": "^2.8.4"
 	},
 	"pnpm": {
 		"peerDependencyRules": {

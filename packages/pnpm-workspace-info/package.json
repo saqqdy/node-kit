@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/pnpm-workspace-info",
 	"description": "A simple utility to get the pnpm workspace information",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
@@ -29,12 +29,12 @@
 		"@node-kit/extra.path": "workspace:*",
 		"@node-kit/pnpm-workspace-root": "workspace:*",
 		"fast-glob": "^3.2.12",
-		"load-yml": "^1.1.1"
+		"load-yml": "^1.2.0"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.34.2",
-		"eslint": "^8.33.0",
-		"prettier": "^2.8.3"
+		"@microsoft/api-extractor": "^7.34.4",
+		"eslint": "^8.35.0",
+		"prettier": "^2.8.4"
 	},
 	"pnpm": {
 		"peerDependencyRules": {

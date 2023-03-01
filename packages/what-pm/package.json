@@ -1,7 +1,7 @@
 {
 	"name": "what-pm",
 	"description": "Detects what package manager was used for installation",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",
@@ -26,14 +26,14 @@
 		"typings": "typings"
 	},
 	"dependencies": {
+		"find-up": "^6.3.0",
 		"pm-info": "workspace:*",
-		"workspace-root": "workspace:*",
-		"find-up": "^6.3.0"
+		"workspace-root": "workspace:*"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.34.2",
-		"eslint": "^8.33.0",
-		"prettier": "^2.8.3"
+		"@microsoft/api-extractor": "^7.34.4",
+		"eslint": "^8.35.0",
+		"prettier": "^2.8.4"
 	},
 	"pnpm": {
 		"peerDependencyRules": {

@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"target": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "NodeNext",
 		"noLib": false,
 		"lib": ["ESNext"],
 		"sourceMap": true,
