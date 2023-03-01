@@ -1,6 +1,6 @@
-import { isAbsolute, join } from 'node:path'
-import { existsSync } from 'node:fs'
-import { findUp, findUpSync } from 'find-up'
+import { isAbsolute, join } from 'path'
+import { existsSync } from 'fs'
+import findUp from 'find-up'
 import { pmInfo, pmInfoSync } from 'pm-info'
 import { workspaceRoot, workspaceRootSync } from 'workspace-root'
 
@@ -99,7 +99,7 @@ function whatPMSync(pkgPath: string): WhatPMResult | null {
 			isWorkspace
 		}
 	}
-	if (findUpSync('pnpm-lock.yaml', { cwd: pkgPath })) {
+	if (findUp.sync('pnpm-lock.yaml', { cwd: pkgPath })) {
 		return {
 			name: 'pnpm',
 			version: '>=3',

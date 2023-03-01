@@ -1,6 +1,6 @@
 import { dirname, join } from 'path'
 import { PnpmError } from '@pnpm/error'
-import { findUp, findUpSync } from 'find-up'
+import findUp from 'find-up'
 import { getRealPath, getRealPathSync } from '@node-kit/extra.fs'
 
 const WORKSPACE_DIR_ENV_VAR = 'NPM_CONFIG_WORKSPACE_DIR'
@@ -40,7 +40,7 @@ function pnpmWorkspaceRootSync(cwd: string): string | null {
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
 	const workspaceManifestPath = workspaceManifestDirEnvVar
 		? join(workspaceManifestDirEnvVar, 'pnpm-workspace.yaml')
-		: findUpSync([WORKSPACE_MANIFEST_FILENAME, 'pnpm-workspace.yml'], {
+		: findUp.sync([WORKSPACE_MANIFEST_FILENAME, 'pnpm-workspace.yml'], {
 				cwd: getRealPathSync(cwd)
 		  })
 	if (workspaceManifestPath?.endsWith('.yml')) {

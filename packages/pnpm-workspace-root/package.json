@@ -8,7 +8,8 @@
 	"exports": {
 		".": {
 			"require": "./dist/index.cjs",
-			"import": "./dist/index.mjs"
+			"import": "./dist/index.mjs",
+			"types": "./dist/index.d.ts"
 		},
 		"./*": {
 			"require": "./dist/*.cjs",
@@ -28,7 +29,7 @@
 	"dependencies": {
 		"@node-kit/extra.fs": "workspace:*",
 		"@pnpm/error": "^4.0.1",
-		"find-up": "^6.3.0"
+		"find-up": "^5.0.0"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.34.4",

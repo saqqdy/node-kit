@@ -8,7 +8,8 @@
 	"exports": {
 		".": {
 			"require": "./dist/index.cjs",
-			"import": "./dist/index.mjs"
+			"import": "./dist/index.mjs",
+			"types": "./dist/index.d.ts"
 		},
 		"./*": {
 			"require": "./dist/*.cjs",
@@ -26,7 +27,7 @@
 		"typings": "typings"
 	},
 	"dependencies": {
-		"find-up": "^6.3.0",
+		"find-up": "^5.0.0",
 		"pm-info": "workspace:*",
 		"workspace-root": "workspace:*"
 	},
