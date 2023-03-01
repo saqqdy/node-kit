@@ -30,7 +30,7 @@
 		"@node-kit/extra.path": "workspace:*",
 		"@node-kit/pnpm-workspace-root": "workspace:*",
 		"fast-glob": "^3.2.12",
-		"load-yml": "^1.2.0"
+		"load-yml": "^1.3.0"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.34.4",

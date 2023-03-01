@@ -22,7 +22,7 @@ importers:
       husky: ^8.0.3
       jest: ^29.4.3
       lint-staged: ^13.1.2
-      load-yml: ^1.2.0
+      load-yml: ^1.3.0
       npm-run-all: ^4.1.5
       prettier: ^2.8.4
       prettier-config-common: ^1.4.0
@@ -60,7 +60,7 @@ importers:
       husky: 8.0.3
       jest: 29.4.3_@types+node@18.14.2
       lint-staged: 13.1.2
-      load-yml: 1.2.0
+      load-yml: 1.3.0
       npm-run-all: 4.1.5
       prettier: 2.8.4
       prettier-config-common: 1.4.0
@@ -150,10 +150,10 @@ importers:
     specifiers:
       '@microsoft/api-extractor': ^7.34.4
       eslint: ^8.35.0
-      load-yml: ^1.2.0
+      load-yml: ^1.3.0
       prettier: ^2.8.4
     dependencies:
-      load-yml: 1.2.0
+      load-yml: 1.3.0
     devDependencies:
       '@microsoft/api-extractor': 7.34.4
       eslint: 8.35.0
@@ -166,13 +166,13 @@ importers:
       '@node-kit/pnpm-workspace-root': workspace:*
       eslint: ^8.35.0
       fast-glob: ^3.2.12
-      load-yml: ^1.2.0
+      load-yml: ^1.3.0
       prettier: ^2.8.4
     dependencies:
       '@node-kit/extra.path': link:../extra/path
       '@node-kit/pnpm-workspace-root': link:../pnpm-workspace-root
       fast-glob: 3.2.12
-      load-yml: 1.2.0
+      load-yml: 1.3.0
     devDependencies:
       '@microsoft/api-extractor': 7.34.4
       eslint: 8.35.0
@@ -1428,13 +1428,15 @@ packages:
       find-up: 6.3.0
     dev: true
 
-  /@node-kit/pnpm-workspace-info/2.2.0:
+  /@node-kit/pnpm-workspace-info/2.2.0_core-js@3.27.2:
     resolution: {integrity: sha512-3NGeC6/FYA57jM0GjBZG9m1lXj8corV+omzWlDLlqXyfWgFtHeNWhYIoL4BjUVwr6hJ1zjZEH4BhGdyKrsPPgQ==}
     dependencies:
       '@node-kit/extra.path': 2.2.0
       '@node-kit/pnpm-workspace-root': 2.2.0
       fast-glob: 3.2.12
-      load-yml: 1.2.0
+      load-yml: 1.3.0_core-js@3.27.2
+    transitivePeerDependencies:
+      - core-js
     dev: true
 
   /@node-kit/pnpm-workspace-root/2.2.0:
@@ -2624,6 +2626,7 @@ packages:
   /core-js/3.27.2:
     resolution: {integrity: sha512-9ashVQskuh5AZEZ1JdQWp1GqSoC1e1G87MzRqg2gIfVAQ7Qn9K+uFj8EcniUFA4P2NLZfV+TOlX1SzoKfo+s7w==}
     requiresBuild: true
+    dev: true
 
   /cosmiconfig/8.0.0:
     resolution: {integrity: sha512-da1EafcpH6b/TD8vDRaWV7xFINlHlF6zKsGwS1TsuVJTZRkquaS5HTMq7uq6h31619QjbsYl21gVDOm32KM1vQ==}
@@ -5122,12 +5125,31 @@ packages:
       strip-bom: 3.0.0
     dev: true
 
-  /load-yml/1.2.0:
-    resolution: {integrity: sha512-U7pdcpIQganwc624lwLGcYHA9fM4T3f6uiILvnqQz7XknMAPw31cf4IVMljz+fjSAaffM31MIWUFtVGvBrfc+A==}
+  /load-yml/1.3.0:
+    resolution: {integrity: sha512-LkbCmVZULVsMADpXe3WIvM8GfsTDDbbnItNaEJIhoJeyab359GyQ5dM4esqyE+XH60Yo8xB5N2SeEk174RY6Rg==}
+    engines: {node: '>=12.20'}
+    peerDependencies:
+      core-js: '>= 3'
+    peerDependenciesMeta:
+      core-js:
+        optional: true
+    dependencies:
+      '@types/js-yaml': 4.0.5
+      js-yaml: 4.1.0
+
+  /load-yml/1.3.0_core-js@3.27.2:
+    resolution: {integrity: sha512-LkbCmVZULVsMADpXe3WIvM8GfsTDDbbnItNaEJIhoJeyab359GyQ5dM4esqyE+XH60Yo8xB5N2SeEk174RY6Rg==}
+    engines: {node: '>=12.20'}
+    peerDependencies:
+      core-js: '>= 3'
+    peerDependenciesMeta:
+      core-js:
+        optional: true
     dependencies:
       '@types/js-yaml': 4.0.5
       core-js: 3.27.2
       js-yaml: 4.1.0
+    dev: true
 
   /locate-path/5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
@@ -5985,10 +6007,12 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /pm-info/2.2.0:
+  /pm-info/2.2.0_core-js@3.27.2:
     resolution: {integrity: sha512-6S0imOyefe63TjLjt7G7isZxESZ9h5HGLSIlPmwPGNa4Ilv7ehgFK4kRgAV5hZqCcJYlwzRL5Yo5hGJ0P5Kdxw==}
     dependencies:
-      load-yml: 1.2.0
+      load-yml: 1.3.0_core-js@3.27.2
+    transitivePeerDependencies:
+      - core-js
     dev: true
 
   /prelude-ls/1.2.1:
@@ -6179,8 +6203,8 @@ packages:
       js-cool: 2.8.0
       monorepo-root: 2.2.0
       ora: 6.1.2
-      what-pm: 2.2.0
-      workspace-projects: 2.2.0
+      what-pm: 2.2.0_core-js@3.27.2
+      workspace-projects: 2.2.0_core-js@3.27.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7114,12 +7138,14 @@ packages:
     hasBin: true
     dev: true
 
-  /what-pm/2.2.0:
+  /what-pm/2.2.0_core-js@3.27.2:
     resolution: {integrity: sha512-xtyCT4Ow44B3DnsghEhlW09spRJcQ+RLCpmntPp/p1XcbJ9cgSBg+QOjthGiHrsV3mv/halaKsBkt3QeQU+e/Q==}
     dependencies:
       find-up: 6.3.0
-      pm-info: 2.2.0
+      pm-info: 2.2.0_core-js@3.27.2
       workspace-root: 2.2.0
+    transitivePeerDependencies:
+      - core-js
     dev: true
 
   /which-boxed-primitive/1.0.2:
@@ -7189,12 +7215,14 @@ packages:
     resolution: {integrity: sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==}
     dev: true
 
-  /workspace-projects/2.2.0:
+  /workspace-projects/2.2.0_core-js@3.27.2:
     resolution: {integrity: sha512-0jhnlmL5WB6FHCtkAt/ln/oOncyN2KII5HOqIiGSADg1nJufKCwb1SuPbasQOP5HntmA9CBYIY52kJqeC2x7UQ==}
     dependencies:
       '@node-kit/lerna-workspace-info': 2.2.0
-      '@node-kit/pnpm-workspace-info': 2.2.0
+      '@node-kit/pnpm-workspace-info': 2.2.0_core-js@3.27.2
       '@node-kit/yarn-workspace-info': 2.2.0
+    transitivePeerDependencies:
+      - core-js
     dev: true
 
   /workspace-root/2.2.0:
