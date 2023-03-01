@@ -1,4 +1,4 @@
-name: Npm publish test version
+name: npm-publish-test
 
 on:
   push:
@@ -60,7 +60,7 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/which-pm/.npmrc
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/what-pm/.npmrc
 
-      - run: pnpm pub
+      - run: pnpm pub --test
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
