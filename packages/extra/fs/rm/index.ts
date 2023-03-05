@@ -10,7 +10,7 @@ import {
 	unlinkSync
 } from 'fs'
 
-export interface Options extends RmDirOptions {
+export interface RmOptions extends RmDirOptions {
 	force?: boolean
 }
 
@@ -19,7 +19,7 @@ export interface Options extends RmDirOptions {
  *
  * @param paths - path or file, support array
  */
-export async function rm(paths: PathLike | PathLike[], options?: Options): Promise<void> {
+export async function rm(paths: PathLike | PathLike[], options?: RmOptions): Promise<void> {
 	if (!(paths instanceof Array)) paths = ([] as PathLike[]).concat(paths)
 
 	for (let path of paths) {
@@ -49,7 +49,7 @@ export async function rm(paths: PathLike | PathLike[], options?: Options): Promi
  *
  * @param paths - path or file, support array
  */
-export function rmSync(paths: PathLike | PathLike[], options?: Options): void {
+export function rmSync(paths: PathLike | PathLike[], options?: RmOptions): void {
 	if (!(paths instanceof Array)) paths = ([] as PathLike[]).concat(paths)
 
 	for (let path of paths) {
