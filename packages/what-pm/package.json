@@ -27,7 +27,7 @@
 		"typings": "typings"
 	},
 	"dependencies": {
-		"find-up": "^5.0.0",
+		"find-up": "^6.3.0",
 		"pm-info": "workspace:*",
 		"workspace-root": "workspace:*"
 	},
