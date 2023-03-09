@@ -1,7 +1,7 @@
 {
 	"name": "workspace-pkgs",
 	"description": "A simple utility to get the workspace project list",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"typings": "./dist/index.d.ts",

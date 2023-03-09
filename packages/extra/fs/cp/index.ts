@@ -2,12 +2,12 @@ import { basename, dirname, isAbsolute, join } from 'path'
 import {
 	type PathLike,
 	type RmDirOptions,
+	copyFileSync,
 	existsSync,
 	lstatSync,
+	mkdirSync,
 	promises,
-	readdirSync,
-	rmdirSync,
-	unlinkSync
+	readdirSync
 } from 'fs'
 
 export interface CpOptions extends RmDirOptions {
@@ -27,16 +27,25 @@ export async function cp(
 ): Promise<void> {
 	if (!(paths instanceof Array)) paths = ([] as PathLike[]).concat(paths)
 
+	const targetStat = await promises.lstat(target)
+	if (targetStat.isFile() && typeof target === 'string') {
+		console.warn(new Error('target should be a path'))
+		target = dirname(target)
+	}
+	if (!existsSync(target)) {
+		await promises.mkdir(target)
+	}
+
 	for (let path of paths) {
 		typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
-		if (!existsSync(path)) {
-			console.info(`[NOT_EXIST]: "${path}" does not exist`)
+		if (!existsSync(path) || !existsSync(target)) {
+			console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}
 		// get stat
 		const stat = await promises.lstat(path)
 		if (stat.isFile()) {
-			await promises.unlink(path)
+			await promises.copyFile(path, target)
 			continue
 		}
 
@@ -44,11 +53,9 @@ export async function cp(
 		const files = await promises.readdir(path)
 		await cp(
 			files.map(name => (typeof path === 'string' ? join(path, name) : name)),
-			target
+			target,
+			options
 		)
-
-		// remove dir
-		await promises.rmdir(path, options)
 	}
 }
 
@@ -66,11 +73,14 @@ export function cpSync(paths: PathLike | PathLike[], target: PathLike, options?:
 		console.warn(new Error('target should be a path'))
 		target = dirname(target)
 	}
+	if (!existsSync(target)) {
+		mkdirSync(target)
+	}
 
 	for (let path of paths) {
 		typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
-		if (!existsSync(path)) {
-			console.info(`[NOT_EXIST]: "${path}" does not exist`)
+		if (!existsSync(path) || !existsSync(target)) {
+			console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}
 		// get stat
@@ -79,7 +89,7 @@ export function cpSync(paths: PathLike | PathLike[], target: PathLike, options?:
 			if (targetStat.isDirectory()) {
 				target = join(target, basename(path))
 			}
-			unlinkSync(path)
+			copyFileSync(path, target)
 			continue
 		}
 
@@ -87,11 +97,9 @@ export function cpSync(paths: PathLike | PathLike[], target: PathLike, options?:
 		const files = readdirSync(path)
 		cpSync(
 			files.map(name => (typeof path === 'string' ? join(path, name) : name)),
-			target
+			target,
+			options
 		)
-
-		// remove dir
-		rmdirSync(path, options)
 	}
 }
 

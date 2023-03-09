@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.03.01 v2.4.0
+
+1. Added `cp` and `cpSync` in `@node-kit/extra.fs`
+2. upgrade all packages
+
 ## 2023.03.01 v2.3.0
 
 1. Added `rm` and `rmSync` in `@node-kit/extra.fs`
