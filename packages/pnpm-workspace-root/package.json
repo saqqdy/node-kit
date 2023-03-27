@@ -28,7 +28,7 @@
 	},
 	"dependencies": {
 		"@node-kit/extra.fs": "workspace:*",
-		"@pnpm/error": "^4.0.1",
+		"@pnpm/error": "^5.0.0",
 		"find-up": "^5.0.0"
 	},
 	"devDependencies": {
