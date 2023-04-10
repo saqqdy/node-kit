@@ -54,7 +54,7 @@
 		"prettier": "^2.8.4",
 		"prettier-config-common": "^1.4.0",
 		"reinstaller": "^2.3.0",
-		"rimraf": "^4.1.2",
+		"rimraf": "^5.0.0",
 		"rollup": "^3.17.3",
 		"rollup-plugin-add-banner": "^1.1.0",
 		"rollup-plugin-dts": "^5.2.0",
