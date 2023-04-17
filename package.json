@@ -40,7 +40,7 @@
 		"@types/jest": "^29.4.0",
 		"@types/node": "^18.14.2",
 		"chalk": "^5.2.0",
-		"consola": "^2.15.3",
+		"consola": "^3.0.2",
 		"cross-env": "^7.0.3",
 		"esbuild": "^0.17.10",
 		"esbuild-register": "^3.4.2",
