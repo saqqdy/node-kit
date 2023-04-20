@@ -4,7 +4,7 @@
 	"version": "2.4.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
-	"typings": "./dist/index.d.ts",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"require": "./dist/index.cjs",
@@ -28,13 +28,13 @@
 	},
 	"dependencies": {
 		"@node-kit/extra.fs": "workspace:*",
-		"@pnpm/error": "^4.0.1",
+		"@pnpm/error": "^5.0.0",
 		"find-up": "^5.0.0"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.34.4",
-		"eslint": "^8.35.0",
-		"prettier": "^2.8.4"
+		"eslint": "^8.38.0",
+		"prettier": "^2.8.7"
 	},
 	"pnpm": {
 		"peerDependencyRules": {

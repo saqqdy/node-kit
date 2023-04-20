@@ -3,7 +3,7 @@
         "@eslint-sets/eslint-config-ts": "latest",
         "reinstaller": "latest"
     },
-    "exclude": [],
+    "exclude": ["find-up"],
     "packageManager": "pnpm",
     "registry": "https://registry.npmmirror.com"
 }

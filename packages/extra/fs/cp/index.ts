@@ -1,7 +1,8 @@
-import { basename, dirname, isAbsolute, join } from 'path'
+import { basename, join } from 'path'
 import {
 	type PathLike,
 	type RmDirOptions,
+	constants,
 	copyFileSync,
 	existsSync,
 	lstatSync,
@@ -9,13 +10,14 @@ import {
 	promises,
 	readdirSync
 } from 'fs'
+// import fg from 'fast-glob'
 
 export interface CpOptions extends RmDirOptions {
 	force?: boolean
 }
 
 /**
- * remove file
+ * copy file
  *
  * @param paths - path or file, support array
  * @param target - target path
@@ -26,80 +28,85 @@ export async function cp(
 	options?: CpOptions
 ): Promise<void> {
 	if (!(paths instanceof Array)) paths = ([] as PathLike[]).concat(paths)
+	// paths = await fg(paths as string[], {
+	// 	cwd: process.cwd(),
+	// 	ignore: [],
+	// 	onlyDirectories: true,
+	// 	onlyFiles: true
+	// })
 
-	const targetStat = await promises.lstat(target)
-	if (targetStat.isFile() && typeof target === 'string') {
-		console.warn(new Error('target should be a path'))
-		target = dirname(target)
-	}
-	if (!existsSync(target)) {
-		await promises.mkdir(target)
-	}
+	if (!existsSync(target)) await promises.mkdir(target)
 
-	for (let path of paths) {
-		typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
-		if (!existsSync(path) || !existsSync(target)) {
+	for (const path of paths) {
+		// typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
+		if (!existsSync(path)) {
 			console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}
 		// get stat
 		const stat = await promises.lstat(path)
 		if (stat.isFile()) {
-			await promises.copyFile(path, target)
+			target = join(target as string, basename(path as string))
+			await promises.copyFile(path, target, constants.COPYFILE_FICLONE)
 			continue
 		}
 
 		// get files
 		const files = await promises.readdir(path)
-		await cp(
-			files.map(name => (typeof path === 'string' ? join(path, name) : name)),
-			target,
-			options
+		await Promise.all(
+			files.map(name => {
+				const _stat = lstatSync(join(path as string, name))
+				return cp(
+					join(path as string, name),
+					_stat.isDirectory() ? join(target as string, name) : target,
+					options
+				)
+			})
 		)
 	}
 }
 
 /**
- * remove file sync
+ * copy file sync
  *
  * @param paths - path or file, support array
  * @param target - target path
  */
 export function cpSync(paths: PathLike | PathLike[], target: PathLike, options?: CpOptions): void {
 	if (!(paths instanceof Array)) paths = ([] as PathLike[]).concat(paths)
+	// paths = fg.sync(paths as string[], {
+	// 	cwd: process.cwd(),
+	// 	ignore: [],
+	// 	onlyDirectories: true,
+	// 	onlyFiles: true
+	// })
 
-	const targetStat = lstatSync(target)
-	if (targetStat.isFile() && typeof target === 'string') {
-		console.warn(new Error('target should be a path'))
-		target = dirname(target)
-	}
-	if (!existsSync(target)) {
-		mkdirSync(target)
-	}
+	if (!existsSync(target)) mkdirSync(target)
 
-	for (let path of paths) {
-		typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
-		if (!existsSync(path) || !existsSync(target)) {
+	for (const path of paths) {
+		// typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
+		if (!existsSync(path)) {
 			console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}
 		// get stat
 		const stat = lstatSync(path)
-		if (stat.isFile() && typeof path === 'string' && typeof target === 'string') {
-			if (targetStat.isDirectory()) {
-				target = join(target, basename(path))
-			}
-			copyFileSync(path, target)
+		if (stat.isFile()) {
+			target = join(target as string, basename(path as string))
+			copyFileSync(path, target, constants.COPYFILE_FICLONE)
 			continue
 		}
 
 		// get files
 		const files = readdirSync(path)
-		cpSync(
-			files.map(name => (typeof path === 'string' ? join(path, name) : name)),
-			target,
-			options
-		)
+		for (const name of files) {
+			const _stat = lstatSync(join(path as string, name))
+			cpSync(
+				join(path as string, name),
+				_stat.isDirectory() ? join(target as string, name) : target,
+				options
+			)
+		}
 	}
 }
 

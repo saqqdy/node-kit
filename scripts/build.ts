@@ -57,7 +57,7 @@ async function build() {
 	})
 
 	for (const { dts, name, extractType } of packages) {
-		if (name === 'monorepo') continue
+		if (watch || name === 'monorepo') continue
 		const dirName = name.replace(/\./g, sep)
 		const cwd = resolve(__dirname, '..', 'packages', dirName)
 		if (dts === false) continue
