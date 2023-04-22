@@ -29,7 +29,7 @@ $ npm install -D @node-kit/which-pm
 
 ## Usage
 
-### use `@node-kit/which-pm` in bash window
+use `@node-kit/which-pm` in bash window
 
 ```bash
 npx which-pm
@@ -37,22 +37,58 @@ npx which-pm
 # output: pnpm@7.26.1 | null
 ```
 
-### use `@node-kit/which-pm` as a library
-
-1. use `@node-kit/which-pm` in async mode
+use import
 
 ```js
-import { whichPM } from '@node-kit/which-pm'
+import { whichPM, whichPMSync } from '@node-kit/which-pm'
+
+whichPM()
+// or
+whichPMSync()
+```
+
+use require
+
+```js
+const { whichPM, whichPMSync } = require('@node-kit/which-pm')
+
+whichPM()
+// or
+whichPMSync()
+```
+
+## API reference
+
+- Usage: `whichPM([cwd, withVersion])` & `whichPMSync([cwd, withVersion])`
+- Parameters:
+
+<div class="table-prop">
+
+| Param       | Description         | Type      | Optional value | Required | Default value |
+| ----------- | ------------------- | --------- | -------------- | -------- | ------------- |
+| cwd         | running path        | `string`  | -              | `false`  | -             |
+| withVersion | return with version | `boolean` | -              | `false`  | `true`        |
+
+</div>
+
+- Types:
+
+```ts
+declare function whichPM(cwd?: string, withVersion?: boolean): Promise<string | null>
+
+declare function whichPMSync(cwd?: string, withVersion?: boolean): string | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { whichPM, whichPMSync } from '@node-kit/which-pm'
 
 whichPM().then(path => {
   console.log('The package manager is: ', path) // pnpm@7.26.1 | null
 })
-```
-
-2. use `@node-kit/which-pm` in sync mode
-
-```js
-import { whichPMSync } from '@node-kit/which-pm'
 
 console.log('The package manager is: ', whichPMSync()) // pnpm@7.26.1 | null
 ```

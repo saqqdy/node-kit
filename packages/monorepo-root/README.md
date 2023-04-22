@@ -29,21 +29,57 @@ $ npm install -D monorepo-root
 
 ## Usage
 
-1. use `monorepo-root` in async mode
+use import
 
 ```js
-import { monorepoRoot } from 'monorepo-root'
+import { monorepoRoot, monorepoRootSync } from '@node-kit/monorepo-root'
+
+monorepoRoot()
+// or
+monorepoRootSync()
+```
+
+use require
+
+```js
+const { monorepoRoot, monorepoRootSync } = require('@node-kit/monorepo-root')
+
+monorepoRoot()
+// or
+monorepoRootSync()
+```
+
+## API reference
+
+- Usage: `monorepoRoot(cwd)` & `monorepoRootSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function monorepoRoot(cwd?: string): Promise<string | null>
+
+declare function monorepoRootSync(cwd?: string): string | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { monorepoRoot, monorepoRootSync } from '@node-kit/monorepo-root'
 
 monorepoRoot().then(path => {
   console.log('The monorepo root is: ', path) // /Users/user/path/of/package/root or null
 })
-```
-
-2. use `monorepo-root` in sync mode
-
-```js
-import { monorepoRootSync } from 'monorepo-root'
-
 console.log('The monorepo root is: ', monorepoRootSync()) // /Users/user/path/of/package/root or null
 ```
 

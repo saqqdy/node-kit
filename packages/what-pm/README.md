@@ -29,21 +29,63 @@ $ npm install what-pm
 
 ## Usage
 
-1. use `what-pm` in async mode
-   s
+use import
 
 ```js
-import { whatPM } from 'what-pm'
+import { whatPM, whatPMSync } from '@node-kit/what-pm'
+
+whatPM()
+// or
+whatPMSync()
+```
+
+use require
+
+```js
+const { whatPM, whatPMSync } = require('@node-kit/what-pm')
+
+whatPM()
+// or
+whatPMSync()
+```
+
+## API reference
+
+- Usage: `whatPM(pkgPath)` & `whatPMSync(pkgPath)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param   | Description  | Type     | Optional value | Required | Default value |
+| ------- | ------------ | -------- | -------------- | -------- | ------------- |
+| pkgPath | package path | `string` | -              | `true`   | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function whatPM(pkgPath: string): Promise<WhatPMResult | null>
+
+declare interface WhatPMResult {
+  name: string
+  version: string
+  isWorkspace: boolean
+}
+
+declare function whatPMSync(pkgPath: string): WhatPMResult | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { whatPM, whatPMSync } from '@node-kit/what-pm'
 
 whatPM().then(info => {
   console.log('The package manager is: ', info) // pnpm | null
 })
-```
-
-2. use `what-pm` in sync mode
-
-```js
-import { whatPMSync } from 'what-pm'
 
 console.log('The package manager is: ', whatPMSync()) // pnpm | null
 ```

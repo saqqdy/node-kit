@@ -29,21 +29,64 @@ $ npm install -D @node-kit/yarn-workspace-root
 
 ## Usage
 
-1. use `@node-kit/yarn-workspace-root` in async mode
+use import
 
 ```js
-import { yarnWorkspaceRoot } from '@node-kit/yarn-workspace-root'
+import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
+
+yarnWorkspaceRoot()
+// or
+yarnWorkspaceRootSync()
+```
+
+use require
+
+```js
+const { yarnWorkspaceRoot, yarnWorkspaceRootSync } = require('@node-kit/yarn-workspace-root')
+
+yarnWorkspaceRoot()
+// or
+yarnWorkspaceRootSync()
+```
+
+## API reference
+
+- Usage: `yarnWorkspaceRoot(cwd)` & `yarnWorkspaceRootSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare type Manifest =
+  | (Record<string, unknown> & {
+      packages: any
+      workspaces: any
+    })
+  | null
+
+declare function yarnWorkspaceRoot(cwd?: string): Promise<string | null>
+
+declare function yarnWorkspaceRootSync(cwd?: string): string | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
 
 yarnWorkspaceRoot().then(path => {
   console.log('The yarn workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
-```
-
-2. use `@node-kit/yarn-workspace-root` in sync mode
-
-```js
-import { yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
-
 console.log('The yarn workspace root is: ', yarnWorkspaceRootSync()) // /Users/user/path/of/package/root or null
 ```
 

@@ -60,7 +60,7 @@ async function pnpmWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspace
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function pnpmWorkspaceInfoSync(cwd: string): WorkspaceInfo | null {
+function pnpmWorkspaceInfoSync(cwd: string = process.cwd()): WorkspaceInfo | null {
 	const root = pnpmWorkspaceRootSync(cwd)
 	if (!root) {
 		console.error('not a pnpm workspace project')

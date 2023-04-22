@@ -29,10 +29,64 @@ $ npm install -D @node-kit/pnpm-workspace-info
 
 ## Usage
 
-1. use `@node-kit/pnpm-workspace-info` in async mode
+use import
 
 ```js
-import { pnpmWorkspaceInfo } from '@node-kit/pnpm-workspace-info'
+import { pnpmWorkspaceInfo, pnpmWorkspaceInfoSync } from '@node-kit/pnpm-workspace-info'
+
+pnpmWorkspaceInfo()
+// or
+pnpmWorkspaceInfoSync()
+```
+
+use require
+
+```js
+const { pnpmWorkspaceInfo, pnpmWorkspaceInfoSync } = require('@node-kit/pnpm-workspace-info')
+
+pnpmWorkspaceInfo()
+// or
+pnpmWorkspaceInfoSync()
+```
+
+## API reference
+
+- Usage: `pnpmWorkspaceInfo(cwd)` & `pnpmWorkspaceInfoSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare type ManifestInfo = Record<string, unknown> & {
+  packages: string | string[]
+}
+
+declare function pnpmWorkspaceInfo(cwd?: string): Promise<WorkspaceInfo | null>
+
+declare function pnpmWorkspaceInfoSync(cwd?: string): WorkspaceInfo | null
+
+declare type WorkspaceInfo = Record<
+  string,
+  {
+    path: string
+  }
+>
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { pnpmWorkspaceInfo, pnpmWorkspaceInfoSync } from '@node-kit/pnpm-workspace-info'
 
 pnpmWorkspaceInfo({
   cwd,
@@ -40,13 +94,6 @@ pnpmWorkspaceInfo({
 }).then(data => {
   console.log('The pnpm workspace info is: ', data) // { projectA: { path: 'packages/projectA' } }
 })
-```
-
-2. use `@node-kit/pnpm-workspace-info` in sync mode
-
-```js
-import { pnpmWorkspaceInfoSync } from '@node-kit/pnpm-workspace-info'
-
 console.log('The pnpm workspace info is: ', pnpmWorkspaceInfoSync()) // { projectA: { path: 'packages/projectA' } }
 ```
 

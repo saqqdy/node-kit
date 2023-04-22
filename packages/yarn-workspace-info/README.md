@@ -29,10 +29,64 @@ $ npm install -D @node-kit/yarn-workspace-info
 
 ## Usage
 
-1. use `@node-kit/yarn-workspace-info` in async mode
+use import
 
 ```js
-import { yarnWorkspaceInfo } from '@node-kit/yarn-workspace-info'
+import { yarnWorkspaceInfo, yarnWorkspaceInfoSync } from '@node-kit/yarn-workspace-info'
+
+yarnWorkspaceInfo()
+// or
+yarnWorkspaceInfoSync()
+```
+
+use require
+
+```js
+const { yarnWorkspaceInfo, yarnWorkspaceInfoSync } = require('@node-kit/yarn-workspace-info')
+
+yarnWorkspaceInfo()
+// or
+yarnWorkspaceInfoSync()
+```
+
+## API reference
+
+- Usage: `yarnWorkspaceInfo(cwd)` & `yarnWorkspaceInfoSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare type ManifestInfo = Record<string, unknown> & {
+  workspaces: string | string[]
+}
+
+declare type WorkspaceInfo = Record<
+  string,
+  {
+    path: string
+  }
+>
+
+declare function yarnWorkspaceInfo(cwd?: string): Promise<WorkspaceInfo | null>
+
+declare function yarnWorkspaceInfoSync(cwd?: string): WorkspaceInfo | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { yarnWorkspaceInfo, yarnWorkspaceInfoSync } from '@node-kit/yarn-workspace-info'
 
 yarnWorkspaceInfo({
   cwd,
@@ -40,13 +94,6 @@ yarnWorkspaceInfo({
 }).then(data => {
   console.log('The yarn workspace info is: ', data) // { projectA: { path: 'packages/projectA' } }
 })
-```
-
-2. use `@node-kit/yarn-workspace-info` in sync mode
-
-```js
-import { yarnWorkspaceInfoSync } from '@node-kit/yarn-workspace-info'
-
 console.log('The yarn workspace info is: ', yarnWorkspaceInfoSync()) // { projectA: { path: 'packages/projectA' } }
 ```
 

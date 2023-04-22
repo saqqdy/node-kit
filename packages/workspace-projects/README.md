@@ -29,20 +29,57 @@ $ npm install -D workspace-projects
 
 ## Usage
 
-1. use `workspace-projects` in async mode
+use import
 
 ```js
-import { workspaceProjects } from 'workspace-projects'
+import { workspaceProjects, workspaceProjectsSync } from '@node-kit/workspace-projects'
+
+workspaceProjects()
+// or
+workspaceProjectsSync()
+```
+
+use require
+
+```js
+const { workspaceProjects, workspaceProjectsSync } = require('@node-kit/workspace-projects')
+
+workspaceProjects()
+// or
+workspaceProjectsSync()
+```
+
+## API reference
+
+- Usage: `workspaceProjects(cwd)` & `workspaceProjectsSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function workspaceProjects(cwd?: string): Promise<string[] | null>
+
+declare function workspaceProjectsSync(cwd?: string): string[] | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { workspaceProjects, workspaceProjectsSync } from '@node-kit/workspace-projects'
 
 workspaceProjects().then(data => {
   console.log('The workspace projects is: ', data) // [ 'packages/utils', 'packages/monorepo-root' ]
 })
-```
-
-2. use `workspace-projects` in sync mode
-
-```js
-import { workspaceProjectsSync } from 'workspace-projects'
 
 console.log('The workspace projects is: ', workspaceProjectsSync()) // [ 'packages/utils', 'packages/monorepo-root' ]
 ```

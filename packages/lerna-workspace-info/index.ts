@@ -60,7 +60,7 @@ async function lernaWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspac
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function lernaWorkspaceInfoSync(cwd: string): WorkspaceInfo | null {
+function lernaWorkspaceInfoSync(cwd: string = process.cwd()): WorkspaceInfo | null {
 	const root = lernaWorkspaceRootSync(cwd)
 	if (!root) {
 		console.error('not a lerna workspace project')

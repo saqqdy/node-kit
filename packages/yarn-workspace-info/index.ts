@@ -60,7 +60,7 @@ async function yarnWorkspaceInfo(cwd: string = process.cwd()): Promise<Workspace
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function yarnWorkspaceInfoSync(cwd: string): WorkspaceInfo | null {
+function yarnWorkspaceInfoSync(cwd: string = process.cwd()): WorkspaceInfo | null {
 	const root = yarnWorkspaceRootSync(cwd)
 	if (!root) {
 		console.error('not a yarn workspace project')

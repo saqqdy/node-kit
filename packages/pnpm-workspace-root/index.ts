@@ -12,7 +12,7 @@ const WORKSPACE_MANIFEST_FILENAME = 'pnpm-workspace.yaml'
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-async function pnpmWorkspaceRoot(cwd: string): Promise<string | null> {
+async function pnpmWorkspaceRoot(cwd: string = process.cwd()): Promise<string | null> {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
 	const workspaceManifestPath = workspaceManifestDirEnvVar
@@ -35,7 +35,7 @@ async function pnpmWorkspaceRoot(cwd: string): Promise<string | null> {
  * @param cwd - work dir
  * @returns result - workspace root dir
  */
-function pnpmWorkspaceRootSync(cwd: string): string | null {
+function pnpmWorkspaceRootSync(cwd: string = process.cwd()): string | null {
 	const workspaceManifestDirEnvVar =
 		process.env[WORKSPACE_DIR_ENV_VAR] ?? process.env[WORKSPACE_DIR_ENV_VAR.toLowerCase()]
 	const workspaceManifestPath = workspaceManifestDirEnvVar

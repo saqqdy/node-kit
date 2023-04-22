@@ -29,10 +29,64 @@ $ npm install -D @node-kit/lerna-workspace-info
 
 ## Usage
 
-1. use `@node-kit/lerna-workspace-info` in async mode
+use import
 
 ```js
-import { lernaWorkspaceInfo } from '@node-kit/lerna-workspace-info'
+import { lernaWorkspaceInfo, lernaWorkspaceInfoSync } from '@node-kit/lerna-workspace-info'
+
+lernaWorkspaceInfo()
+// or
+lernaWorkspaceInfoSync()
+```
+
+use require
+
+```js
+const { lernaWorkspaceInfo, lernaWorkspaceInfoSync } = require('@node-kit/lerna-workspace-info')
+
+lernaWorkspaceInfo()
+// or
+lernaWorkspaceInfoSync()
+```
+
+## API reference
+
+- Usage: `lernaWorkspaceInfo(cwd)` & `lernaWorkspaceInfoSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function lernaWorkspaceInfo(cwd?: string): Promise<WorkspaceInfo | null>
+
+declare function lernaWorkspaceInfoSync(cwd?: string): WorkspaceInfo | null
+
+declare type ManifestInfo = {
+  packages: string | string[]
+} & Record<string, unknown>
+
+declare type WorkspaceInfo = Record<
+  string,
+  {
+    path: string
+  }
+>
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { lernaWorkspaceInfo, lernaWorkspaceInfoSync } from '@node-kit/lerna-workspace-info'
 
 lernaWorkspaceInfo({
   cwd,
@@ -40,13 +94,7 @@ lernaWorkspaceInfo({
 }).then(data => {
   console.log('The lerna workspace info is: ', data) // { projectA: { path: 'packages/projectA' } }
 })
-```
-
-2. use `@node-kit/lerna-workspace-info` in sync mode
-
-```js
-import { lernaWorkspaceInfoSync } from '@node-kit/lerna-workspace-info'
-
+// or
 console.log('The lerna workspace info is: ', lernaWorkspaceInfoSync()) // { projectA: { path: 'packages/projectA' } }
 ```
 

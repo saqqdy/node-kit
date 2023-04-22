@@ -29,21 +29,57 @@ $ npm install -D @node-kit/pnpm-workspace-root
 
 ## Usage
 
-1. use `@node-kit/pnpm-workspace-root` in async mode
+use import
 
 ```js
-import { pnpmWorkspaceRoot } from '@node-kit/pnpm-workspace-root'
+import { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
+
+pnpmWorkspaceRoot()
+// or
+pnpmWorkspaceRootSync()
+```
+
+use require
+
+```js
+const { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } = require('@node-kit/pnpm-workspace-root')
+
+pnpmWorkspaceRoot()
+// or
+pnpmWorkspaceRootSync()
+```
+
+## API reference
+
+- Usage: `pnpmWorkspaceRoot(cwd)` & `pnpmWorkspaceRootSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function pnpmWorkspaceRoot(cwd?: string): Promise<string | null>
+
+declare function pnpmWorkspaceRootSync(cwd?: string): string | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { pnpmWorkspaceRoot, pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
 
 pnpmWorkspaceRoot().then(path => {
   console.log('The pnpm workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
-```
-
-2. use `@node-kit/pnpm-workspace-root` in sync mode
-
-```js
-import { pnpmWorkspaceRootSync } from '@node-kit/pnpm-workspace-root'
-
 console.log('The pnpm workspace root is: ', pnpmWorkspaceRootSync()) // /Users/user/path/of/package/root or null
 ```
 

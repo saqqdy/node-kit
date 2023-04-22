@@ -29,21 +29,57 @@ $ npm install -D @node-kit/lerna-workspace-root
 
 ## Usage
 
-1. use `@node-kit/lerna-workspace-root` in async mode
+use import
 
 ```js
-import { lernaWorkspaceRoot } from '@node-kit/lerna-workspace-root'
+import { lernaWorkspaceRoot, lernaWorkspaceRootSync } from '@node-kit/lerna-workspace-root'
+
+lernaWorkspaceRoot()
+// or
+lernaWorkspaceRootSync()
+```
+
+use require
+
+```js
+const { lernaWorkspaceRoot, lernaWorkspaceRootSync } = require('@node-kit/lerna-workspace-root')
+
+lernaWorkspaceRoot()
+// or
+lernaWorkspaceRootSync()
+```
+
+## API reference
+
+- Usage: `lernaWorkspaceRoot(cwd)` & `lernaWorkspaceRootSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function lernaWorkspaceRoot(cwd?: string): Promise<string | null>
+
+declare function lernaWorkspaceRootSync(cwd?: string): string | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { lernaWorkspaceRoot, lernaWorkspaceRootSync } from '@node-kit/lerna-workspace-root'
 
 lernaWorkspaceRoot().then(path => {
   console.log('The lerna workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
-```
-
-2. use `@node-kit/lerna-workspace-root` in sync mode
-
-```js
-import { lernaWorkspaceRootSync } from '@node-kit/lerna-workspace-root'
-
 console.log('The lerna workspace root is: ', lernaWorkspaceRootSync()) // /Users/user/path/of/package/root or null
 ```
 

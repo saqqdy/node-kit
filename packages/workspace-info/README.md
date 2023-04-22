@@ -29,10 +29,60 @@ $ npm install -D @node-kit/workspace-info
 
 ## Usage
 
-1. use `@node-kit/workspace-info` in async mode
+use import
 
 ```js
-import { workspaceInfo } from '@node-kit/workspace-info'
+import { workspaceInfo, workspaceInfoSync } from '@node-kit/workspace-info'
+
+workspaceInfo()
+// or
+workspaceInfoSync()
+```
+
+use require
+
+```js
+const { workspaceInfo, workspaceInfoSync } = require('@node-kit/workspace-info')
+
+workspaceInfo()
+// or
+workspaceInfoSync()
+```
+
+## API reference
+
+- Usage: `workspaceInfo(cwd)` & `workspaceInfoSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare type WorkspaceInfo = Record<
+  string,
+  {
+    path: string
+  }
+>
+
+declare function workspaceInfo(cwd?: string): Promise<WorkspaceInfo | null>
+
+declare function workspaceInfoSync(cwd?: string): WorkspaceInfo | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { workspaceInfo, workspaceInfoSync } from '@node-kit/workspace-info'
 
 workspaceInfo({
   cwd,
@@ -40,22 +90,8 @@ workspaceInfo({
 }).then(path => {
   console.log('The workspace info is: ', path) // { projectA: { path: 'packages/projectA' } }
 })
-```
-
-2. use `@node-kit/workspace-info` in sync mode
-
-```js
-import { workspaceInfoSync } from '@node-kit/workspace-info'
 
 console.log('The workspace info is: ', workspaceInfoSync()) // { projectA: { path: 'packages/projectA' } }
-```
-
-3. get workspace project list
-
-```js
-import { getProjectSync } from '@node-kit/workspace-info'
-
-console.log('The workspace project list is: ', getProjectSync()) // ['packages/projectA', 'packages/projectB']
 ```
 
 ## Issues & Support

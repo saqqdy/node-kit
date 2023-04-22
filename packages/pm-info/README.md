@@ -29,22 +29,68 @@ $ npm install -D pm-info
 
 ## Usage
 
-1. use `pm-info` in async mode
-   s
+use import
 
 ```js
-import { pmInfo } from 'pm-info'
+import { pmInfo, pmInfoSync } from '@node-kit/pm-info'
+
+pmInfo()
+// or
+pmInfoSync()
+```
+
+use require
+
+```js
+const { pmInfo, pmInfoSync } = require('@node-kit/pm-info')
+
+pmInfo()
+// or
+pmInfoSync()
+```
+
+## API reference
+
+- Usage: `pmInfo(cwd)` & `pmInfoSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare type ModulesYML = Record<string, unknown> & {
+  packageManager: string
+}
+
+declare function normalizePMSpec(pm: string): PackageManager
+
+declare interface PackageManager {
+  name: string
+  version?: string
+}
+
+declare function pmInfo(cwd?: string): Promise<PackageManager | null>
+
+declare function pmInfoSync(cwd?: string): PackageManager | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { pmInfo, pmInfoSync } from '@node-kit/pm-info'
 
 pmInfo().then(info => {
   console.log('The package manager is: ', info) // { name: 'pnpm', version: '7.26.1' } | null
 })
-```
-
-2. use `pm-info` in sync mode
-
-```js
-import { pmInfoSync } from 'pm-info'
-
 console.log('The package manager is: ', pmInfoSync()) // { name: 'pnpm', version: '7.26.1' } | null
 ```
 

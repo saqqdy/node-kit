@@ -29,20 +29,57 @@ $ npm install -D workspace-root
 
 ## Usage
 
-1. use `workspace-root` in async mode
+use import
 
 ```js
-import { workspaceRoot } from 'workspace-root'
+import { workspaceRoot, workspaceRootSync } from '@node-kit/workspace-root'
+
+workspaceRoot()
+// or
+workspaceRootSync()
+```
+
+use require
+
+```js
+const { workspaceRoot, workspaceRootSync } = require('@node-kit/workspace-root')
+
+workspaceRoot()
+// or
+workspaceRootSync()
+```
+
+## API reference
+
+- Usage: `workspaceRoot(cwd)` & `workspaceRootSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function workspaceRoot(cwd?: string): Promise<string | null>
+
+declare function workspaceRootSync(cwd?: string): string | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { workspaceRoot, workspaceRootSync } from '@node-kit/workspace-root'
 
 workspaceRoot().then(path => {
   console.log('The workspace root is: ', path) // /Users/user/path/of/package/root or null
 })
-```
-
-2. use `workspace-root` in sync mode
-
-```js
-import { workspaceRootSync } from 'workspace-root'
 
 console.log('The workspace root is: ', workspaceRootSync()) // /Users/user/path/of/package/root or null
 ```

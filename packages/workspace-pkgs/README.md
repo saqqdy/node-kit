@@ -29,20 +29,57 @@ $ npm install -D workspace-pkgs
 
 ## Usage
 
-1. use `workspace-pkgs` in async mode
+use import
 
 ```js
-import { workspacePkgs } from 'workspace-pkgs'
+import { workspacePkgs, workspacePkgsSync } from '@node-kit/workspace-pkgs'
+
+workspacePkgs()
+// or
+workspacePkgsSync()
+```
+
+use require
+
+```js
+const { workspacePkgs, workspacePkgsSync } = require('@node-kit/workspace-pkgs')
+
+workspacePkgs()
+// or
+workspacePkgsSync()
+```
+
+## API reference
+
+- Usage: `workspacePkgs(cwd)` & `workspacePkgsSync(cwd)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description  | Type     | Optional value | Required | Default value |
+| ----- | ------------ | -------- | -------------- | -------- | ------------- |
+| cwd   | running path | `string` | -              | `false`  | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function workspacePkgs(cwd?: string): Promise<string[] | null>
+
+declare function workspacePkgsSync(cwd?: string): string[] | null
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { workspacePkgs, workspacePkgsSync } from '@node-kit/workspace-pkgs'
 
 workspacePkgs().then(data => {
   console.log('The workspace projects is: ', data) // [ 'packages/utils', 'packages/monorepo-root' ]
 })
-```
-
-2. use `workspace-pkgs` in sync mode
-
-```js
-import { workspacePkgsSync } from 'workspace-pkgs'
 
 console.log('The workspace projects is: ', workspacePkgsSync()) // [ 'packages/utils', 'packages/monorepo-root' ]
 ```
