@@ -15,6 +15,7 @@
 		"tscjs",
 		"tsdoc",
 		"tsnd",
+		"typeof",
 		"unpub",
 		"unpublish",
 		"vitepress",
