@@ -36,6 +36,40 @@ import { functionName } from '@node-kit/extra.path'
 functionName()
 ```
 
+## Function list
+
+### 1. dirname
+
+get dirname from path
+
+- Usage: `dirname(path)`
+- Parameters:
+
+<div class="table-prop">
+
+| Param | Description | Type     | Optional value | Required | Default value |
+| ----- | ----------- | -------- | -------------- | -------- | ------------- |
+| path  | simple path | `string` | -              | `true`   | -             |
+
+</div>
+
+- Types:
+
+```ts
+declare function dirname(path: string): string
+```
+
+- Demos:
+
+1. simple use
+
+```ts
+import { dirname } from '@node-kit/extra.path'
+
+const data = dirname('/path/of/dir/saqqdy')
+// data => saqqdy
+```
+
 ## Issues & Support
 
 Please open an issue [here](https://github.com/saqqdy/node-kit/issues).
