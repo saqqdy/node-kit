@@ -29,14 +29,23 @@ $ npm install -D @node-kit/extra.path
 
 ## Usage
 
-```js
-import { functionName } from '@node-kit/extra.path'
+use import
 
-// run functionName
-functionName()
+```js
+import { dirname } from '@node-kit/extra.path'
+
+dirname()
 ```
 
-## Function list
+use require
+
+```js
+const { dirname } = require('@node-kit/extra.path')
+
+dirname()
+```
+
+## API reference
 
 ### 1. dirname
 

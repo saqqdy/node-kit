@@ -29,14 +29,23 @@ $ npm install -D @node-kit/extra.fs
 
 ## Usage
 
-```js
-import { functionName } from '@node-kit/extra.fs'
+use import
 
-// run functionName
-functionName()
+```js
+import { cp } from '@node-kit/extra.fs'
+
+cp()
 ```
 
-## Function list
+use require
+
+```js
+const { cp } = require('@node-kit/extra.fs')
+
+cp()
+```
+
+## API reference
 
 ### 1. cp & cpSync
 
