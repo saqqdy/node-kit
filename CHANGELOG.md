@@ -1,13 +1,18 @@
 # Change Logs
 
-## 2023.03.01 v2.4.0
+## 2023.04.22 v2.5.0
 
-1. Added `cp` and `cpSync` in `@node-kit/extra.fs`
+1. Added `mv` and `mvSync` to `@node-kit/extra.fs`
+2. docs work for extra.fs
+
+## 2023.04.20 v2.4.0
+
+1. Added `cp` and `cpSync` to `@node-kit/extra.fs`
 2. upgrade all packages
 
 ## 2023.03.01 v2.3.0
 
-1. Added `rm` and `rmSync` in `@node-kit/extra.fs`
+1. Added `rm` and `rmSync` to `@node-kit/extra.fs`
 2. fix dependencies
 3. upgrade all packages
 

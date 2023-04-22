@@ -1,7 +1,7 @@
 {
 	"name": "what-pm",
 	"description": "Detects what package manager was used for installation",
-	"version": "2.4.0",
+	"version": "2.5.0",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
