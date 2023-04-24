@@ -1,7 +1,7 @@
 {
 	"name": "pm-info",
 	"description": "A simple utility to get the package manager information which used in the project",
-	"version": "2.5.0",
+	"version": "2.5.1",
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",

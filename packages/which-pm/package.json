@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/which-pm",
 	"description": "A simple utility to get which package manager used in the project",
-	"version": "2.5.0",
+	"version": "2.5.1",
 	"bin": {
 		"which-pm": "./bin/index.mjs",
 		"whichpm": "./bin/index.mjs"

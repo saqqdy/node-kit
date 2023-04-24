@@ -1,5 +1,9 @@
 # Change Logs
 
+## 2023.04.24 v2.5.1
+
+1. some docs work
+
 ## 2023.04.22 v2.5.0
 
 1. Added `mv` and `mvSync` to `@node-kit/extra.fs`
