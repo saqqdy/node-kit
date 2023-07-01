@@ -1,20 +1,20 @@
 {
 	"name": "@node-kit/which-pm",
 	"description": "A simple utility to get which package manager used in the project",
-	"version": "3.0.0-beta.2",
+	"version": "3.0.0-beta.3",
 	"packageManager": "pnpm@8.6.5",
 	"bin": {
 		"which-pm": "./bin/index.mjs",
 		"whichpm": "./bin/index.mjs"
 	},
-	"main": "dist/index.cjs",
+	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm-bundler.js",
 	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
 			"module": "./dist/index.esm-bundler.js",
-			"require": "./dist/index.cjs",
+			"require": "./dist/index.cjs.js",
 			"import": "./dist/index.mjs"
 		},
 		"./*": "./*"

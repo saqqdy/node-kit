@@ -48,6 +48,7 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/utils/.npmrc
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/extra/fs/.npmrc
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/extra/path/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/extra/cp/.npmrc
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/lerna-workspace-info/.npmrc
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/lerna-workspace-root/.npmrc
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ./packages/pnpm-workspace-info/.npmrc
@@ -72,6 +73,7 @@ jobs:
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/utils/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/extra.fs/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/extra.path/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/extra.cp/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/lerna-workspace-info/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/lerna-workspace-root/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/pnpm-workspace-info/sync"

@@ -2,10 +2,11 @@
 
 ## 2023.07.01 v3.0.0
 
-1. add new package `os-local`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/os-lang#readme)
-2. band new outputs & band new build scripts
-3. set sideEffects false
-4. upgrade all packages
+1. new package `os-local`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/os-lang#readme)
+2. new package `@node-kit/extra.cp`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/extra/cp#readme)
+3. band new outputs & band new build scripts
+4. set sideEffects false
+5. upgrade all packages
 
 ## 2023.04.24 v2.5.1
 

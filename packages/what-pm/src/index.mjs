@@ -1,1 +1,5 @@
-export * from './index.esm-bundler.js'
+import index from './index.cjs.js'
+
+const { whatPM, whatPMSync } = index
+
+export { index as default, whatPM, whatPMSync }

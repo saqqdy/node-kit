@@ -1,0 +1,11 @@
+{
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"target": "ES5",
+		"outDir": "temp",
+		"sourceMap": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"rootDir": "./src"
+	}
+}

@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/monorepo",
 	"description": "Some simple utilities for nodejs",
-	"version": "3.0.0-beta.2",
+	"version": "3.0.0-beta.3",
 	"packageManager": "pnpm@8.6.5",
 	"main": "index.js",
 	"files": [
@@ -27,7 +27,7 @@
 		"eslint": "eslint --fix --ext .ts,.tsx,.js,.jsx ./",
 		"prettier": "prettier --write ./",
 		"prepare": "pnpm -r run stub && husky install .husky",
-		"clean": "rimraf dist types typings packages/*/dist"
+		"clean": "rimraf dist types typings packages/*/dist packages/extra/*/dist packages/*/temp packages/extra/*/temp"
 	},
 	"dependencies": {
 		"@node-kit/extra.fs": "*"

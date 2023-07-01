@@ -32,7 +32,7 @@ $ npm install -D os-lang
 use import
 
 ```js
-import { osLang, osLangSync } from '@node-kit/os-lang'
+import { osLang, osLangSync } from 'os-lang'
 
 osLang()
 // or
@@ -42,7 +42,7 @@ osLangSync()
 use require
 
 ```js
-const { osLang, osLangSync } = require('@node-kit/os-lang')
+const { osLang, osLangSync } = require('os-lang')
 
 osLang()
 // or
@@ -51,34 +51,23 @@ osLangSync()
 
 ## API reference
 
-- Usage: `osLang(cwd)` & `osLangSync(cwd)`
+- Usage: `osLang(options)` & `osLangSync(options)`
 - Parameters:
 
 <div class="table-prop">
 
-| Param | Description  | Type     | Optional value | Required | Default value |
-| ----- | ------------ | -------- | -------------- | -------- | ------------- |
-| cwd   | running path | `string` | -              | `false`  | -             |
+| Param | Description                              | Type      | Optional value | Required | Default value |
+| ----- | ---------------------------------------- | --------- | -------------- | -------- | ------------- |
+| spawn | get lang only from environment variables | `boolean` | -              | `true`   | -             |
 
 </div>
 
 - Types:
 
 ```ts
-declare type ModulesYML = Record<string, unknown> & {
-  packageManager: string
+export interface OsLangOptions {
+  spawn: boolean
 }
-
-declare function normalizePMSpec(pm: string): PackageManager
-
-declare interface PackageManager {
-  name: string
-  version?: string
-}
-
-declare function osLang(cwd?: string): Promise<PackageManager | null>
-
-declare function osLangSync(cwd?: string): PackageManager | null
 ```
 
 - Demos:
@@ -86,12 +75,10 @@ declare function osLangSync(cwd?: string): PackageManager | null
 1. simple use
 
 ```ts
-import { osLang, osLangSync } from '@node-kit/os-lang'
+import { osLang, osLangSync } from 'os-lang'
 
-osLang().then(info => {
-  console.log('The package manager is: ', info) // { name: 'pnpm', version: '7.26.1' } | null
-})
-console.log('The package manager is: ', osLangSync()) // { name: 'pnpm', version: '7.26.1' } | null
+const lang = osLang()
+// lang => zh-CN
 ```
 
 ## Issues & Support

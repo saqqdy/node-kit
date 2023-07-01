@@ -28,7 +28,7 @@ async function updatePackageJSON() {
 			directory: `packages/${dirName}`
 		}
 		packageJSON.module = 'dist/index.esm-bundler.js'
-		packageJSON.main = 'dist/index.cjs'
+		packageJSON.main = 'dist/index.cjs.js'
 		packageJSON.types = 'dist/index.d.ts'
 		if (browser !== false) {
 			packageJSON.browser = 'dist/index.esm-browser.js'
@@ -41,7 +41,7 @@ async function updatePackageJSON() {
 		// 	'.': {
 		// 		types: './dist/index.d.ts',
 		// 		module: './dist/index.esm-bundler.js',
-		// 		require: './dist/index.cjs',
+		// 		require: './dist/index.cjs.js',
 		// 		import: './dist/index.mjs'
 		// 	},
 		// 	'./*': './*',

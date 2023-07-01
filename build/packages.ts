@@ -23,6 +23,13 @@ export const packages: PackageManifest[] = [
 		display: 'Some shared extra utilities for nodejs build-in path modules'
 	},
 	{
+		name: 'extra.cp',
+		pkgName: '@node-kit/extra.cp',
+		iife: false,
+		browser: false,
+		display: 'Some shared extra utilities for nodejs build-in child_process modules'
+	},
+	{
 		name: 'lerna-workspace-root',
 		pkgName: '@node-kit/lerna-workspace-root',
 		iife: false,

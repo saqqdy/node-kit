@@ -133,7 +133,7 @@ for (const {
 	if (cjs !== false) {
 		configs.push({
 			input: join(PROJECT_ROOT, 'src', HAS_INDEX_DEFAULT ? 'index.default.ts' : 'index.ts'),
-			file: join(PROJECT_ROOT, 'dist', 'index.cjs'),
+			file: join(PROJECT_ROOT, 'dist', 'index.cjs.js'),
 			format: 'cjs',
 			external,
 			env: 'development'
@@ -218,6 +218,7 @@ function createEntry(config: Config) {
 			'load-yml',
 			'@pnpm/error',
 			'micromatch',
+			'lcid',
 			...workspacePkgs
 		)
 		if (config.external) _config.external = _config.external.concat(config.external)

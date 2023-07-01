@@ -17,6 +17,7 @@ Some simple utilities for nodejs
 - some shared utilities: [@node-kit/utils](https://github.com/saqqdy/node-kit/tree/master/packages/utils)
 - some shared extra utilities for nodejs build-in fs modules: [@node-kit/extra.fs](https://github.com/saqqdy/node-kit/tree/master/packages/extra/fs)
 - some shared extra utilities for nodejs build-in path modules: [@node-kit/extra.path](https://github.com/saqqdy/node-kit/tree/master/packages/extra/path)
+- some shared extra utilities for nodejs build-in child_process modules: [@node-kit/extra.cp](https://github.com/saqqdy/node-kit/tree/master/packages/extra/cp)
 - find lerna workspace root: [@node-kit/lerna-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/lerna-workspace-root)
 - find pnpm workspace root: [@node-kit/pnpm-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/pnpm-workspace-root)
 - find yarn workspace root: [@node-kit/yarn-workspace-root](https://github.com/saqqdy/node-kit/tree/master/packages/yarn-workspace-root)

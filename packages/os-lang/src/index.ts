@@ -1,9 +1,15 @@
-// import { join } from 'path'
-// import { existsSync } from 'fs'
+import lcid from 'lcid'
+import { execa, execaSync } from '@node-kit/extra.cp'
 
-export type ModulesYML = Record<string, unknown> & {
-	packageManager: string
+export interface OsLangOptions {
+	spawn: boolean
 }
+
+export type Lang = 'en-US' | 'zh-CN' | string
+
+const defaultOptions: OsLangOptions = { spawn: true }
+const defaultLang: Lang = 'en-US'
+const cache = new Map()
 
 /**
  * osLang
@@ -11,46 +17,197 @@ export type ModulesYML = Record<string, unknown> & {
  * @param cwd - the pkg path
  * @returns result - WorkspaceRootResult | null
  */
-export async function osLang(cwd: string = process.cwd()) {
-	// const NODE_MODULES_PATH = join(cwd, 'node_modules')
-	// // check yarn
-	// if (existsSync(join(NODE_MODULES_PATH, YARN_INTEGRITY_FILE))) return { name: 'yarn' }
-	// // check cnpm >= 8.0.0
-	// if (existsSync(join(NODE_MODULES_PATH, RECENTLY_UPDATES_FILE))) return { name: 'cnpm' }
-	// // check pnpm
-	// try {
-	// 	const modules = (await loadYml(join(NODE_MODULES_PATH, MODULES_YAML_FILE))) as ModulesYML
-	// 	return normalizePMSpec(modules.packageManager)
-	// } catch (err: any) {
-	// 	if (err.code !== 'ENOENT') throw err
-	// }
-	// // check npm
-	// if (existsSync(NODE_MODULES_PATH) || existsSync(join(cwd, PACKAGE_LOCK_FILE)))
-	// 	return { name: 'npm' }
-	// return null
+async function osLang(options: OsLangOptions = defaultOptions) {
+	if (cache.has(options.spawn)) {
+		return cache.get(options.spawn)
+	}
+
+	let locale
+
+	try {
+		const envLocale = getEnvLang()
+
+		if (envLocale || options.spawn === false) {
+			locale = envLocale
+		} else if (process.platform === 'win32') {
+			locale = await getWinLang()
+		} else if (process.platform === 'darwin') {
+			locale = await getMacLang()
+		} else {
+			locale = await getUnixLang()
+		}
+	} catch {}
+
+	const normalized = normalize(locale || defaultLang)
+	cache.set(options.spawn, normalized)
+	return normalized
 }
 
 /**
  * osLangSync
  *
- * @param cwd - the pkg path
+ * @param options - os-lang options
  * @returns result - WorkspaceRootResult | null
  */
-export function osLangSync(cwd: string = process.cwd()) {
-	// const NODE_MODULES_PATH = join(cwd, 'node_modules')
-	// // check yarn
-	// if (existsSync(join(NODE_MODULES_PATH, YARN_INTEGRITY_FILE))) return { name: 'yarn' }
-	// // check cnpm >= 8.0.0
-	// if (existsSync(join(NODE_MODULES_PATH, RECENTLY_UPDATES_FILE))) return { name: 'cnpm' }
-	// // check pnpm
-	// try {
-	// 	const modules = loadYmlSync(join(NODE_MODULES_PATH, MODULES_YAML_FILE)) as ModulesYML
-	// 	return normalizePMSpec(modules.packageManager)
-	// } catch (err: any) {
-	// 	if (err.code !== 'ENOENT') throw err
-	// }
-	// // check npm
-	// if (existsSync(NODE_MODULES_PATH) || existsSync(join(cwd, PACKAGE_LOCK_FILE)))
-	// 	return { name: 'npm' }
-	// return null
+function osLangSync(options: OsLangOptions = defaultOptions) {
+	if (cache.has(options.spawn)) {
+		return cache.get(options.spawn)
+	}
+
+	let locale
+	try {
+		const envLocale = getEnvLang()
+
+		if (envLocale || options.spawn === false) {
+			locale = envLocale
+		} else if (process.platform === 'win32') {
+			locale = getWinLangSync()
+		} else if (process.platform === 'darwin') {
+			locale = getMacLangSync()
+		} else {
+			locale = getUnixLangSync()
+		}
+	} catch {}
+
+	const normalized = normalize(locale || defaultLang)
+	cache.set(options.spawn, normalized)
+	return normalized
+}
+
+/**
+ * get windows lang
+ *
+ * @public
+ * @return - string
+ */
+async function getWinLang() {
+	const { stdout } = await execa('wmic', ['os', 'get', 'locale'])
+
+	return parseWinLocale(stdout as string)
+}
+
+/**
+ * get windows lang sync
+ *
+ * @public
+ * @return - string
+ */
+function getWinLangSync() {
+	const stdout = execaSync('wmic', ['os', 'get', 'locale']) as string
+
+	return parseWinLocale(stdout)
+}
+
+/**
+ * get mac lang
+ *
+ * @public
+ * @return - Promise<string>
+ */
+async function getMacLang() {
+	const { stdout: lang } = await execa('defaults', ['read', '-globalDomain', 'AppleLocale'])
+	const { stdout: locals } = await execa('locale', ['-a'])
+
+	return getSupportedLang(lang as string, locals as string)
+}
+
+/**
+ * get mac lang sync
+ *
+ * @public
+ * @return - string
+ */
+function getMacLangSync() {
+	const lang = execaSync('defaults', ['read', '-globalDomain', 'AppleLocale']) as string
+	const locals = execaSync('locale', ['-a']) as string
+
+	return getSupportedLang(lang, locals)
+}
+
+async function getUnixLang() {
+	const { stdout } = await execa('locale')
+
+	return parseUnixLocale(stdout as string)
+}
+
+function getUnixLangSync() {
+	const stdout = execaSync('locale') as string
+	return parseUnixLocale(stdout)
+}
+
+/**
+ * get lang from ENV
+ *
+ * @public
+ * @param env - process.env
+ * @return - result
+ */
+function getEnvLang(env = process.env) {
+	const lang = env.LC_ALL || env.LC_MESSAGES || env.LANG || env.LANGUAGE
+	return lang ? lang.replace(/[.:].*/, '') : lang
+}
+
+/**
+ * replace _ with -
+ *
+ * @private
+ * @param input - input string
+ * @return - result
+ */
+function normalize(input: string): string {
+	return input.replace(/_/, '-')
+}
+
+/**
+ * get supported lang for mac os
+ *
+ * @private
+ * @param input - input string
+ * @return - result
+ */
+function getSupportedLang(lang: string, langs = '') {
+	return langs.includes(lang) ? lang : defaultLang
+}
+
+/**
+ * get lang from lcidCode for windows
+ *
+ * @private
+ * @param winLocalString - output of "wmic os get locale"
+ * @return - result
+ */
+function parseWinLocale(winLocalString = '') {
+	if (!winLocalString) return ''
+	const lcidCode = Number.parseInt(winLocalString.replace('Locale', ''), 16)
+
+	return lcid.from(lcidCode)
+}
+
+/**
+ * parse local string for unix
+ *
+ * @private
+ * @param unixLocalString - output of "locale"
+ * @return - result
+ */
+function parseUnixLocale(unixLocalString = '') {
+	const env: Record<string, string> = {}
+	for (const definition of unixLocalString.split('\n')) {
+		const [key, value] = definition.split('=')
+		env[key] = value.replace(/^"|"$/g, '')
+	}
+
+	return getEnvLang(env)
+}
+
+export {
+	osLang,
+	osLangSync,
+	getWinLang,
+	getWinLangSync,
+	getMacLang,
+	getMacLangSync,
+	getUnixLang,
+	getUnixLangSync,
+	getEnvLang
 }

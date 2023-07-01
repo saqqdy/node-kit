@@ -142,6 +142,18 @@ importers:
         specifier: ^7.2.2
         version: 7.2.2
 
+  packages/extra/cp:
+    devDependencies:
+      '@microsoft/api-extractor':
+        specifier: ^7.36.0
+        version: 7.36.0(@types/node@20.3.3)
+      eslint:
+        specifier: ^8.44.0
+        version: 8.44.0
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
+
   packages/extra/fs:
     devDependencies:
       '@microsoft/api-extractor':
@@ -227,6 +239,13 @@ importers:
         version: 2.8.8
 
   packages/os-lang:
+    dependencies:
+      '@node-kit/extra.cp':
+        specifier: workspace:*
+        version: link:../extra/cp
+      lcid:
+        specifier: ^4.0.1
+        version: 4.0.1
     devDependencies:
       '@microsoft/api-extractor':
         specifier: ^7.36.0
@@ -5569,6 +5588,11 @@ packages:
       side-channel: 1.0.4
     dev: true
 
+  /invert-kv@3.0.1:
+    resolution: {integrity: sha512-CYdFeFexxhv/Bcny+Q0BfOV+ltRlJcd4BBZBYFX/O0u4npJrgZtIcjokegtiSMAvlMTJ+Koq0GBCc//3bueQxw==}
+    engines: {node: '>=8'}
+    dev: false
+
   /ip@2.0.0:
     resolution: {integrity: sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ==}
     dev: true
@@ -6385,6 +6409,13 @@ packages:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
     dev: true
+
+  /lcid@4.0.1:
+    resolution: {integrity: sha512-qI4sQt7g19ZWtaodPKBUvym/pen9/lZzqyl2qeItTFPwJptXllVhe3KI+mV9xmBa4cnZoik8m1obToxqFbVIZQ==}
+    engines: {node: '>=14.16'}
+    dependencies:
+      invert-kv: 3.0.1
+    dev: false
 
   /leven@3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
