@@ -1,7 +1,7 @@
 {
 	"name": "os-lang",
 	"description": "Get the system lang",
-	"version": "2.5.1",
+	"version": "3.0.0-beta.2",
 	"main": "dist/index.cjs",
 	"module": "dist/index.esm-bundler.js",
 	"types": "dist/index.d.ts",
