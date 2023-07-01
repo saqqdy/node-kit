@@ -10,5 +10,3 @@ pnpm-lock.yaml
 *_bak
 
 stats.html
-#Electron-builder output
-dist_electron

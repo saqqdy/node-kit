@@ -1,15 +1,15 @@
-import { readFileSync } from 'fs'
+import injectCode, { type Options } from 'rollup-plugin-inject-code'
 import type { Plugin } from 'rollup'
 
-const injectNodeKitCore: Plugin = {
-	name: 'inject-node-kit-core',
-	renderChunk(code) {
-		const ESLINT_SETS_CORE_IIFE = readFileSync(
-			require.resolve('@node-kit/core/lib/index.iife.js'),
-			'utf-8'
+const injectEslintSetsCore = (options: Options): Plugin =>
+	injectCode(
+		Object.assign(
+			{
+				code: '',
+				position: 'before'
+			},
+			options
 		)
-		return `${ESLINT_SETS_CORE_IIFE};\n;${code}`
-	}
-}
+	)
 
-export default injectNodeKitCore
+export default injectEslintSetsCore

@@ -1,7 +1,7 @@
 import { execSync } from 'child_process'
 import { join, sep } from 'path'
 import consola from 'consola'
-import { readJSONSync, writeJSONSync } from '@node-kit/extra.fs'
+import { readJSONSync, writeJSONSync } from '../packages/extra/fs/src'
 import { version } from '../package.json'
 import { packages } from '../build/packages'
 
@@ -25,16 +25,25 @@ for (const { name, pkgName } of packages) {
 	const dirName = name.replace(/\./g, sep)
 	const cwd = name === 'monorepo' ? ROOT : join(PACKAGE, dirName)
 	const PKG_FILE = join(cwd, 'package.json')
-	const pkgJson = readJSONSync(PKG_FILE)
+	const pkgJson = readJSONSync(PKG_FILE)!
 	const newPkgJson = JSON.parse(JSON.stringify(pkgJson))
 	for (const { pkgName: pkg } of packages) {
-		if (pkg in ((newPkgJson.dependencies as Record<string, unknown>) || {})) {
+		if (
+			pkg in ((newPkgJson.dependencies as Record<string, unknown>) || {}) &&
+			newPkgJson.dependencies[pkg].includes('workspace')
+		) {
 			newPkgJson.dependencies[pkg] = version
 		}
-		if (pkg in ((newPkgJson.devDependencies as Record<string, unknown>) || {})) {
+		if (
+			pkg in ((newPkgJson.devDependencies as Record<string, unknown>) || {}) &&
+			newPkgJson.devDependencies[pkg].includes('workspace')
+		) {
 			newPkgJson.devDependencies[pkg] = version
 		}
-		if (pkg in ((newPkgJson.peerDependencies as Record<string, unknown>) || {})) {
+		if (
+			pkg in ((newPkgJson.peerDependencies as Record<string, unknown>) || {}) &&
+			newPkgJson.peerDependencies[pkg].includes('workspace')
+		) {
 			newPkgJson.peerDependencies[pkg] = version
 		}
 	}

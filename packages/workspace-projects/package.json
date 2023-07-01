@@ -2,49 +2,39 @@
 	"name": "workspace-projects",
 	"description": "A simple utility to get the workspace project list",
 	"version": "2.5.1",
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
+	"main": "dist/index.cjs",
+	"module": "dist/index.esm-bundler.js",
+	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
+			"module": "./dist/index.esm-bundler.js",
 			"require": "./dist/index.cjs",
 			"import": "./dist/index.mjs"
 		},
-		"./*": {
-			"require": "./dist/*.cjs",
-			"import": "./dist/*.mjs"
-		}
+		"./*": "./*"
+	},
+	"directories": {
+		"bin": "bin",
+		"dist": "dist",
+		"src": "src"
 	},
 	"files": [
-		"dist"
+		"bin",
+		"dist",
+		"typings"
 	],
-	"scripts": {},
-	"directories": {
-		"es": "es",
-		"lib": "lib",
-		"src": "src",
-		"typings": "typings"
-	},
 	"dependencies": {
 		"@node-kit/lerna-workspace-info": "workspace:*",
 		"@node-kit/pnpm-workspace-info": "workspace:*",
 		"@node-kit/yarn-workspace-info": "workspace:*"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.34.4",
-		"eslint": "^8.38.0",
-		"prettier": "^2.8.7"
+		"@microsoft/api-extractor": "^7.36.0",
+		"eslint": "^8.44.0",
+		"prettier": "^2.8.8"
 	},
-	"pnpm": {
-		"peerDependencyRules": {
-			"ignoreMissing": [
-				"@babel/core",
-				"webpack"
-			],
-			"allowedVersions": {}
-		}
-	},
+	"sideEffects": false,
 	"keywords": [
 		"node-kit",
 		"workspace",

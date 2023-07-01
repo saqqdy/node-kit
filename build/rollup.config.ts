@@ -1,28 +1,74 @@
-import { resolve, sep } from 'path'
-import fg from 'fast-glob'
-import type { OutputOptions, RollupOptions } from 'rollup'
+import { dirname, join, resolve, sep } from 'path'
+import { existsSync } from 'fs'
+import { createRequire } from 'node:module'
+import { fileURLToPath } from 'url'
+import type { InternalModuleFormat, OutputOptions, Plugin, RollupOptions } from 'rollup'
 import { packages } from './packages'
-import { banner as bannerPlugin, esbuild, filesize, minify, nodeResolve } from './plugins'
+import {
+	babel,
+	commonjs,
+	// esbuild,
+	filesize,
+	// nodePolyfills,
+	nodeResolve,
+	replace,
+	terser,
+	typescript,
+	visual
+} from './plugins'
 
-const options: RollupOptions[] = []
-const externals = ['js-cool']
+export interface Config {
+	input: string
+	file: string
+	format: InternalModuleFormat
+	browser?: boolean
+	minify?: boolean
+	transpile?: boolean
+	iifeName?: string
+	external?: string[]
+	externalUmd?: string[]
+	globals?: Record<string, string>
+	banner?: string
+	env: 'development' | 'production'
+	plugins?: Plugin[]
+}
+
+export interface Output extends OutputOptions {
+	plugins: Plugin[]
+}
+
+export interface Options extends RollupOptions {
+	external: string[]
+	plugins: Plugin[]
+	output: Output
+}
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const require = createRequire(import.meta.url)
+
+const configs: Config[] = []
+const workspacePkgs = packages.map(({ pkgName }) => pkgName)
 
 for (const {
 	globals = {},
 	name,
+	iifeName,
 	external = [],
-	submodules,
+	externalUmd = [],
 	iife,
 	build,
 	cjs,
 	mjs,
-	// dts,
-	target,
-	exportType = 'auto'
+	browser
+	// target
 } of packages) {
 	if (build === false) continue
 	const dirName = name.replace(/\./g, sep)
-	const pkg = require(`packages/${dirName}/package.json`)
+	const PROJECT_ROOT = resolve(__dirname, '..', 'packages', dirName)
+	const pkg = require(join(PROJECT_ROOT, 'package.json'))
+	const HAS_INDEX_MJS = existsSync(join(PROJECT_ROOT, 'src', 'index.mjs'))
+	const HAS_INDEX_DEFAULT = existsSync(join(PROJECT_ROOT, 'src', 'index.default.ts'))
 	const banner =
 		'/*!\n' +
 		' * ' +
@@ -38,86 +84,165 @@ for (const {
 		' saqqdy<https://github.com/saqqdy> \n' +
 		' * Released under the MIT License.\n' +
 		' */'
-	const iifeGlobals = {
-		'js-cool': 'JsCool',
-		...globals
-	}
-	const iifeName = 'NodeKit'
-	const functionNames = ['index.ts']
 
-	// submodules
-	if (submodules) {
-		functionNames.push(
-			...fg.sync('*/index.ts', {
-				cwd: resolve(`packages/${dirName}`),
-				ignore: ['dist']
-			})
+	configs.push({
+		input: join(PROJECT_ROOT, 'src', 'index.ts'),
+		file: join(PROJECT_ROOT, 'dist', 'index.esm-bundler.js'),
+		format: 'es',
+		external,
+		env: 'development'
+	})
+
+	// output browser
+	if (browser !== false) {
+		configs.push(
+			{
+				input: join(PROJECT_ROOT, 'src', 'index.ts'),
+				file: join(PROJECT_ROOT, 'dist', 'index.esm-browser.js'),
+				format: 'es',
+				browser: true,
+				banner,
+				external,
+				env: 'development'
+			},
+			{
+				input: join(PROJECT_ROOT, 'src', 'index.ts'),
+				file: join(PROJECT_ROOT, 'dist', 'index.esm-browser.prod.js'),
+				format: 'es',
+				browser: true,
+				minify: true,
+				banner,
+				external,
+				env: 'production'
+			}
 		)
 	}
 
-	for (const fn of functionNames) {
-		const input =
-			fn === 'index.ts' ? `packages/${dirName}/index.ts` : `packages/${dirName}/${fn}`
-		const output: OutputOptions[] = []
-		// output mjs
-		if (mjs !== false) {
-			output.push({
-				file: `packages/${dirName}/dist/${fn.replace(/\.ts$/, '.mjs')}`,
-				exports: exportType,
-				banner,
-				format: 'es'
-			})
-		}
-		// output cjs
-		if (cjs !== false) {
-			output.push({
-				file: `packages/${dirName}/dist/${fn.replace(/\.ts$/, '.cjs')}`,
-				exports: exportType,
-				banner,
-				format: 'cjs'
-			})
-		}
-		// output iife
-		if (iife !== false && fn === 'index.ts') {
-			output.push(
-				{
-					file: `packages/${dirName}/dist/${fn}.iife.js`,
-					format: 'iife',
-					name: iifeName,
-					extend: true,
-					globals: iifeGlobals,
-					banner,
-					plugins: [
-						// injectNodeKitCore,
-					]
-				},
-				{
-					file: `packages/${dirName}/dist/${fn}.iife.min.js`,
-					format: 'iife',
-					name: iifeName,
-					extend: true,
-					globals: iifeGlobals,
-					plugins: [
-						// injectNodeKitCore,
-						minify({
-							minify: true
-						}),
-						bannerPlugin({
-							content: banner
-						})
-					]
-				}
-			)
-		}
-
-		// create library options
-		options.push({
-			input,
-			output,
-			plugins: [nodeResolve, target ? esbuild({ target }) : esbuild(), filesize],
-			external: [...externals, ...external]
+	// output mjs
+	if (mjs !== false && !HAS_INDEX_MJS) {
+		configs.push({
+			input: join(PROJECT_ROOT, 'src', 'index.ts'),
+			file: join(PROJECT_ROOT, 'dist', 'index.mjs'),
+			format: 'es',
+			external,
+			env: 'development'
 		})
+	}
+
+	// output cjs
+	if (cjs !== false) {
+		configs.push({
+			input: join(PROJECT_ROOT, 'src', HAS_INDEX_DEFAULT ? 'index.default.ts' : 'index.ts'),
+			file: join(PROJECT_ROOT, 'dist', 'index.cjs'),
+			format: 'cjs',
+			external,
+			env: 'development'
+		})
+	}
+
+	// output iife
+	if (iife !== false) {
+		configs.push(
+			{
+				input: join(
+					PROJECT_ROOT,
+					'src',
+					HAS_INDEX_DEFAULT ? 'index.default.ts' : 'index.ts'
+				),
+				file: join(PROJECT_ROOT, 'dist', 'index.global.js'),
+				format: 'iife',
+				iifeName,
+				globals,
+				banner,
+				externalUmd,
+				env: 'development'
+			},
+			{
+				input: join(
+					PROJECT_ROOT,
+					'src',
+					HAS_INDEX_DEFAULT ? 'index.default.ts' : 'index.ts'
+				),
+				file: join(PROJECT_ROOT, 'dist', 'index.global.prod.js'),
+				format: 'iife',
+				minify: true,
+				iifeName,
+				globals,
+				banner,
+				externalUmd,
+				env: 'production'
+			}
+		)
 	}
 }
 
-export default options
+function createEntries() {
+	return configs.map(createEntry)
+}
+
+function createEntry(config: Config) {
+	const isGlobalBuild = config.format === 'iife'
+	const isTypeScript = config.input.endsWith('.ts')
+
+	const _config: Options = {
+		external: [],
+		input: config.input,
+		plugins: [],
+		output: {
+			file: config.file,
+			format: config.format,
+			exports: 'auto',
+			extend: true,
+			plugins: [],
+			globals: {}
+		},
+		onwarn: (msg: any, warn) => {
+			if (!/Circular/.test(msg)) {
+				warn(msg)
+			}
+		}
+	}
+
+	if (config.banner && (isGlobalBuild || config.browser)) _config.output.banner = config.banner
+
+	if (isGlobalBuild && config.iifeName) {
+		_config.output.name = config.iifeName
+	}
+
+	if (!isGlobalBuild) {
+		_config.external.push(
+			'core-js',
+			'js-cool',
+			'fast-glob',
+			'find-up',
+			'load-yml',
+			'@pnpm/error',
+			'micromatch',
+			...workspacePkgs
+		)
+		if (config.external) _config.external = _config.external.concat(config.external)
+	} else if (config.externalUmd) {
+		_config.external = _config.external.concat(config.externalUmd)
+	}
+
+	_config.plugins.push(nodeResolve(), replace(), commonjs)
+
+	if (config.transpile !== false) {
+		_config.plugins.push(babel())
+		isTypeScript &&
+			_config.plugins.push(
+				// config.target ? esbuild({ target: config.target }) : esbuild()
+				typescript()
+			)
+	}
+
+	if (config.minify) {
+		_config.plugins.push(terser({ module: config.format === 'es' }))
+	}
+
+	_config.plugins.push(filesize, visual)
+
+	return _config
+}
+
+export default createEntries()

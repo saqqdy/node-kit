@@ -1,10 +1,14 @@
-import { resolve, sep } from 'node:path'
+import { join, resolve, sep } from 'node:path'
 import assert from 'assert'
 import { execSync } from 'node:child_process'
-import { promises } from 'node:fs'
+import { existsSync, promises } from 'node:fs'
 // import fg from 'fast-glob'
 import consola from 'consola'
-// import { readJSONSync, writeJSONSync } from '@node-kit/extra.fs'
+import {
+	cpSync
+	// readJSONSync,
+	// writeJSONSync
+} from '../packages/extra/fs/src'
 import { packages } from '../build/packages'
 // import { version } from '../package.json'
 
@@ -56,18 +60,23 @@ async function build() {
 		stdio: 'inherit'
 	})
 
-	for (const { dts, name, extractType } of packages) {
-		if (watch || name === 'monorepo') continue
+	for (const { name, extractTypes } of packages) {
 		const dirName = name.replace(/\./g, sep)
 		const cwd = resolve(__dirname, '..', 'packages', dirName)
-		if (dts === false) continue
+		const HAS_INDEX_MJS = existsSync(join(cwd, 'src', 'index.mjs'))
+		if (HAS_INDEX_MJS) cpSync(join(cwd, 'src', 'index.mjs'), join(cwd, 'dist'))
+		if (watch || name === 'monorepo') continue
+		if (extractTypes === false) continue
 		consola.info(`Create types: packages/${dirName}`)
-		execSync('npx tsc -p tsconfig.declaration.json', {
+		execSync('tsc -p tsconfig.json', {
 			stdio: 'inherit',
 			cwd
 		})
-		if (extractType === false) continue
-		execSync('npx api-extractor run', {
+		execSync('api-extractor run', {
+			stdio: 'inherit',
+			cwd
+		})
+		execSync('rm-all temp', {
 			stdio: 'inherit',
 			cwd
 		})

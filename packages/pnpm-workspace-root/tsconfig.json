@@ -1,12 +1,11 @@
 {
 	"extends": "../../tsconfig.json",
-	"exclude": ["__tests__", "../../temp"],
 	"compilerOptions": {
-		"declaration": false,
-		"target": "ESNext",
-		"outDir": "dist",
-		"module": "ESNext",
-		"lib": ["ESNext"],
-		"sourceMap": true
+		"target": "ES5",
+		"outDir": "temp",
+		"sourceMap": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"rootDir": "./src"
 	}
 }

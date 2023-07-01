@@ -1,0 +1,55 @@
+{
+	"name": "os-lang",
+	"description": "Get the system lang",
+	"version": "2.5.1",
+	"main": "dist/index.cjs",
+	"module": "dist/index.esm-bundler.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.esm-bundler.js",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
+		},
+		"./*": "./*"
+	},
+	"directories": {
+		"bin": "bin",
+		"dist": "dist",
+		"src": "src"
+	},
+	"files": [
+		"bin",
+		"dist",
+		"typings"
+	],
+	"devDependencies": {
+		"@microsoft/api-extractor": "^7.36.0",
+		"eslint": "^8.44.0",
+		"prettier": "^2.8.8"
+	},
+	"sideEffects": false,
+	"keywords": [
+		"node-kit",
+		"system-lang",
+		"local",
+		"os-lang",
+		"os-local"
+	],
+	"license": "MIT",
+	"author": "saqqdy <https://github.com/saqqdy>",
+	"homepage": "https://github.com/saqqdy/node-kit/tree/master/packages/os-lang#readme",
+	"bugs": {
+		"url": "https://github.com/saqqdy/node-kit/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saqqdy/node-kit.git",
+		"directory": "packages/os-lang"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org",
+		"access": "public"
+	}
+}

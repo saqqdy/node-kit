@@ -31,6 +31,7 @@ Some simple utilities for nodejs
 - find the package manager information: [pm-info](https://github.com/saqqdy/node-kit/tree/master/packages/pm-info)
 - find which package manager used in the project: [@node-kit/which-pm](https://github.com/saqqdy/node-kit/tree/master/packages/which-pm)
 - Detects what package manager was used for installation: [what-pm](https://github.com/saqqdy/node-kit/tree/master/packages/what-pm)
+- Get the system lang: [os-lang](https://github.com/saqqdy/node-kit/tree/master/packages/os-lang)
 
 ## Install
 

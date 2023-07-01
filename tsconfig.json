@@ -1,26 +1,24 @@
 {
 	"compilerOptions": {
-		"allowJs": true,
 		"target": "ESNext",
-		"moduleResolution": "NodeNext",
+		"moduleResolution": "Node",
 		"noLib": false,
-		"lib": ["ESNext"],
-		"sourceMap": true,
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"sourceMap": false,
+		"resolveJsonModule": true,
 		"module": "ESNext",
 		"strict": true,
-		"declaration": true,
 		"noImplicitOverride": true,
-		"noUnusedLocals": false,
+		"noUnusedLocals": true,
 		"esModuleInterop": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"allowSyntheticDefaultImports": true,
-		"resolveJsonModule": true,
-		"noUnusedParameters": false,
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./packages/*"],
 			"@/package": ["./package.json"]
 		}
-	}
+	},
+	"exclude": ["**/*_bak", "**/*.bak"]
 }
