@@ -1,15 +1,10 @@
 import lcid from 'lcid'
 import { execa, execaSync } from '@node-kit/extra.cp'
 
-export interface OsLangOptions {
-	spawn: boolean
-}
-
 export type Lang = 'en-US' | 'zh-CN' | string
 
-const defaultOptions: OsLangOptions = { spawn: true }
 const defaultLang: Lang = 'en-US'
-const cache = new Map()
+let cache: string
 
 /**
  * osLang
@@ -17,17 +12,15 @@ const cache = new Map()
  * @param cwd - the pkg path
  * @returns result - WorkspaceRootResult | null
  */
-async function osLang(options: OsLangOptions = defaultOptions) {
-	if (cache.has(options.spawn)) {
-		return cache.get(options.spawn)
-	}
+async function osLang() {
+	if (cache) return cache
 
 	let locale
 
 	try {
 		const envLocale = getEnvLang()
 
-		if (envLocale || options.spawn === false) {
+		if (envLocale) {
 			locale = envLocale
 		} else if (process.platform === 'win32') {
 			locale = await getWinLang()
@@ -38,27 +31,23 @@ async function osLang(options: OsLangOptions = defaultOptions) {
 		}
 	} catch {}
 
-	const normalized = normalize(locale || defaultLang)
-	cache.set(options.spawn, normalized)
-	return normalized
+	cache = normalize(locale || defaultLang)
+	return cache
 }
 
 /**
  * osLangSync
  *
- * @param options - os-lang options
  * @returns result - WorkspaceRootResult | null
  */
-function osLangSync(options: OsLangOptions = defaultOptions) {
-	if (cache.has(options.spawn)) {
-		return cache.get(options.spawn)
-	}
+function osLangSync() {
+	if (cache) return cache
 
 	let locale
 	try {
 		const envLocale = getEnvLang()
 
-		if (envLocale || options.spawn === false) {
+		if (envLocale) {
 			locale = envLocale
 		} else if (process.platform === 'win32') {
 			locale = getWinLangSync()
@@ -69,9 +58,8 @@ function osLangSync(options: OsLangOptions = defaultOptions) {
 		}
 	} catch {}
 
-	const normalized = normalize(locale || defaultLang)
-	cache.set(options.spawn, normalized)
-	return normalized
+	cache = normalize(locale || defaultLang)
+	return cache
 }
 
 /**

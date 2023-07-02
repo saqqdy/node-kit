@@ -32,7 +32,17 @@ $ npm install -D os-lang
 use import
 
 ```js
-import { osLang, osLangSync } from 'os-lang'
+import {
+  // getWinLang, // get windows lang
+  // getWinLangSync,// get windows lang sync
+  // getMacLang, // get mac os lang
+  // getMacLangSync, // get mac os lang sync
+  // getUnixLang, // get unix lang
+  // getUnixLangSync, // get unix lang sync
+  getEnvLang,
+  osLang,
+  osLangSync
+} from 'os-lang'
 
 osLang()
 // or
@@ -52,22 +62,30 @@ osLangSync()
 ## API reference
 
 - Usage: `osLang(options)` & `osLangSync(options)`
-- Parameters:
-
-<div class="table-prop">
-
-| Param | Description                              | Type      | Optional value | Required | Default value |
-| ----- | ---------------------------------------- | --------- | -------------- | -------- | ------------- |
-| spawn | get lang only from environment variables | `boolean` | -              | `true`   | -             |
-
-</div>
+- Parameters: none
 
 - Types:
 
 ```ts
-export interface OsLangOptions {
-  spawn: boolean
-}
+declare function getEnvLang(env?: NodeJS.ProcessEnv): string | undefined
+
+declare function getMacLang(): Promise<string>
+
+declare function getMacLangSync(): string
+
+declare function getUnixLang(): Promise<string | undefined>
+
+declare function getUnixLangSync(): string | undefined
+
+declare function getWinLang(): Promise<string | undefined>
+
+declare function getWinLangSync(): string | undefined
+
+declare type Lang = 'en-US' | 'zh-CN' | string
+
+declare function osLang(options?: OsLangOptions): Promise<any>
+
+declare function osLangSync(options?: OsLangOptions): any
 ```
 
 - Demos:
@@ -77,7 +95,16 @@ export interface OsLangOptions {
 ```ts
 import { osLang, osLangSync } from 'os-lang'
 
-const lang = osLang()
+const lang = osLangSync()
+// lang => zh-CN
+```
+
+2. Only resolve the locale from environment variables.
+
+```ts
+import { getEnvLang } from 'os-lang'
+
+const lang = getEnvLang()
 // lang => zh-CN
 ```
 
