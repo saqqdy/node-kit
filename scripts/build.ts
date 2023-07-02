@@ -2,6 +2,7 @@ import { join, resolve, sep } from 'node:path'
 import assert from 'assert'
 import { execSync } from 'node:child_process'
 import { existsSync, promises } from 'node:fs'
+import { type ParseArgsConfig, parseArgs } from '@pkgjs/parseargs'
 // import fg from 'fast-glob'
 import consola from 'consola'
 import {
@@ -9,14 +10,31 @@ import {
 	// readJSONSync,
 	// writeJSONSync
 } from '../packages/extra/fs/src'
-import { packages } from '../build/packages'
+import { getPackages } from '../build/packages'
 // import { version } from '../package.json'
 
+const [, , ...args] = process.argv
 const rootDir = resolve(__dirname, '..')
-const watch = process.argv.includes('--watch')
-
 const FILES_COPY_ROOT = ['LICENSE']
 // const FILES_COPY_LOCAL = ['README.md', '*.cjs', '*.mjs', '*.d.ts']
+
+const options: ParseArgsConfig['options'] = {
+	package: { type: 'string', short: 'p' },
+	watch: { type: 'boolean' }
+}
+const { values, positionals } = parseArgs({
+	args,
+	options,
+	allowPositionals: true
+})
+
+const watch = values.watch as boolean
+let packageName = positionals[0] || (values.package as string)
+try {
+	packageName = JSON.parse(packageName)
+} catch {}
+
+const packages = getPackages(packageName)
 
 assert(process.cwd() !== __dirname)
 
@@ -52,22 +70,29 @@ async function buildMetaFiles() {
 }
 
 async function build() {
-	consola.info('Clean up')
-	execSync('pnpm run clean', { stdio: 'inherit' })
-
-	consola.info('Rollup')
-	execSync(`pnpm run build:rollup${watch ? ' --watch' : ''}`, {
-		stdio: 'inherit'
-	})
-
-	for (const { name, extractTypes } of packages) {
+	for (const { build, name, extractTypes } of packages) {
 		const dirName = name.replace(/\./g, sep)
 		const cwd = resolve(__dirname, '..', 'packages', dirName)
 		const HAS_INDEX_MJS = existsSync(join(cwd, 'src', 'index.mjs'))
-		if (HAS_INDEX_MJS) cpSync(join(cwd, 'src', 'index.mjs'), join(cwd, 'dist'))
-		if (watch || name === 'monorepo') continue
+
+		if (build === false || name === 'monorepo') continue
+
+		consola.info('Clean up in: packages/%s', dirName)
+		execSync('rm-all temp dist types typings', {
+			stdio: 'inherit',
+			cwd
+		})
+
+		if (HAS_INDEX_MJS) {
+			consola.info('Copy index.mjs in: packages/%s', dirName)
+			cpSync(join(cwd, 'src', 'index.mjs'), join(cwd, 'dist'))
+		}
+
+		if (watch) continue
+
 		if (extractTypes === false) continue
-		consola.info(`Create types: packages/${dirName}`)
+
+		consola.info('Create types: packages/%s', dirName)
 		execSync('tsc -p tsconfig.json', {
 			stdio: 'inherit',
 			cwd
@@ -81,6 +106,16 @@ async function build() {
 			cwd
 		})
 	}
+
+	consola.info('Rollup build => %s', packageName)
+	execSync(
+		`pnpm run build:rollup${watch ? ' --watch' : ''}${
+			packageName ? ' --environment BUILD_PACKAGE:' + packageName : ''
+		}`,
+		{
+			stdio: 'inherit'
+		}
+	)
 
 	// consola.info("Fix types");
 	// execSync("pnpm run types:fix", { stdio: "inherit" });

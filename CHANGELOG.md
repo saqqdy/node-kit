@@ -4,9 +4,11 @@
 
 1. new package `os-local`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/os-lang#readme)
 2. new package `@node-kit/extra.cp`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/extra/cp#readme)
-3. band new outputs & band new build scripts
-4. set sideEffects false
-5. upgrade all packages
+3. Add support for rm/cp/mv in `extra.fs` to pass in the silent parameter, if it is true, the execution process will not output logs.
+4. band new outputs & band new build scripts
+5. use esbuild
+6. set sideEffects false
+7. upgrade all packages
 
 ## 2023.04.24 v2.5.1
 

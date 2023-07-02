@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/monorepo",
 	"description": "Some simple utilities for nodejs",
-	"version": "3.0.0-beta.4",
+	"version": "3.0.0-beta.5",
 	"packageManager": "pnpm@8.6.5",
 	"main": "index.js",
 	"files": [
@@ -27,7 +27,7 @@
 		"eslint": "eslint --fix --ext .ts,.tsx,.js,.jsx ./",
 		"prettier": "prettier --write ./",
 		"prepare": "pnpm -r run stub && husky install .husky",
-		"clean": "rimraf dist types typings packages/*/dist packages/extra/*/dist packages/*/temp packages/extra/*/temp"
+		"clean": "rm-all temp dist types typings"
 	},
 	"dependencies": {
 		"@node-kit/extra.fs": "*"
@@ -36,6 +36,7 @@
 		"@babel/preset-env": "^7.22.5",
 		"@babel/preset-typescript": "^7.22.5",
 		"@eslint-sets/eslint-config-ts": "^5.5.0",
+		"@pkgjs/parseargs": "^0.11.0",
 		"@rollup/plugin-babel": "^6.0.3",
 		"@rollup/plugin-commonjs": "^25.0.2",
 		"@rollup/plugin-json": "^6.0.0",
@@ -46,6 +47,7 @@
 		"@rollup/pluginutils": "^5.0.2",
 		"@types/jest": "^29.5.2",
 		"@types/node": "^20.3.3",
+		"@types/pkgjs__parseargs": "^0.10.0",
 		"chalk": "^5.3.0",
 		"consola": "^3.2.2",
 		"cross-env": "^7.0.3",
@@ -61,7 +63,6 @@
 		"prettier": "^2.8.8",
 		"prettier-config-common": "^1.4.0",
 		"reinstaller": "^3.0.2",
-		"rimraf": "^5.0.1",
 		"rm-all": "^1.0.0",
 		"rollup": "^3.26.0",
 		"rollup-plugin-add-banner": "^1.1.0",

@@ -69,15 +69,20 @@ copy files to new path
 ```ts
 interface CpOptions extends RmDirOptions {
   force?: boolean
+  silent?: boolean
 }
 
 declare function cp(
   paths: PathLike | PathLike[],
   target: PathLike,
-  options?: CpOptions
+  options: CpOptions = { silent: true, force: true }
 ): Promise<void>
 
-declare function cpSync(paths: PathLike | PathLike[], target: PathLike, options?: CpOptions): void
+declare function cpSync(
+  paths: PathLike | PathLike[],
+  target: PathLike,
+  options: CpOptions = { silent: true, force: true }
+): void
 ```
 
 - Demos:
@@ -127,11 +132,18 @@ remove files
 ```ts
 interface RmOptions extends RmDirOptions {
   force?: boolean
+  silent?: boolean
 }
 
-declare function rm(paths: PathLike | PathLike[], options?: RmOptions): Promise<void>
+declare function rm(
+  paths: PathLike | PathLike[],
+  options: RmOptions = { silent: true, force: true }
+): Promise<void>
 
-declare function rmSync(paths: PathLike | PathLike[], options?: RmOptions): void
+declare function rmSync(
+  paths: PathLike | PathLike[],
+  options: RmOptions = { silent: true, force: true }
+): void
 ```
 
 - Demos:
@@ -182,15 +194,20 @@ move files to new path
 ```ts
 interface MvOptions extends RmDirOptions {
   force?: boolean
+  boolean?: boolean
 }
 
 declare function mv(
   paths: PathLike | PathLike[],
   target: PathLike,
-  options?: MvOptions
+  options: MvOptions = { silent: true, force: true }
 ): Promise<void>
 
-declare function mvSync(paths: PathLike | PathLike[], target: PathLike, options?: MvOptions): void
+declare function mvSync(
+  paths: PathLike | PathLike[],
+  target: PathLike,
+  options: MvOptions = { silent: true, force: true }
+): void
 ```
 
 - Demos:

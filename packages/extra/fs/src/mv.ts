@@ -3,7 +3,14 @@ import { type CpOptions, cp, cpSync } from './cp'
 import { type RmOptions, rm, rmSync } from './rm'
 
 export interface MvOptions extends CpOptions, RmOptions {
+	/**
+	 * force delete, default: true
+	 */
 	force?: boolean
+	/**
+	 * do not output logs, default: true
+	 */
+	silent?: boolean
 }
 
 /**
@@ -11,11 +18,12 @@ export interface MvOptions extends CpOptions, RmOptions {
  *
  * @param paths - path or file, support array
  * @param target - target path
+ * @param options - MvOptions
  */
 export async function mv(
 	paths: PathLike | PathLike[],
 	target: PathLike,
-	options?: MvOptions
+	options: MvOptions = { silent: true, force: true }
 ): Promise<void> {
 	await cp(paths, target, options)
 	await rm(paths, options)
@@ -26,8 +34,13 @@ export async function mv(
  *
  * @param paths - path or file, support array
  * @param target - target path
+ * @param options - MvOptions
  */
-export function mvSync(paths: PathLike | PathLike[], target: PathLike, options?: MvOptions): void {
+export function mvSync(
+	paths: PathLike | PathLike[],
+	target: PathLike,
+	options: MvOptions = { silent: true, force: true }
+): void {
 	cpSync(paths, target, options)
 	rmSync(paths, options)
 }

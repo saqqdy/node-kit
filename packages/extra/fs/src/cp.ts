@@ -13,7 +13,14 @@ import {
 // import fg from 'fast-glob'
 
 export interface CpOptions extends RmDirOptions {
+	/**
+	 * force delete, default: true
+	 */
 	force?: boolean
+	/**
+	 * do not output logs, default: true
+	 */
+	silent?: boolean
 }
 
 /**
@@ -21,11 +28,12 @@ export interface CpOptions extends RmDirOptions {
  *
  * @param paths - path or file, support array
  * @param target - target path
+ * @param options - CpOptions
  */
 export async function cp(
 	paths: PathLike | PathLike[],
 	target: PathLike,
-	options?: CpOptions
+	options: CpOptions = { silent: true, force: true }
 ): Promise<void> {
 	if (!(paths instanceof Array)) paths = ([] as PathLike[]).concat(paths)
 	// paths = await fg(paths as string[], {
@@ -40,7 +48,8 @@ export async function cp(
 	for (const path of paths) {
 		// typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
 		if (!existsSync(path)) {
-			console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
+			options.silent !== false &&
+				console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}
 		// get stat
@@ -71,8 +80,13 @@ export async function cp(
  *
  * @param paths - path or file, support array
  * @param target - target path
+ * @param options - CpOptions
  */
-export function cpSync(paths: PathLike | PathLike[], target: PathLike, options?: CpOptions): void {
+export function cpSync(
+	paths: PathLike | PathLike[],
+	target: PathLike,
+	options: CpOptions = { silent: true, force: true }
+): void {
 	if (!(paths instanceof Array)) paths = ([] as PathLike[]).concat(paths)
 	// paths = fg.sync(paths as string[], {
 	// 	cwd: process.cwd(),
@@ -86,7 +100,8 @@ export function cpSync(paths: PathLike | PathLike[], target: PathLike, options?:
 	for (const path of paths) {
 		// typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
 		if (!existsSync(path)) {
-			console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
+			options.silent !== false &&
+				console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}
 		// get stat

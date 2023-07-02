@@ -1,19 +1,19 @@
-import { dirname, join, resolve, sep } from 'path'
-import { existsSync } from 'fs'
+import { dirname, join, resolve, sep } from 'node:path'
+import { existsSync } from 'node:fs'
 import { createRequire } from 'node:module'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 import type { InternalModuleFormat, OutputOptions, Plugin, RollupOptions } from 'rollup'
-import { packages } from './packages'
+import { getPackages, packageNames } from './packages'
 import {
 	babel,
 	commonjs,
-	// esbuild,
+	esbuild,
 	filesize,
 	// nodePolyfills,
 	nodeResolve,
 	replace,
 	terser,
-	typescript,
+	// typescript,
 	visual
 } from './plugins'
 
@@ -47,8 +47,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const require = createRequire(import.meta.url)
 
+const packages = getPackages(process.env.BUILD_PACKAGE)
 const configs: Config[] = []
-const workspacePkgs = packages.map(({ pkgName }) => pkgName)
 
 for (const {
 	globals = {},
@@ -79,7 +79,7 @@ for (const {
 		' * ' +
 		pkg.description +
 		'\n' +
-		' * (c) 2021-' +
+		' * (c) 2022-' +
 		new Date().getFullYear() +
 		' saqqdy<https://github.com/saqqdy> \n' +
 		' * Released under the MIT License.\n' +
@@ -219,7 +219,7 @@ function createEntry(config: Config) {
 			'@pnpm/error',
 			'micromatch',
 			'lcid',
-			...workspacePkgs
+			...packageNames
 		)
 		if (config.external) _config.external = _config.external.concat(config.external)
 	} else if (config.externalUmd) {
@@ -232,8 +232,8 @@ function createEntry(config: Config) {
 		_config.plugins.push(babel())
 		isTypeScript &&
 			_config.plugins.push(
-				// config.target ? esbuild({ target: config.target }) : esbuild()
-				typescript()
+				esbuild()
+				// typescript()
 			)
 	}
 

@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/yarn-workspace-root",
 	"description": "A simple utility to get the yarn workspace root",
-	"version": "3.0.0-beta.4",
+	"version": "3.0.0-beta.5",
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm-bundler.js",
 	"types": "dist/index.d.ts",
