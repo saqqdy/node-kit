@@ -1,6 +1,6 @@
 # Change Logs
 
-## 2023.07.01 v3.0.0
+## 2023.07.02 v3.0.0
 
 1. new package `os-local`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/os-lang#readme)
 2. new package `@node-kit/extra.cp`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/extra/cp#readme)

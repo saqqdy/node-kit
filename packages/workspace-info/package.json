@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/workspace-info",
 	"description": "A simple utility to get the workspace information",
-	"version": "3.0.0-beta.5",
+	"version": "3.0.0",
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm-bundler.js",
 	"types": "dist/index.d.ts",

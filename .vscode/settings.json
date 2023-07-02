@@ -14,6 +14,7 @@
 		"parseargs",
 		"pkgjs",
 		"pkgs",
+		"pluginutils",
 		"pnpm",
 		"positionals",
 		"reinstaller",
