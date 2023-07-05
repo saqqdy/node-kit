@@ -103,7 +103,7 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2(debug@4.3.4)(js-cool@4.7.0)
       rm-all:
-        specifier: ^1.0.0
+        specifier: ^1.1.0
         version: 1.1.0(js-cool@4.7.0)
       rollup:
         specifier: ^3.26.0
