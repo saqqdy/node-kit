@@ -27,7 +27,7 @@
 	"dependencies": {
 		"@node-kit/extra.fs": "workspace:*",
 		"@pnpm/error": "^5.0.2",
-		"find-up": "^5.0.0"
+		"find-up": "^6.3.0"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.36.0",
