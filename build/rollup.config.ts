@@ -212,6 +212,7 @@ function createEntry(config: Config) {
 	if (!isGlobalBuild) {
 		_config.external.push(
 			'core-js',
+			'@pkgjs/parseargs',
 			'js-cool',
 			'fast-glob',
 			'find-up',

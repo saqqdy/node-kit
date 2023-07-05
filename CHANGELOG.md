@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.07.05 v3.1.0
+
+1. add support running in terminal from `what-pm`
+2. external tslib package
+
 ## 2023.07.02 v3.0.0
 
 1. new package `os-local`, api docs: [README.md](https://github.com/saqqdy/node-kit/tree/master/packages/os-lang#readme)

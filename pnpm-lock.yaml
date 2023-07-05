@@ -337,6 +337,9 @@ importers:
 
   packages/what-pm:
     dependencies:
+      '@pkgjs/parseargs':
+        specifier: ^0.11.0
+        version: 0.11.0
       find-up:
         specifier: ^5.0.0
         version: 5.0.0
@@ -2804,7 +2807,6 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
     requiresBuild: true
-    dev: true
 
   /@pnpm/constants@7.1.1:
     resolution: {integrity: sha512-31pZqMtjwV+Vaq7MaPrT1EoDFSYwye3dp6BiHIGRJmVThCQwySRKM7hCvqqI94epNkqFAAYoWrNynWoRYosGdw==}

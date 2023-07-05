@@ -29,6 +29,16 @@ $ npm install what-pm
 
 ## Usage
 
+use `what-pm` in terminal
+
+```bash
+npx what-pm
+# or
+npx whatpm
+
+# output: pnpm
+```
+
 use import
 
 ```js

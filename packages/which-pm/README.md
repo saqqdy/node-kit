@@ -29,7 +29,7 @@ $ npm install -D @node-kit/which-pm
 
 ## Usage
 
-use `@node-kit/which-pm` in bash window
+use `@node-kit/which-pm` in terminal
 
 ```bash
 npx which-pm

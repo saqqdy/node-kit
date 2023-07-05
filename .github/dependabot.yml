@@ -15,7 +15,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/utils
@@ -27,7 +27,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/extra/fs
@@ -39,7 +39,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/extra/path
@@ -51,7 +51,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/lerna-workspace-info
@@ -63,7 +63,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/lerna-workspace-root
@@ -75,7 +75,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/pnpm-workspace-info
@@ -87,7 +87,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/pnpm-workspace-root
@@ -99,7 +99,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/yarn-workspace-info
@@ -111,7 +111,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/yarn-workspace-root
@@ -123,7 +123,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/workspace-info
@@ -135,7 +135,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/workspace-root
@@ -147,7 +147,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/monorepo-root
@@ -159,7 +159,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/workspace-projects
@@ -171,7 +171,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/workspace-pkgs
@@ -183,7 +183,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/pm-info
@@ -195,7 +195,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/which-pm
@@ -207,7 +207,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/what-pm
@@ -219,7 +219,7 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']
 
   - package-ecosystem: npm
     directory: /packages/os-lang
@@ -231,4 +231,4 @@ updates:
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types: ['version-update:semver-minor']

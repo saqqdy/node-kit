@@ -1,7 +1,11 @@
 {
 	"name": "what-pm",
 	"description": "Detects what package manager was used for installation",
-	"version": "3.0.0",
+	"version": "3.1.0",
+	"bin": {
+		"what-pm": "./bin/index.mjs",
+		"whatpm": "./bin/index.mjs"
+	},
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm-bundler.js",
 	"types": "dist/index.d.ts",
@@ -25,6 +29,7 @@
 		"typings"
 	],
 	"dependencies": {
+		"@pkgjs/parseargs": "^0.11.0",
 		"find-up": "^5.0.0",
 		"pm-info": "workspace:*",
 		"workspace-root": "workspace:*"

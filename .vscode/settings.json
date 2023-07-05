@@ -26,6 +26,7 @@
 		"unpub",
 		"unpublish",
 		"vitepress",
+		"whatpm",
 		"whichpm"
 	],
 	"typescript.tsdk": "node_modules/typescript/lib",
