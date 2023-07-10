@@ -20,7 +20,7 @@ importers:
         version: 7.22.5
       '@eslint-sets/eslint-config-ts':
         specifier: ^5.5.0
-        version: 5.6.0(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6)
+        version: 5.6.1(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6)
       '@pkgjs/parseargs':
         specifier: ^0.11.0
         version: 0.11.0
@@ -2215,11 +2215,11 @@ packages:
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
     dev: true
 
-  /@eslint-sets/eslint-config-basic@5.6.0(@typescript-eslint/parser@5.60.1)(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6):
-    resolution: {integrity: sha512-X5O9c8RSvnLB5Lgo1jkAXPQ+JefCtE9vcMZqLu/kcd6JlmOl582nGdM7dRy6G5hN6DsfX9FuSXdwDsiJkQR0aA==}
+  /@eslint-sets/eslint-config-basic@5.6.1(@typescript-eslint/parser@5.60.1)(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6):
+    resolution: {integrity: sha512-9Lgl4v6YZP+V39U149ahmxqNeiAja4dVY4mmPGGWZB13W6D5Cu6K5qq9fY1lI7AnplymE9ghZzgAYYggxZPt4A==}
     peerDependencies:
       eslint: '>=7.4.0'
-      prettier: '>=2.0.0'
+      prettier: '>=2 <3'
       typescript: '*'
     peerDependenciesMeta:
       typescript:
@@ -2252,17 +2252,17 @@ packages:
       - supports-color
     dev: true
 
-  /@eslint-sets/eslint-config-ts@5.6.0(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6):
-    resolution: {integrity: sha512-Z3tUqHqjD8WNIECchW1vHWZPQvKXi9ZHwLqZxNxBxts9BbXyMDeNoKiv5kl1ga9DzG1LMbut/r3BYWRViBGAwg==}
+  /@eslint-sets/eslint-config-ts@5.6.1(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6):
+    resolution: {integrity: sha512-H5PAWlbv093UczOaAaWSi4cx+oUS10ca2nyryf19FA98ckynlg/CrX2Kycuee8/XouaoZoZYh5dC/9dkCsbWTw==}
     peerDependencies:
       eslint: '>=7.4.0'
-      prettier: '>=2.0.0'
+      prettier: '>=2 <3'
       typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
     dependencies:
-      '@eslint-sets/eslint-config-basic': 5.6.0(@typescript-eslint/parser@5.60.1)(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6)
+      '@eslint-sets/eslint-config-basic': 5.6.1(@typescript-eslint/parser@5.60.1)(eslint@8.44.0)(prettier@2.8.8)(typescript@5.1.6)
       '@typescript-eslint/eslint-plugin': 5.60.1(@typescript-eslint/parser@5.60.1)(eslint@8.44.0)(typescript@5.1.6)
       '@typescript-eslint/parser': 5.60.1(eslint@8.44.0)(typescript@5.1.6)
       eslint: 8.44.0
