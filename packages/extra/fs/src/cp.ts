@@ -48,7 +48,7 @@ export async function cp(
 	for (const path of paths) {
 		// typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
 		if (!existsSync(path)) {
-			options.silent !== false &&
+			options.silent === false &&
 				console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}
@@ -100,7 +100,7 @@ export function cpSync(
 	for (const path of paths) {
 		// typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
 		if (!existsSync(path)) {
-			options.silent !== false &&
+			options.silent === false &&
 				console.info(`[NOT_EXIST]: "${path} or ${target}" does not exist`)
 			continue
 		}

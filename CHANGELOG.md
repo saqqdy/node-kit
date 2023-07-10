@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.07.10 v3.1.1
+
+1. Experience optimizations for `extra.fs`
+2. drop rimraf
+
 ## 2023.07.05 v3.1.0
 
 1. add support running in terminal from `what-pm`

@@ -36,7 +36,7 @@ export async function rm(
 	for (let path of paths) {
 		typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
 		if (!existsSync(path)) {
-			options.silent !== false && console.info(`[NOT_EXIST]: "${path}" does not exist`)
+			options.silent === false && console.info(`[NOT_EXIST]: "${path}" does not exist`)
 			continue
 		}
 		// get stat
@@ -73,7 +73,7 @@ export function rmSync(
 	for (let path of paths) {
 		typeof path === 'string' && !isAbsolute(path) && (path = join(process.cwd(), path))
 		if (!existsSync(path)) {
-			options.silent !== false && console.info(`[NOT_EXIST]: "${path}" does not exist`)
+			options.silent === false && console.info(`[NOT_EXIST]: "${path}" does not exist`)
 			continue
 		}
 		// get stat
