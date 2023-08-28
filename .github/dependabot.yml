@@ -9,226 +9,302 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/utils
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/extra/fs
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/extra/path
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/lerna-workspace-info
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/lerna-workspace-root
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/pnpm-workspace-info
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/pnpm-workspace-root
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/yarn-workspace-info
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/yarn-workspace-root
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/workspace-info
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/workspace-root
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/monorepo-root
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/workspace-projects
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/workspace-pkgs
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/pm-info
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/which-pm
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/what-pm
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: npm
     directory: /packages/os-lang
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
     ignore:
-      - dependency-name: 'aws*'
+      - dependency-name: core-js
+      - dependency-name: eslint
+      - dependency-name: prettier
+      - dependency-name: '@babel/*'
+      - dependency-name: '@types/*'
       - dependency-name: typescript
         versions: [4.x]
       - dependency-name: '*'
-        update-types: ['version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
