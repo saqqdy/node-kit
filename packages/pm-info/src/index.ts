@@ -34,7 +34,7 @@ export async function pmInfo(cwd: string = process.cwd()): Promise<PackageManage
 	// check pnpm
 	try {
 		const modules = (await loadYml(join(NODE_MODULES_PATH, MODULES_YAML_FILE))) as ModulesYML
-		return normalizePMSpec(modules.packageManager)
+		return modules ? normalizePMSpec(modules.packageManager) : null
 	} catch (err: any) {
 		if (err.code !== 'ENOENT') throw err
 	}
@@ -63,7 +63,7 @@ export function pmInfoSync(cwd: string = process.cwd()): PackageManager | null {
 	// check pnpm
 	try {
 		const modules = loadYmlSync(join(NODE_MODULES_PATH, MODULES_YAML_FILE)) as ModulesYML
-		return normalizePMSpec(modules.packageManager)
+		return modules ? normalizePMSpec(modules.packageManager) : null
 	} catch (err: any) {
 		if (err.code !== 'ENOENT') throw err
 	}

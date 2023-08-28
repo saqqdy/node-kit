@@ -2,7 +2,7 @@ import { join, resolve, sep } from 'node:path'
 import assert from 'assert'
 import { execSync } from 'node:child_process'
 import { existsSync, promises } from 'node:fs'
-import { type ParseArgsConfig, parseArgs } from '@pkgjs/parseargs'
+import { type ParseArgsConfig, parseArgs } from 'node:util'
 // import fg from 'fast-glob'
 import consola from 'consola'
 import {

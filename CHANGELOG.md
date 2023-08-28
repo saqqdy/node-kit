@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2023.08.28 v3.2.0
+
+1. fix bugs
+2. upgrade all packages
+
 ## 2023.07.10 v3.1.1
 
 1. Experience optimizations for `extra.fs`
