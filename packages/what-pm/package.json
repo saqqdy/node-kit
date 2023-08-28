@@ -1,7 +1,7 @@
 {
 	"name": "what-pm",
 	"description": "Detects what package manager was used for installation",
-	"version": "3.1.1",
+	"version": "3.2.0",
 	"bin": {
 		"what-pm": "./bin/index.mjs",
 		"whatpm": "./bin/index.mjs"
