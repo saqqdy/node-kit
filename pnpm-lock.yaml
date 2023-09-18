@@ -65,7 +65,7 @@ importers:
         version: 0.19.2
       esbuild-register:
         specifier: ^3.4.2
-        version: 3.4.2(esbuild@0.19.2)
+        version: 3.5.0(esbuild@0.19.2)
       eslint:
         specifier: ^8.48.0
         version: 8.48.0
@@ -4819,8 +4819,8 @@ packages:
     dev: true
     optional: true
 
-  /esbuild-register@3.4.2(esbuild@0.14.54):
-    resolution: {integrity: sha512-kG/XyTDyz6+YDuyfB9ZoSIOOmgyFCH+xPRtsCa8W85HLRV5Csp+o3jWVbOSHgSLfyLc5DmP+KFDNwty4mEjC+Q==}
+  /esbuild-register@3.5.0(esbuild@0.14.54):
+    resolution: {integrity: sha512-+4G/XmakeBAsvJuDugJvtyF1x+XJT4FMocynNpxrvEBViirpfUn2PgNpCHedfWhF4WokNsO/OvMKrmJOIJsI5A==}
     peerDependencies:
       esbuild: '>=0.12 <1'
     dependencies:
@@ -4830,8 +4830,8 @@ packages:
       - supports-color
     dev: true
 
-  /esbuild-register@3.4.2(esbuild@0.19.2):
-    resolution: {integrity: sha512-kG/XyTDyz6+YDuyfB9ZoSIOOmgyFCH+xPRtsCa8W85HLRV5Csp+o3jWVbOSHgSLfyLc5DmP+KFDNwty4mEjC+Q==}
+  /esbuild-register@3.5.0(esbuild@0.19.2):
+    resolution: {integrity: sha512-+4G/XmakeBAsvJuDugJvtyF1x+XJT4FMocynNpxrvEBViirpfUn2PgNpCHedfWhF4WokNsO/OvMKrmJOIJsI5A==}
     peerDependencies:
       esbuild: '>=0.12 <1'
     dependencies:
@@ -8804,7 +8804,7 @@ packages:
       cross-spawn: 7.0.3
       esbuild: 0.14.54
       esbuild-node-loader: 0.8.0
-      esbuild-register: 3.4.2(esbuild@0.14.54)
+      esbuild-register: 3.5.0(esbuild@0.14.54)
       import-meta-resolve: 2.2.1
     transitivePeerDependencies:
       - supports-color
