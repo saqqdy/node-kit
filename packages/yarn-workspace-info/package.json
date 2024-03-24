@@ -28,10 +28,10 @@
 		"@node-kit/extra.fs": "workspace:*",
 		"@node-kit/extra.path": "workspace:*",
 		"@node-kit/yarn-workspace-root": "workspace:*",
-		"fast-glob": "^3.3.1"
+		"fast-glob": "^3.3.2"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.36.4"
+		"@microsoft/api-extractor": "^7.43.0"
 	},
 	"sideEffects": false,
 	"keywords": [

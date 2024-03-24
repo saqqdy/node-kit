@@ -30,7 +30,7 @@
 		"@node-kit/yarn-workspace-info": "workspace:*"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.36.4"
+		"@microsoft/api-extractor": "^7.43.0"
 	},
 	"sideEffects": false,
 	"keywords": [

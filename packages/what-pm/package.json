@@ -35,8 +35,8 @@
 		"workspace-root": "workspace:*"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.36.4",
-		"@types/pkgjs__parseargs": "^0.10.0"
+		"@microsoft/api-extractor": "^7.43.0",
+		"@types/pkgjs__parseargs": "^0.10.3"
 	},
 	"sideEffects": false,
 	"keywords": [

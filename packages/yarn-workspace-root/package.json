@@ -30,8 +30,8 @@
 		"micromatch": "^4.0.5"
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.36.4",
-		"@types/micromatch": "^4.0.2"
+		"@microsoft/api-extractor": "^7.43.0",
+		"@types/micromatch": "^4.0.6"
 	},
 	"sideEffects": false,
 	"keywords": [
