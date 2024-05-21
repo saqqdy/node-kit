@@ -5,7 +5,7 @@ import { dirname } from '@node-kit/extra.path'
 import { yarnWorkspaceRoot, yarnWorkspaceRootSync } from '@node-kit/yarn-workspace-root'
 
 export type ManifestInfo = Record<string, unknown> & {
-	workspaces: string | string[]
+	workspaces: string | string[] | (Record<string, unknown> & { packages: [] })
 }
 
 export type WorkspaceInfo = Record<
@@ -41,12 +41,20 @@ export async function yarnWorkspaceInfo(
 		return null
 	}
 
+	console.info('root: ', root)
 	const manifest = (await readJSON(join(root, WORKSPACE_MANIFEST_FILENAME))) as ManifestInfo
-	const projects = await fg(([] as string[]).concat(manifest.workspaces), {
-		cwd: root,
-		ignore: DEFAULT_IGNORE_PATHS,
-		onlyDirectories: true
-	})
+	const projects = await fg(
+		([] as string[]).concat(
+			Array.isArray(manifest.workspaces) || typeof manifest.workspaces === 'string'
+				? manifest.workspaces
+				: manifest.workspaces.packages
+		),
+		{
+			cwd: root,
+			ignore: DEFAULT_IGNORE_PATHS,
+			onlyDirectories: true
+		}
+	)
 	const workspaceInfo: WorkspaceInfo = {}
 	for (const projectPath of projects) {
 		workspaceInfo[dirname(projectPath)] = {
@@ -70,11 +78,18 @@ export function yarnWorkspaceInfoSync(cwd: string = process.cwd()): WorkspaceInf
 	}
 
 	const manifest = readJSONSync(join(root, WORKSPACE_MANIFEST_FILENAME)) as ManifestInfo
-	const projects = fg.sync(([] as string[]).concat(manifest.workspaces), {
-		cwd: root,
-		ignore: DEFAULT_IGNORE_PATHS,
-		onlyDirectories: true
-	})
+	const projects = fg.sync(
+		([] as string[]).concat(
+			Array.isArray(manifest.workspaces) || typeof manifest.workspaces === 'string'
+				? manifest.workspaces
+				: manifest.workspaces.packages
+		),
+		{
+			cwd: root,
+			ignore: DEFAULT_IGNORE_PATHS,
+			onlyDirectories: true
+		}
+	)
 	const workspaceInfo: WorkspaceInfo = {}
 	for (const projectPath of projects) {
 		workspaceInfo[dirname(projectPath)] = {
