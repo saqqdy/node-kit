@@ -18,7 +18,7 @@ export async function lernaWorkspaceRoot(cwd: string = process.cwd()): Promise<s
 		? join(workspaceManifestDirEnvVar, WORKSPACE_MANIFEST_FILENAME)
 		: await findUp(WORKSPACE_MANIFEST_FILENAME, {
 				cwd: await getRealPath(cwd)
-		  })
+			})
 
 	return (workspaceManifestPath && dirname(workspaceManifestPath)) || null
 }
@@ -36,7 +36,7 @@ export function lernaWorkspaceRootSync(cwd: string = process.cwd()): string | nu
 		? join(workspaceManifestDirEnvVar, WORKSPACE_MANIFEST_FILENAME)
 		: findUp.sync(WORKSPACE_MANIFEST_FILENAME, {
 				cwd: getRealPathSync(cwd)
-		  })
+			})
 
 	return (workspaceManifestPath && dirname(workspaceManifestPath)) || null
 }

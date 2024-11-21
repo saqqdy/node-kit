@@ -19,7 +19,7 @@ export async function pnpmWorkspaceRoot(cwd: string = process.cwd()): Promise<st
 		? join(workspaceManifestDirEnvVar, 'pnpm-workspace.yaml')
 		: await findUp([WORKSPACE_MANIFEST_FILENAME, 'pnpm-workspace.yml'], {
 				cwd: await getRealPath(cwd)
-		  })
+			})
 	if (workspaceManifestPath?.endsWith('.yml')) {
 		throw new PnpmError(
 			'BAD_WORKSPACE_MANIFEST_NAME',
@@ -42,7 +42,7 @@ export function pnpmWorkspaceRootSync(cwd: string = process.cwd()): string | nul
 		? join(workspaceManifestDirEnvVar, 'pnpm-workspace.yaml')
 		: findUp.sync([WORKSPACE_MANIFEST_FILENAME, 'pnpm-workspace.yml'], {
 				cwd: getRealPathSync(cwd)
-		  })
+			})
 	if (workspaceManifestPath?.endsWith('.yml')) {
 		throw new PnpmError(
 			'BAD_WORKSPACE_MANIFEST_NAME',

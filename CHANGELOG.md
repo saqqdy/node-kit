@@ -1,5 +1,10 @@
 # Change Logs
 
+## 2024.11.21 v3.3.0
+
+1. compatible for yarn workspaces.nohoist
+2. Detect bun
+
 ## 2023.08.28 v3.2.0
 
 1. fix bugs
