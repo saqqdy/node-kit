@@ -54,6 +54,13 @@ export async function whatPM(pkgPath: string): Promise<WhatPMResult | null> {
 			isWorkspace
 		}
 	}
+	if (existsSync(join(pkgPath, 'bun.lockb'))) {
+		return {
+			name: 'bun',
+			version: '*',
+			isWorkspace
+		}
+	}
 	const pm = await pmInfo(pkgPath)
 	return (
 		pm && {
@@ -96,6 +103,13 @@ export function whatPMSync(pkgPath: string): WhatPMResult | null {
 		return {
 			name: 'pnpm',
 			version: '1 || 2',
+			isWorkspace
+		}
+	}
+	if (existsSync(join(pkgPath, 'bun.lockb'))) {
+		return {
+			name: 'bun',
+			version: '*',
 			isWorkspace
 		}
 	}
