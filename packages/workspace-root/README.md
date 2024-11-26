@@ -32,7 +32,7 @@ $ npm install -D workspace-root
 use import
 
 ```js
-import { workspaceRoot, workspaceRootSync } from '@node-kit/workspace-root'
+import { workspaceRoot, workspaceRootSync } from 'workspace-root'
 
 workspaceRoot()
 // or
@@ -42,7 +42,7 @@ workspaceRootSync()
 use require
 
 ```js
-const { workspaceRoot, workspaceRootSync } = require('@node-kit/workspace-root')
+const { workspaceRoot, workspaceRootSync } = require('workspace-root')
 
 workspaceRoot()
 // or
@@ -75,7 +75,7 @@ declare function workspaceRootSync(cwd?: string): string | null
 1. simple use
 
 ```ts
-import { workspaceRoot, workspaceRootSync } from '@node-kit/workspace-root'
+import { workspaceRoot, workspaceRootSync } from 'workspace-root'
 
 workspaceRoot().then(path => {
   console.log('The workspace root is: ', path) // /Users/user/path/of/package/root or null

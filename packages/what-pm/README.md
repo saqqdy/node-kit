@@ -42,7 +42,7 @@ npx whatpm
 use import
 
 ```js
-import { whatPM, whatPMSync } from '@node-kit/what-pm'
+import { whatPM, whatPMSync } from 'what-pm'
 
 whatPM()
 // or
@@ -52,7 +52,7 @@ whatPMSync()
 use require
 
 ```js
-const { whatPM, whatPMSync } = require('@node-kit/what-pm')
+const { whatPM, whatPMSync } = require('what-pm')
 
 whatPM()
 // or
@@ -91,7 +91,7 @@ declare function whatPMSync(pkgPath: string): WhatPMResult | null
 1. simple use
 
 ```ts
-import { whatPM, whatPMSync } from '@node-kit/what-pm'
+import { whatPM, whatPMSync } from 'what-pm'
 
 whatPM().then(info => {
   console.log('The package manager is: ', info) // pnpm | null

@@ -1,7 +1,7 @@
 {
 	"name": "@node-kit/monorepo",
 	"description": "Some simple utilities for nodejs",
-	"version": "3.3.0",
+	"version": "3.3.1",
 	"packageManager": "pnpm@8.6.12",
 	"main": "index.js",
 	"files": [

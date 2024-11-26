@@ -32,7 +32,7 @@ $ npm install -D pm-info
 use import
 
 ```js
-import { pmInfo, pmInfoSync } from '@node-kit/pm-info'
+import { pmInfo, pmInfoSync } from 'pm-info'
 
 pmInfo()
 // or
@@ -42,7 +42,7 @@ pmInfoSync()
 use require
 
 ```js
-const { pmInfo, pmInfoSync } = require('@node-kit/pm-info')
+const { pmInfo, pmInfoSync } = require('pm-info')
 
 pmInfo()
 // or
@@ -86,7 +86,7 @@ declare function pmInfoSync(cwd?: string): PackageManager | null
 1. simple use
 
 ```ts
-import { pmInfo, pmInfoSync } from '@node-kit/pm-info'
+import { pmInfo, pmInfoSync } from 'pm-info'
 
 pmInfo().then(info => {
   console.log('The package manager is: ', info) // { name: 'pnpm', version: '7.26.1' } | null

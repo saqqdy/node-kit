@@ -32,7 +32,7 @@ $ npm install -D monorepo-root
 use import
 
 ```js
-import { monorepoRoot, monorepoRootSync } from '@node-kit/monorepo-root'
+import { monorepoRoot, monorepoRootSync } from 'monorepo-root'
 
 monorepoRoot()
 // or
@@ -42,7 +42,7 @@ monorepoRootSync()
 use require
 
 ```js
-const { monorepoRoot, monorepoRootSync } = require('@node-kit/monorepo-root')
+const { monorepoRoot, monorepoRootSync } = require('monorepo-root')
 
 monorepoRoot()
 // or
@@ -75,7 +75,7 @@ declare function monorepoRootSync(cwd?: string): string | null
 1. simple use
 
 ```ts
-import { monorepoRoot, monorepoRootSync } from '@node-kit/monorepo-root'
+import { monorepoRoot, monorepoRootSync } from 'monorepo-root'
 
 monorepoRoot().then(path => {
   console.log('The monorepo root is: ', path) // /Users/user/path/of/package/root or null

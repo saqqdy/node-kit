@@ -80,7 +80,7 @@ jobs:
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/pnpm-workspace-root/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/yarn-workspace-info/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/yarn-workspace-root/sync"
-      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/workspace-info/sync"
+      - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/@node-kit/workspace-info/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/workspace-root/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/monorepo-root/sync"
       - run: curl -X PUT -d "sync_upstream=true" "https://registry-direct.npmmirror.com/workspace-projects/sync"

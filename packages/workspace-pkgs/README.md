@@ -32,7 +32,7 @@ $ npm install -D workspace-pkgs
 use import
 
 ```js
-import { workspacePkgs, workspacePkgsSync } from '@node-kit/workspace-pkgs'
+import { workspacePkgs, workspacePkgsSync } from 'workspace-pkgs'
 
 workspacePkgs()
 // or
@@ -42,7 +42,7 @@ workspacePkgsSync()
 use require
 
 ```js
-const { workspacePkgs, workspacePkgsSync } = require('@node-kit/workspace-pkgs')
+const { workspacePkgs, workspacePkgsSync } = require('workspace-pkgs')
 
 workspacePkgs()
 // or
@@ -75,7 +75,7 @@ declare function workspacePkgsSync(cwd?: string): string[] | null
 1. simple use
 
 ```ts
-import { workspacePkgs, workspacePkgsSync } from '@node-kit/workspace-pkgs'
+import { workspacePkgs, workspacePkgsSync } from 'workspace-pkgs'
 
 workspacePkgs().then(data => {
   console.log('The workspace projects is: ', data) // [ 'packages/utils', 'packages/monorepo-root' ]
