@@ -30,7 +30,7 @@
 	],
 	"dependencies": {
 		"@pkgjs/parseargs": "^0.11.0",
-		"find-up": "^5.0.0",
+		"find-up": "^7.0.0",
 		"pm-info": "workspace:*",
 		"workspace-root": "workspace:*"
 	},
